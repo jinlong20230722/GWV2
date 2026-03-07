@@ -23,37 +23,44 @@ export default function Services(props) {
     icon: Users,
     color: 'from-blue-500 to-blue-600',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800',
+    alt: '人防服务专业安保团队展示',
     details: {
       team: {
         title: '专业安保团队',
         description: '我们的安保团队由经验丰富的专业人员组成，所有人员均经过严格的背景调查和专业培训。',
         features: ['制服统一，形象专业', '精神抖擞，纪律严明', '定期体能训练', '专业技能考核'],
-        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600'
+        image: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600',
+        alt: '专业安保团队训练场景'
       },
       training: {
         title: '专业化培训体系',
         description: '建立完善的培训体系，确保每位安保人员都具备专业的安全防护能力和应急处理能力。',
         features: ['岗前培训', '在岗培训', '专项技能培训', '应急演练'],
-        image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600'
+        image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600',
+        alt: '安保人员专业化培训现场'
       },
       emergency: {
         title: '应急处理流程',
         description: '建立完善的应急处理机制，确保在突发事件发生时能够快速响应、有效处置。',
         features: ['24小时应急响应', '快速处置机制', '多部门协同', '事后评估改进'],
-        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600'
+        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600',
+        alt: '应急处理演练场景'
       },
       cases: [{
         title: '大型活动安保',
         description: '成功为多场万人级演唱会、体育赛事提供安保服务',
-        image: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=400'
+        image: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=400',
+        alt: '大型活动安保执勤场景'
       }, {
         title: '园区安保',
         description: '为多个大型工业园区提供全方位安保解决方案',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400'
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400',
+        alt: '工业园区安保巡逻场景'
       }, {
         title: 'VIP护卫',
         description: '为多位重要人物提供贴身护卫服务',
-        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400'
+        image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
+        alt: 'VIP专业护卫服务展示'
       }]
     }
   }, {
@@ -64,37 +71,44 @@ export default function Services(props) {
     icon: Lock,
     color: 'from-emerald-500 to-emerald-600',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800',
+    alt: '技防系统智能监控设备展示',
     details: {
       equipment: {
         title: '先进安防技术设备',
         description: '采用国际领先的安防技术设备，确保技术防护的先进性和可靠性。',
         features: ['高清监控系统', '智能门禁系统', '入侵报警系统', '电子巡更系统'],
-        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600'
+        image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600',
+        alt: '先进安防技术设备展示'
       },
       integration: {
         title: '系统集成能力',
         description: '具备强大的系统集成能力，能够将各类安防系统有机整合，实现统一管理。',
         features: ['多系统融合', '统一管理平台', '数据共享互通', '智能联动响应'],
-        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600'
+        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600',
+        alt: '安防系统集成控制中心'
       },
       customization: {
         title: '定制化解决方案',
         description: '根据客户的具体需求和现场环境，提供量身定制的技防解决方案。',
         features: ['需求分析评估', '方案设计规划', '设备选型配置', '安装调试服务'],
-        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600'
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600',
+        alt: '定制化安防解决方案设计'
       },
       cases: [{
         title: '智慧园区',
         description: '为多个智慧园区提供完整的技防系统解决方案',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400'
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400',
+        alt: '智慧园区技防系统应用'
       }, {
         title: '智能楼宇',
         description: '为高端写字楼提供智能化安防系统',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400'
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
+        alt: '智能楼宇安防系统部署'
       }, {
         title: '周界防护',
         description: '为重要设施提供周界防护技防系统',
-        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=400'
+        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=400',
+        alt: '重要设施周界防护系统'
       }]
     }
   }, {
@@ -105,37 +119,44 @@ export default function Services(props) {
     icon: Shield,
     color: 'from-orange-500 to-orange-600',
     image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=800',
+    alt: '物防设施实体防护装备展示',
     details: {
       facilities: {
         title: '实体防护设施',
         description: '提供各类高品质的实体防护设施，确保物理防护的坚固性和可靠性。',
         features: ['高强度围栏', '防爆器材', '安检设备', '防护门窗'],
-        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600'
+        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600',
+        alt: '实体防护设施展示'
       },
       materials: {
         title: '材质工艺',
         description: '采用优质材料和精湛工艺，确保防护设施的耐用性和防护效果。',
         features: ['优质钢材', '防腐蚀处理', '精密制造', '严格质检'],
-        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600'
+        image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=600',
+        alt: '防护设施材质工艺展示'
       },
       certification: {
         title: '防护等级认证',
         description: '所有防护设施均通过权威机构认证，符合国家和行业标准。',
         features: ['国家标准认证', '行业权威认证', '质量保证体系', '定期检测维护'],
-        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600'
+        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600',
+        alt: '防护等级认证证书展示'
       },
       cases: [{
         title: '重要设施防护',
         description: '为多个重要设施提供实体防护解决方案',
-        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=400'
+        image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=400',
+        alt: '重要设施实体防护场景'
       }, {
         title: '周界围栏',
         description: '为大型园区提供高强度周界围栏',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400'
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400',
+        alt: '大型园区周界围栏设施'
       }, {
         title: '安检设备',
         description: '为重要场所提供专业安检设备',
-        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400'
+        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400',
+        alt: '重要场所安检设备应用'
       }]
     }
   }, {
@@ -146,37 +167,44 @@ export default function Services(props) {
     icon: Brain,
     color: 'from-purple-500 to-purple-600',
     image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800',
+    alt: '智防系统AI智能分析平台展示',
     details: {
       ai: {
         title: 'AI智能监控分析平台',
         description: '采用先进的人工智能技术，实现智能视频分析和异常行为识别。',
         features: ['人脸识别', '行为分析', '异常检测', '智能预警'],
-        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600'
+        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600',
+        alt: 'AI智能监控分析平台展示'
       },
       iot: {
         title: '物联网(IoT)安防系统',
         description: '构建物联网安防系统，实现各类安防设备的互联互通和智能联动。',
         features: ['设备联网', '数据采集', '智能联动', '远程控制'],
-        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600'
+        image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600',
+        alt: '物联网安防系统应用场景'
       },
       bigdata: {
         title: '大数据预警平台',
         description: '基于大数据技术，构建智能预警平台，实现安全风险的提前预警和精准防控。',
         features: ['数据采集分析', '风险评估模型', '智能预警推送', '决策支持系统'],
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600'
+        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600',
+        alt: '大数据预警平台界面展示'
       },
       cases: [{
         title: '智慧园区管理',
         description: '为多个智慧园区提供一体化安防管理系统',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400'
+        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400',
+        alt: '智慧园区安防管理系统'
       }, {
         title: '智慧楼宇安防',
         description: '为高端楼宇提供智能化安防管理系统',
-        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400'
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
+        alt: '智慧楼宇安防系统应用'
       }, {
         title: '城市安防',
         description: '为城市公共安全提供智能化解决方案',
-        image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400'
+        image: 'https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=400',
+        alt: '城市安防智能化解决方案'
       }]
     }
   }];
@@ -206,11 +234,11 @@ export default function Services(props) {
                 首页
               </button>
               <button className="text-[#D4AF37] font-medium">四大防线</button>
-              <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
-                关于我们
-              </button>
               <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
                 成功案例
+              </button>
+              <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
+                关于我们
               </button>
               <button onClick={() => navigateTo('contact')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
                 联系我们
@@ -229,11 +257,11 @@ export default function Services(props) {
                 首页
               </button>
               <button className="block w-full text-left text-[#D4AF37] py-2">四大防线</button>
-              <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
-                关于我们
-              </button>
               <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
                 成功案例
+              </button>
+              <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
+                关于我们
               </button>
               <button onClick={() => navigateTo('contact')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
                 联系我们
@@ -306,7 +334,7 @@ export default function Services(props) {
           <div className="grid lg:grid-cols-2 gap-8 mb-12">
             {/* Team/Equipment/Facilities/AI */}
             <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-3xl overflow-hidden border border-[#2D3748]">
-              <img src={activeDefenseData.details.team?.image || activeDefenseData.details.equipment?.image || activeDefenseData.details.facilities?.image || activeDefenseData.details.ai?.image} alt={activeDefenseData.details.team?.title || activeDefenseData.details.equipment?.title || activeDefenseData.details.facilities?.title || activeDefenseData.details.ai?.title} className="w-full h-64 object-cover" />
+              <img src={activeDefenseData.details.team?.image || activeDefenseData.details.equipment?.image || activeDefenseData.details.facilities?.image || activeDefenseData.details.ai?.image} alt={activeDefenseData.details.team?.alt || activeDefenseData.details.equipment?.alt || activeDefenseData.details.facilities?.alt || activeDefenseData.details.ai?.alt} className="w-full h-64 object-cover" />
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-white font-serif mb-4">
                   {activeDefenseData.details.team?.title || activeDefenseData.details.equipment?.title || activeDefenseData.details.facilities?.title || activeDefenseData.details.ai?.title}
@@ -325,7 +353,7 @@ export default function Services(props) {
 
             {/* Training/Integration/Materials/IoT */}
             <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-3xl overflow-hidden border border-[#2D3748]">
-              <img src={activeDefenseData.details.training?.image || activeDefenseData.details.integration?.image || activeDefenseData.details.materials?.image || activeDefenseData.details.iot?.image} alt={activeDefenseData.details.training?.title || activeDefenseData.details.integration?.title || activeDefenseData.details.materials?.title || activeDefenseData.details.iot?.title} className="w-full h-64 object-cover" />
+              <img src={activeDefenseData.details.training?.image || activeDefenseData.details.integration?.image || activeDefenseData.details.materials?.image || activeDefenseData.details.iot?.image} alt={activeDefenseData.details.training?.alt || activeDefenseData.details.integration?.alt || activeDefenseData.details.materials?.alt || activeDefenseData.details.iot?.alt} className="w-full h-64 object-cover" />
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-white font-serif mb-4">
                   {activeDefenseData.details.training?.title || activeDefenseData.details.integration?.title || activeDefenseData.details.materials?.title || activeDefenseData.details.iot?.title}
@@ -346,7 +374,7 @@ export default function Services(props) {
           {/* Emergency/Customization/Certification/BigData */}
           <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-3xl overflow-hidden border border-[#2D3748] mb-12">
             <div className="grid lg:grid-cols-2">
-              <img src={activeDefenseData.details.emergency?.image || activeDefenseData.details.customization?.image || activeDefenseData.details.certification?.image || activeDefenseData.details.bigdata?.image} alt={activeDefenseData.details.emergency?.title || activeDefenseData.details.customization?.title || activeDefenseData.details.certification?.title || activeDefenseData.details.bigdata?.title} className="w-full h-64 lg:h-auto object-cover" />
+              <img src={activeDefenseData.details.emergency?.image || activeDefenseData.details.customization?.image || activeDefenseData.details.certification?.image || activeDefenseData.details.bigdata?.image} alt={activeDefenseData.details.emergency?.alt || activeDefenseData.details.customization?.alt || activeDefenseData.details.certification?.alt || activeDefenseData.details.bigdata?.alt} className="w-full h-64 lg:h-auto object-cover" />
               <div className="p-8 flex flex-col justify-center">
                 <h3 className="text-2xl font-bold text-white font-serif mb-4">
                   {activeDefenseData.details.emergency?.title || activeDefenseData.details.customization?.title || activeDefenseData.details.certification?.title || activeDefenseData.details.bigdata?.title}
@@ -371,7 +399,7 @@ export default function Services(props) {
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {activeDefenseData.details.cases.map((caseItem, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-2xl overflow-hidden border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300">
-                  <img src={caseItem.image} alt={caseItem.title} className="w-full h-48 object-cover" />
+                  <img src={caseItem.image} alt={caseItem.alt} className="w-full h-48 object-cover" />
                   <div className="p-6">
                     <h4 className="text-xl font-bold text-white font-serif mb-2">{caseItem.title}</h4>
                     <p className="text-gray-400 text-sm leading-relaxed">{caseItem.description}</p>

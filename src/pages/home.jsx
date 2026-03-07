@@ -111,7 +111,8 @@ export default function Home(props) {
     description: '感谢安保团队在大型活动中的专业表现',
     client: '某知名企业',
     date: '2025-12',
-    image: 'https://images.unsplash.com/photo-1555431189-0fabf2667795?w=400'
+    image: 'https://images.unsplash.com/photo-1555431189-0fabf2667795?w=400',
+    alt: '企业赠送的专业高效保驾护航锦旗'
   }, {
     id: 2,
     type: '表扬信',
@@ -119,7 +120,8 @@ export default function Home(props) {
     description: '保安员帮助找回丢失贵重物品',
     client: '某住宅小区',
     date: '2025-11',
-    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400'
+    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400',
+    alt: '小区业主送来的尽职尽责温暖人心表扬信'
   }, {
     id: 3,
     type: '锦旗',
@@ -127,7 +129,8 @@ export default function Home(props) {
     description: '安防系统安装调试及时高效',
     client: '某金融机构',
     date: '2025-10',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400'
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400',
+    alt: '金融机构赠送的技术精湛服务一流锦旗'
   }, {
     id: 4,
     type: '感谢信',
@@ -135,7 +138,8 @@ export default function Home(props) {
     description: '恶劣天气下依然保持高质量服务',
     client: '某商业综合体',
     date: '2025-09',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400'
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400',
+    alt: '商业综合体送来的风雨无阻坚守岗位感谢信'
   }, {
     id: 5,
     type: '锦旗',
@@ -143,7 +147,8 @@ export default function Home(props) {
     description: '智慧安防系统获得高度认可',
     client: '某科技园区',
     date: '2025-08',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400'
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400',
+    alt: '科技园区赠送的智防先锋创新引领锦旗'
   }, {
     id: 6,
     type: '表扬信',
@@ -151,7 +156,8 @@ export default function Home(props) {
     description: '成功处理突发事件，保障人员安全',
     client: '某学校',
     date: '2025-07',
-    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400'
+    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400',
+    alt: '学校送来的应急迅速处置得当表扬信'
   }, {
     id: 7,
     type: '锦旗',
@@ -159,7 +165,8 @@ export default function Home(props) {
     description: '防护设施质量优异，防护效果显著',
     client: '某工业园区',
     date: '2025-06',
-    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400'
+    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400',
+    alt: '工业园区赠送的物防坚固安心无忧锦旗'
   }, {
     id: 8,
     type: '感谢信',
@@ -167,7 +174,8 @@ export default function Home(props) {
     description: '安保人员专业素养高，服务意识强',
     client: '某医院',
     date: '2025-05',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400'
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400',
+    alt: '医院送来的人防到位服务贴心感谢信'
   }];
   useEffect(() => {
     const handleScroll = () => {
@@ -434,7 +442,7 @@ export default function Home(props) {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
               <div className="relative bg-[#0A1628] rounded-3xl p-8 border border-[#2D3748]">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Professional Security Team" className="w-full h-80 object-cover rounded-2xl mb-6" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="专业安保人员执勤场景" className="w-full h-80 object-cover rounded-2xl mb-6" />
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-[#D4AF37] font-bold text-2xl font-serif">20+</div>
@@ -489,7 +497,7 @@ export default function Home(props) {
               {[...honors, ...honors].map((honor, index) => <div key={`${honor.id}-${index}`} className="flex-shrink-0 w-80">
                   <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 h-full">
                     <div className="relative mb-4 overflow-hidden rounded-xl">
-                      <img src={honor.image} alt={honor.title} className="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500" />
+                      <img src={honor.image} alt={honor.alt} className="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500" />
                       <div className="absolute top-3 right-3 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-xs font-semibold">
                         {honor.type}
                       </div>
