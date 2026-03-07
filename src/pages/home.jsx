@@ -88,19 +88,19 @@ export default function Home(props) {
     desc: '根据客户需求提供个性化解决方案'
   }];
   const testimonials = [{
-    name: '张总',
-    company: '某大型企业集团',
-    content: 'SecureGuard 的四防一体化方案为我们提供了全方位的安全保障，专业、可靠、高效，让我们非常放心。',
+    name: '张明华',
+    company: '某国有银行省分行安保部负责人',
+    content: 'SecureGuard 的四防一体化方案为我们分行提供了全方位的安全保障，专业、可靠、高效。特别是智防系统的应用，让我们的金库和网点安全达到了总行的新标准要求，让我们非常放心。',
     rating: 5
   }, {
-    name: '李经理',
-    company: '知名会展中心',
-    content: '多次大型活动的安保合作，每次都圆满完成任务，团队专业素质极高，特别是智防系统的应用大大提升了安保效率。',
+    name: '李建国',
+    company: '某科技园区物业项目经理',
+    content: '园区连续三年由 SecureGuard 负责安保，多次大型展会和重要接待任务都圆满完成。团队专业素质极高，特别是智防系统的人脸识别和异常行为预警功能，大大提升了安保效率。',
     rating: 5
   }, {
-    name: '王女士',
-    company: '高端住宅小区',
-    content: '小区安保服务非常到位，人防、技防、物防、智防四位一体，居民安全感大大提升，服务态度也很好。',
+    name: '王秀芳',
+    company: '某三甲医院后勤保障处处长',
+    content: '医院安保要求极高，SecureGuard 的人防、技防、物防、智防四位一体方案很好地满足了我们的需求。医护人员和患者的安全感大大提升，特别是在疫情期间，他们的专业表现让我们印象深刻。',
     rating: 5
   }];
   const honors = [{
@@ -629,7 +629,7 @@ export default function Home(props) {
 
           <div className="border-t border-[#2D3748] mt-12 pt-8 text-center">
             <p className="text-gray-500">
-              © 2026 SecureGuard. All rights reserved.
+              © 2025–2026 SecureGuard. All rights reserved.
             </p>
           </div>
         </div>

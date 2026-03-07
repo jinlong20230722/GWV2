@@ -9,11 +9,11 @@ import { useForm } from 'react-hook-form';
 import OnlineChat from '@/components/OnlineChat.jsx';
 export default function Contact(props) {
   const {
-    $w } =
-  props;
+    $w
+  } = props;
   const {
-    toast } =
-  useToast();
+    toast
+  } = useToast();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm({
@@ -23,35 +23,35 @@ export default function Contact(props) {
       phone: '',
       company: '',
       service: '',
-      message: '' } });
-
-
-  const onSubmit = async (data) => {
+      message: ''
+    }
+  });
+  const onSubmit = async data => {
     setIsSubmitting(true);
     try {
       // 模拟表单提交
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1500));
       toast({
         title: '提交成功',
         description: '我们会尽快与您联系！',
-        variant: 'default' });
-
+        variant: 'default'
+      });
       form.reset();
     } catch (error) {
       toast({
         title: '提交失败',
         description: error.message || '请稍后重试',
-        variant: 'destructive' });
-
+        variant: 'destructive'
+      });
     } finally {
       setIsSubmitting(false);
     }
   };
-  const navigateTo = (pageId) => {
+  const navigateTo = pageId => {
     $w.utils.navigateTo({
       pageId,
-      params: {} });
-
+      params: {}
+    });
     setIsMenuOpen(false);
   };
   return <div className="min-h-screen bg-[#0A1628] font-sans">
@@ -284,7 +284,7 @@ export default function Contact(props) {
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-500">
-            © 2026 SecureGuard. All rights reserved.
+            © 2025–2026 SecureGuard. All rights reserved.
           </p>
         </div>
       </footer>

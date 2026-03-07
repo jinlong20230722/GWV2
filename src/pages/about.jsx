@@ -205,6 +205,11 @@ export default function About(props) {
                   <div className="text-gray-400">客户满意度</div>
                 </div>
               </div>
+              <div className="mt-6 bg-[#2D3748]/50 p-4 rounded-xl border border-[#2D3748]">
+                <p className="text-gray-400 text-sm text-center">
+                  * 数据截至 2025 年 12 月，根据公司内部统计
+                </p>
+              </div>
             </div>
 
             <div className="relative">
@@ -518,7 +523,7 @@ export default function About(props) {
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-500">
-            © 2026 SecureGuard. All rights reserved.
+            © 2025–2026 SecureGuard. All rights reserved.
           </p>
         </div>
       </footer>

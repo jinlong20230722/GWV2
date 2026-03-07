@@ -412,7 +412,7 @@ export default function Services(props) {
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-500">
-            © 2026 SecureGuard. All rights reserved.
+            © 2025–2026 SecureGuard. All rights reserved.
           </p>
         </div>
       </footer>
