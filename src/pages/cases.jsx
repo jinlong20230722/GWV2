@@ -38,69 +38,63 @@ export default function Cases(props) {
   }];
   const cases = [{
     id: 1,
-    title: '某国有银行省分行安保项目',
+    title: '某大型银行总部安保项目',
     category: 'finance',
-    client: '金融行业客户',
-    description: '为某国有银行省分行及其辖内80余个营业网点提供四防一体化安保服务。项目涵盖金库守卫、网点安防、运钞押运等核心业务场景，部署智能化监控系统和人脸识别门禁，实现24小时实时监控与异常预警。',
-    services: ['金库守卫', '智能监控', '人脸识别门禁', '运钞押运护卫', '24小时应急响应'],
-    results: ['安全事故零发生', '网点安防达标率100%', '应急响应平均时间2.5分钟'],
+    client: '某国有银行',
+    description: '为银行总部提供全方位四防一体化安保服务，包括人防、技防、物防、智防全方位保障。',
+    services: ['人防团队', '智能监控', '门禁系统', '应急响应'],
+    results: ['安全事故零发生', '客户满意度100%', '应急响应时间<3分钟'],
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800',
-    alt: '国有银行省分行四防一体化安保项目实施场景',
     year: '2025'
   }, {
     id: 2,
-    title: '某重点大学智慧校园安保项目',
+    title: '知名大学校园安保系统',
     category: 'education',
-    client: '教育行业客户',
-    description: '为某重点大学提供智慧校园安保解决方案，覆盖教学区、学生宿舍区、实验室及运动场馆等全场景。部署AI视频分析系统，实现人群聚集预警、异常行为识别等功能，有效保障师生安全。',
-    services: ['AI视频分析', '智能门禁系统', '电子围栏周界防护', '校园巡逻', '一键报警系统'],
-    results: ['校园安全事件下降85%', '师生安全满意度96%', '系统稳定运行99.9%'],
+    client: '某重点大学',
+    description: '为大学校园提供智能化安保解决方案，覆盖教学区、生活区、运动区等全场景。',
+    services: ['AI监控分析', '智能门禁', '电子围栏', '24小时巡逻'],
+    results: ['校园安全事件下降80%', '师生安全感显著提升', '系统稳定运行99.9%'],
     image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800',
-    alt: '重点大学智慧校园安保系统展示',
     year: '2025'
   }, {
     id: 3,
-    title: '某高端住宅小区智能安保项目',
+    title: '高端住宅小区安保服务',
     category: 'residential',
-    client: '地产行业客户',
-    description: '为某高端住宅小区提供全场景智能安保服务，包括小区出入口管理、地下车库安防、电梯监控及单元门禁系统。采用人脸识别、车牌识别等智能化技术，为2000余户业主打造安全、舒适的居住环境。',
-    services: ['智能门禁', '车牌识别管理', '全覆盖视频监控', '专业保安团队', '社区巡逻'],
-    results: ['业主满意度98%', '安全事故零发生', '服务响应平均时间4分钟'],
+    client: '某知名地产集团',
+    description: '为高端住宅小区提供全方位安保服务，打造安全、舒适的居住环境。',
+    services: ['专业保安', '智能门禁', '视频监控', '应急响应'],
+    results: ['居民满意度98%', '安全事件零发生', '服务响应时间<5分钟'],
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800',
-    alt: '高端住宅小区智能安保系统应用',
     year: '2024'
   }, {
     id: 4,
-    title: '某大型工业园区综合安保项目',
+    title: '大型工业园区安保项目',
     category: 'enterprise',
-    client: '企业园区客户',
-    description: '为某大型工业园区提供四防一体化安保服务，园区占地超50万平方米，入驻企业60余家。项目涵盖周界防护、生产区监控、危化品仓库守护等重点场景，保障企业生产和财产安全。',
-    services: ['周界入侵报警', '全覆盖智能监控', '车辆人员管理', '危化品仓库守护', '消防应急联动'],
-    results: ['安全事故零发生', '园区安防达标率100%', '管理成本降低18%'],
+    client: '某制造企业集团',
+    description: '为大型工业园区提供四防一体化安保服务，保障企业生产和财产安全。',
+    services: ['周界防护', '智能监控', '人员管理', '应急响应'],
+    results: ['安全事故零发生', '生产效率提升15%', '管理成本降低20%'],
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800',
-    alt: '大型工业园区综合安保系统部署',
     year: '2024'
   }, {
     id: 5,
-    title: '某大型商业综合体安保项目',
+    title: '商业综合体安保系统',
     category: 'real-estate',
-    client: '商业地产行业客户',
-    description: '为某大型商业综合体提供智能化安保解决方案，建筑面积超30万平方米，日均客流5万余人。项目整合客流分析、智能监控、消防联动等系统，为商户和顾客提供全方位安全保障。',
-    services: ['智能视频监控', '客流统计分析', '消防应急联动', '停车引导系统', '24小时值守'],
-    results: ['安全事件下降72%', '商户满意度95%', '应急响应平均时间1.8分钟'],
+    client: '某商业地产集团',
+    description: '为大型商业综合体提供智能化安保解决方案，保障商户和顾客安全。',
+    services: ['智能监控', '客流分析', '应急联动', '24小时值守'],
+    results: ['安全事件下降70%', '商户满意度95%', '应急响应时间<2分钟'],
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800',
-    alt: '大型商业综合体智能化安保系统',
     year: '2024'
   }, {
     id: 6,
-    title: '某国际学校校园安保项目',
+    title: '国际学校安保项目',
     category: 'education',
-    client: '教育行业客户',
-    description: '为某国际学校提供专业化安保服务，覆盖幼儿园、小学、中学全学段教学区域。项目采用智能化门禁管理系统，实现学生接送安全管控，配备专业安保团队，确保师生安全和校园秩序。',
-    services: ['学生接送管理', '智能访客系统', '全覆盖视频监控', '专业安保团队', '应急演练培训'],
-    results: ['校园安全事故零发生', '家长满意度99%', '系统稳定运行99.8%'],
+    client: '某国际学校',
+    description: '为国际学校提供专业化安保服务，确保师生安全和校园秩序。',
+    services: ['专业安保团队', '智能门禁', '视频监控', '应急响应'],
+    results: ['安全事故零发生', '家长满意度99%', '系统稳定运行100%'],
     image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800',
-    alt: '国际学校校园安保服务展示',
     year: '2023'
   }];
   const certifications = [{
@@ -109,48 +103,42 @@ export default function Cases(props) {
     issuer: '国际标准化组织',
     year: '2018',
     description: '通过ISO9001质量管理体系认证，确保服务质量达到国际标准',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600',
-    alt: 'ISO9001质量管理体系认证证书'
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600'
   }, {
     id: 2,
     title: '保安服务许可证',
     issuer: '公安部',
     year: '2006',
     description: '获得公安部颁发的保安服务许可证，具备合法经营资质',
-    image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600',
-    alt: '公安部颁发的保安服务许可证'
+    image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600'
   }, {
     id: 3,
     title: '安防工程企业资质证书',
     issuer: '公安部',
     year: '2010',
     description: '获得安防工程企业一级资质，具备承接大型安防工程的能力',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600',
-    alt: '安防工程企业一级资质证书'
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600'
   }, {
     id: 4,
     title: '中国安防行业优秀企业',
     issuer: '中国安全防范产品行业协会',
     year: '2023',
     description: '荣获中国安防行业优秀企业称号，行业影响力显著',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600',
-    alt: '中国安防行业优秀企业荣誉证书'
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600'
   }, {
     id: 5,
     title: '高新技术企业证书',
     issuer: '科学技术部',
     year: '2022',
     description: '获得高新技术企业认证，技术创新能力得到认可',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600',
-    alt: '高新技术企业认证证书'
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600'
   }, {
     id: 6,
     title: 'AAA级信用企业',
     issuer: '中国信用评估中心',
     year: '2024',
     description: '获得AAA级信用企业认证，企业信誉度达到最高等级',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600',
-    alt: 'AAA级信用企业证书'
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600'
   }];
   const honors = [{
     id: 1,
@@ -309,7 +297,7 @@ export default function Cases(props) {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCases.map(caseItem => <div key={caseItem.id} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-3xl overflow-hidden border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-500 transform hover:-translate-y-2 group">
                 <div className="relative">
-                  <img src={caseItem.image} alt={caseItem.alt} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={caseItem.image} alt={caseItem.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute top-4 right-4 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-sm font-semibold">
                     {caseItem.year}
                   </div>
@@ -423,7 +411,7 @@ export default function Cases(props) {
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-500">
-            © 2025–2026 SecureGuard. All rights reserved.
+            © 2026 SecureGuard. All rights reserved.
           </p>
         </div>
       </footer>
@@ -439,7 +427,7 @@ export default function Cases(props) {
                 </button>
               </div>
               
-              <img src={selectedCert.image} alt={selectedCert.alt} className="w-full h-64 object-cover rounded-2xl mb-6" />
+              <img src={selectedCert.image} alt={selectedCert.title} className="w-full h-64 object-cover rounded-2xl mb-6" />
               
               <div className="space-y-4">
                 <div>

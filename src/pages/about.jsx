@@ -39,26 +39,22 @@ export default function About(props) {
     name: '张明',
     position: '创始人 & CEO',
     description: '20年安保行业经验，曾任职于多家知名安保企业',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400',
-    alt: 'SecureGuard创始人兼CEO张明先生'
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400'
   }, {
     name: '李华',
     position: '运营总监',
     description: '15年安保运营管理经验，专业高效',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400',
-    alt: 'SecureGuard运营总监李华女士'
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400'
   }, {
     name: '王强',
     position: '技术总监',
     description: '安防技术专家，引领技术创新',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400',
-    alt: 'SecureGuard技术总监王强先生'
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400'
   }, {
     name: '赵敏',
     position: '客户服务总监',
     description: '专注客户服务，确保客户满意度',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400',
-    alt: 'SecureGuard客户服务总监赵敏女士'
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400'
   }];
   const jobs = [{
     id: 1,
@@ -119,11 +115,11 @@ export default function About(props) {
               <button onClick={() => navigateTo('services')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
                 四大防线
               </button>
-              <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
-                成功案例
-              </button>
               <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
                 关于我们
+              </button>
+              <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
+                成功案例
               </button>
               <button onClick={() => navigateTo('contact')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
                 联系我们
@@ -144,11 +140,11 @@ export default function About(props) {
               <button onClick={() => navigateTo('services')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
                 四大防线
               </button>
-              <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
-                成功案例
-              </button>
               <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
                 关于我们
+              </button>
+              <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
+                成功案例
               </button>
               <button onClick={() => navigateTo('contact')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
                 联系我们
@@ -209,16 +205,11 @@ export default function About(props) {
                   <div className="text-gray-400">客户满意度</div>
                 </div>
               </div>
-              <div className="mt-6 bg-[#2D3748]/50 p-4 rounded-xl border border-[#2D3748]">
-                <p className="text-gray-400 text-sm text-center">
-                  * 数据截至 2025 年 12 月，根据公司内部统计
-                </p>
-              </div>
             </div>
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
-              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800" alt="SecureGuard专业安保团队合影" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
+              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800" alt="Our Team" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
             </div>
           </div>
         </div>
@@ -335,7 +326,7 @@ export default function About(props) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {team.map((member, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#2D3748] hover:border-[#D4AF37]/50">
-                <img src={member.image} alt={member.alt} className="w-full h-64 object-cover" />
+                <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
                 <div className="p-6">
                   <h4 className="text-xl font-bold text-white font-serif mb-1">{member.name}</h4>
                   <div className="text-[#D4AF37] text-sm font-medium mb-3">{member.position}</div>
@@ -405,7 +396,7 @@ export default function About(props) {
 
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="智慧安防技术创新展示" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
+              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="Tech Innovation" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
             </div>
           </div>
         </div>
@@ -417,7 +408,7 @@ export default function About(props) {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative order-2 lg:order-1">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform -rotate-3 opacity-20" />
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="SecureGuard创始人兼CEO" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="CEO" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
             </div>
 
             <div className="order-1 lg:order-2">
@@ -527,7 +518,7 @@ export default function About(props) {
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-500">
-            © 2025–2026 SecureGuard. All rights reserved.
+            © 2026 SecureGuard. All rights reserved.
           </p>
         </div>
       </footer>

@@ -3,17 +3,17 @@ import React, { useState } from 'react';
 // @ts-ignore;
 import { Shield, Phone, Mail, MapPin, Clock, Menu, X, Send, CheckCircle } from 'lucide-react';
 // @ts-ignore;
-import { Button, Input, Textarea, useToast, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui';
+import { Button, Input, Textarea, useToast } from '@/components/ui';
 
 import { useForm } from 'react-hook-form';
 import OnlineChat from '@/components/OnlineChat.jsx';
 export default function Contact(props) {
   const {
-    $w
-  } = props;
+    $w } =
+  props;
   const {
-    toast
-  } = useToast();
+    toast } =
+  useToast();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm({
@@ -23,35 +23,35 @@ export default function Contact(props) {
       phone: '',
       company: '',
       service: '',
-      message: ''
-    }
-  });
-  const onSubmit = async data => {
+      message: '' } });
+
+
+  const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
       // 模拟表单提交
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       toast({
         title: '提交成功',
         description: '我们会尽快与您联系！',
-        variant: 'default'
-      });
+        variant: 'default' });
+
       form.reset();
     } catch (error) {
       toast({
         title: '提交失败',
         description: error.message || '请稍后重试',
-        variant: 'destructive'
-      });
+        variant: 'destructive' });
+
     } finally {
       setIsSubmitting(false);
     }
   };
-  const navigateTo = pageId => {
+  const navigateTo = (pageId) => {
     $w.utils.navigateTo({
       pageId,
-      params: {}
-    });
+      params: {} });
+
     setIsMenuOpen(false);
   };
   return <div className="min-h-screen bg-[#0A1628] font-sans">
@@ -181,126 +181,16 @@ export default function Contact(props) {
               </div>
               
               {/* Map Placeholder */}
-              <a href="https://lbs.amap.com/search?query=北京市朝阳区建国路88号" target="_blank" rel="noopener noreferrer" className="block bg-[#2D3748] rounded-2xl h-64 flex items-center justify-center border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer">
+              <div className="bg-[#2D3748] rounded-2xl h-64 flex items-center justify-center border border-[#2D3748]">
                 <div className="text-center">
-                  <MapPin className="w-12 h-12 text-[#D4AF37] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                  <p className="text-gray-400 font-medium">点击查看地图位置</p>
+                  <MapPin className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
+                  <p className="text-gray-400">地图位置</p>
                   <p className="text-gray-500 text-sm">北京市朝阳区建国路88号</p>
-                  <p className="text-[#D4AF37] text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    在高德地图中打开 →
-                  </p>
                 </div>
-              </a>
+              </div>
             </div>
 
             {/* Contact Form */}
-            <div>
-              <h2 className="text-4xl font-bold text-white font-serif mb-8">
-                在线咨询
-              </h2>
-              
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField control={form.control} name="name" rules={{
-                  required: '请输入您的姓名'
-                }} render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white font-medium">姓名 *</FormLabel>
-                        <FormControl>
-                          <Input placeholder="请输入您的姓名" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
-                        </FormControl>
-                        <FormMessage className="text-red-400 text-sm" />
-                      </FormItem>} />
-                  
-                  <FormField control={form.control} name="phone" rules={{
-                  required: '请输入您的电话',
-                  pattern: {
-                    value: /^1[3-9]\d{9}$/,
-                    message: '请输入有效的手机号码'
-                  }
-                }} render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white font-medium">电话 *</FormLabel>
-                        <FormControl>
-                          <Input placeholder="请输入您的电话" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
-                        </FormControl>
-                        <FormMessage className="text-red-400 text-sm" />
-                      </FormItem>} />
-                  
-                  <FormField control={form.control} name="email" rules={{
-                  pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: '请输入有效的邮箱地址'
-                  }
-                }} render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white font-medium">邮箱</FormLabel>
-                        <FormControl>
-                          <Input placeholder="请输入您的邮箱" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
-                        </FormControl>
-                        <FormMessage className="text-red-400 text-sm" />
-                      </FormItem>} />
-                  
-                  <FormField control={form.control} name="company" render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white font-medium">公司/单位</FormLabel>
-                        <FormControl>
-                          <Input placeholder="请输入公司或单位名称" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
-                        </FormControl>
-                      </FormItem>} />
-                  
-                  <FormField control={form.control} name="service" rules={{
-                  required: '请选择咨询需求'
-                }} render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white font-medium">咨询需求 *</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-[#2D3748] border-[#2D3748] text-white h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]">
-                              <SelectValue placeholder="请选择咨询需求" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-[#2D3748] border-[#2D3748] text-white">
-                            <SelectItem value="人防服务">人防服务</SelectItem>
-                            <SelectItem value="技防系统">技防系统</SelectItem>
-                            <SelectItem value="物防设施">物防设施</SelectItem>
-                            <SelectItem value="智防方案">智防方案</SelectItem>
-                            <SelectItem value="四防一体化">四防一体化</SelectItem>
-                            <SelectItem value="其他需求">其他需求</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage className="text-red-400 text-sm" />
-                      </FormItem>} />
-                  
-                  <FormField control={form.control} name="message" rules={{
-                  required: '请输入咨询内容'
-                }} render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white font-medium">咨询内容 *</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="请详细描述您的安保需求..." className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 min-h-[120px] focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
-                        </FormControl>
-                        <FormMessage className="text-red-400 text-sm" />
-                      </FormItem>} />
-                  
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C0C0C0] text-[#0A1628] h-14 text-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
-                    {isSubmitting ? <span className="flex items-center">
-                        <div className="w-5 h-5 border-2 border-[#0A1628] border-t-transparent rounded-full animate-spin mr-2"></div>
-                        提交中...
-                      </span> : <span className="flex items-center">
-                        <Send className="w-5 h-5 mr-2" />
-                        提交咨询
-                      </span>}
-                  </Button>
-                </form>
-              </Form>
-            </div>
             
 
 
@@ -394,7 +284,7 @@ export default function Contact(props) {
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-500">
-            © 2025–2026 SecureGuard. All rights reserved.
+            © 2026 SecureGuard. All rights reserved.
           </p>
         </div>
       </footer>
