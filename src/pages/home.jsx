@@ -1,7 +1,7 @@
 // @ts-ignore;
 import React, { useState, useEffect } from 'react';
 // @ts-ignore;
-import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award } from 'lucide-react';
+import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play } from 'lucide-react';
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
@@ -16,7 +16,7 @@ export default function Home(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const defenses = [{
     id: 0,
     title: '人防',
@@ -177,12 +177,16 @@ export default function Home(props) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % defenses.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isPaused]);
+    let interval;
+    if (!isCarouselPaused) {
+      interval = setInterval(() => {
+        setCurrentSlide(prev => (prev + 1) % defenses.length);
+      }, 5000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isCarouselPaused]);
   const scrollToSection = id => {
     const element = document.getElementById(id);
     if (element) {
@@ -207,9 +211,6 @@ export default function Home(props) {
   };
   const prevSlide = () => {
     setCurrentSlide(prev => (prev - 1 + defenses.length) % defenses.length);
-  };
-  const togglePause = () => {
-    setIsPaused(!isPaused);
   };
   const currentDefense = defenses[currentSlide];
   const CurrentIcon = currentDefense.icon;
@@ -328,27 +329,25 @@ export default function Home(props) {
 
         {/* Carousel Controls */}
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
-          <button onClick={prevSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="上一张">
+          <button onClick={prevSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
             <ChevronLeft className="w-6 h-6 text-white" />
           </button>
           
-          <div className="flex space-x-2 items-center">
-            {defenses.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-[#D4AF37] w-8' : 'bg-white/30 hover:bg-white/50'}`} aria-label={`切换到第${index + 1}张`} />)}
+          <div className="flex space-x-3">
+            {defenses.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`relative transition-all duration-300 ${currentSlide === index ? 'bg-[#D4AF37] w-10 h-4' : 'bg-white/30 hover:bg-white/50 w-4 h-4'} rounded-full`}>
+                {currentSlide === index && <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-[#0A1628] text-xs font-bold">{index + 1}</span>
+                  </div>}
+              </button>)}
           </div>
           
-          <button onClick={nextSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="下一张">
+          <button onClick={nextSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
             <ChevronRight className="w-6 h-6 text-white" />
           </button>
           
-          {/* Pause/Play Button */}
-          <button onClick={togglePause} className="ml-4 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors" aria-label={isPaused ? '继续自动播放' : '暂停自动播放'}>
-            {isPaused ? <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" /></svg> : <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" /></svg>}
+          <button onClick={() => setIsCarouselPaused(!isCarouselPaused)} className="w-12 h-12 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-[#D4AF37]/30 transition-colors border border-[#D4AF37]/30">
+            {isCarouselPaused ? <Play className="w-5 h-5 text-[#D4AF37]" /> : <Pause className="w-5 h-5 text-[#D4AF37]" />}
           </button>
-        </div>
-        
-        {/* Slide Counter */}
-        <div className="absolute bottom-10 right-8 text-white/80 text-sm font-medium">
-          {currentSlide + 1} / {defenses.length}
         </div>
       </section>
 
@@ -469,11 +468,11 @@ export default function Home(props) {
             <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
               锦旗与表扬信
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-2">
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               每一份荣誉都是客户对我们的信任与认可
-            </p>
-            <p className="text-gray-500 text-sm max-w-2xl mx-auto">
-              💡 悬停可暂停浏览
+              <span className="text-[#D4AF37] ml-2 text-sm inline-flex items-center">
+                <Pause className="w-3 h-3 mr-1" /> 悬停可暂停浏览
+              </span>
             </p>
           </div>
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // @ts-ignore;
 import { Shield, Phone, Mail, MapPin, Clock, Menu, X, Send, CheckCircle } from 'lucide-react';
 // @ts-ignore;
-import { Button, Input, Textarea, useToast } from '@/components/ui';
+import { Button, Input, Textarea, useToast, Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui';
 
 import { useForm } from 'react-hook-form';
 import OnlineChat from '@/components/OnlineChat.jsx';
@@ -181,17 +181,16 @@ export default function Contact(props) {
               </div>
               
               {/* Map Placeholder */}
-              <div className="bg-[#2D3748] rounded-2xl h-64 flex items-center justify-center border border-[#2D3748] overflow-hidden relative group">
+              <a href="https://lbs.amap.com/search?query=北京市朝阳区建国路88号" target="_blank" rel="noopener noreferrer" className="block bg-[#2D3748] rounded-2xl h-64 flex items-center justify-center border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer">
                 <div className="text-center">
-                  <MapPin className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-                  <p className="text-gray-400">地图位置</p>
-                  <p className="text-gray-500 text-sm mb-3">北京市朝阳区建国路88号</p>
-                  <a href="https://uri.amap.com/marker?position=116.46188,39.90869&name=SOHO现代城A座" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-[#D4AF37] hover:text-[#C0C0C0] transition-colors text-sm">
-                    <MapPin className="w-4 h-4 mr-1" />
-                    在高德地图中查看
-                  </a>
+                  <MapPin className="w-12 h-12 text-[#D4AF37] mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                  <p className="text-gray-400 font-medium">点击查看地图位置</p>
+                  <p className="text-gray-500 text-sm">北京市朝阳区建国路88号</p>
+                  <p className="text-[#D4AF37] text-xs mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    在高德地图中打开 →
+                  </p>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Contact Form */}
@@ -200,105 +199,175 @@ export default function Contact(props) {
                 在线咨询
               </h2>
               
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                {/* 姓名 */}
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    姓名 <span className="text-red-400">*</span>
-                  </label>
-                  <Input {...form.register('name', {
-                  required: '请输入您的姓名',
-                  minLength: {
-                    value: 2,
-                    message: '姓名至少2个字符'
-                  }
-                })} placeholder="请输入您的姓名" className="bg-[#2D3748] border-[#2D3748] text-white placeholder-gray-500 focus:border-[#D4AF37]" />
-                  {form.formState.errors.name && <p className="text-red-400 text-sm mt-1">{form.formState.errors.name.message}</p>}
-                </div>
-                
-                {/* 电话 */}
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    联系电话 <span className="text-red-400">*</span>
-                  </label>
-                  <Input {...form.register('phone', {
-                  required: '请输入您的联系电话',
+              <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                  <FormField control={form.control} name="name" rules={{
+                  required: '请输入您的姓名'
+                }} render={({
+                  field
+                }) => <FormItem>
+                        <FormLabel className="text-white font-medium">姓名 *</FormLabel>
+                        <FormControl>
+                          <Input placeholder="请输入您的姓名" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-red-400 text-sm" />
+                      </FormItem>} />
+                  
+                  <FormField control={form.control} name="phone" rules={{
+                  required: '请输入您的电话',
                   pattern: {
                     value: /^1[3-9]\d{9}$/,
                     message: '请输入有效的手机号码'
                   }
-                })} placeholder="请输入您的手机号码" type="tel" className="bg-[#2D3748] border-[#2D3748] text-white placeholder-gray-500 focus:border-[#D4AF37]" />
-                  {form.formState.errors.phone && <p className="text-red-400 text-sm mt-1">{form.formState.errors.phone.message}</p>}
-                </div>
-                
-                {/* 邮箱 */}
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    邮箱
-                  </label>
-                  <Input {...form.register('email', {
+                }} render={({
+                  field
+                }) => <FormItem>
+                        <FormLabel className="text-white font-medium">电话 *</FormLabel>
+                        <FormControl>
+                          <Input placeholder="请输入您的电话" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-red-400 text-sm" />
+                      </FormItem>} />
+                  
+                  <FormField control={form.control} name="email" rules={{
                   pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                     message: '请输入有效的邮箱地址'
                   }
-                })} placeholder="请输入您的邮箱（可选）" type="email" className="bg-[#2D3748] border-[#2D3748] text-white placeholder-gray-500 focus:border-[#D4AF37]" />
-                  {form.formState.errors.email && <p className="text-red-400 text-sm mt-1">{form.formState.errors.email.message}</p>}
-                </div>
-                
-                {/* 公司 */}
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    公司名称
-                  </label>
-                  <Input {...form.register('company')} placeholder="请输入您的公司名称（可选）" className="bg-[#2D3748] border-[#2D3748] text-white placeholder-gray-500 focus:border-[#D4AF37]" />
-                </div>
-                
-                {/* 服务类型 */}
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    需要的服务
-                  </label>
-                  <select {...form.register('service')} className="w-full bg-[#2D3748] border border-[#2D3748] text-white rounded-md px-3 py-2 focus:border-[#D4AF37] focus:outline-none">
-                    <option value="">请选择服务类型</option>
-                    <option value="人防服务">人防服务</option>
-                    <option value="技防服务">技防服务</option>
-                    <option value="物防服务">物防服务</option>
-                    <option value="智防服务">智防服务</option>
-                    <option value="四防一体化">四防一体化</option>
-                    <option value="其他">其他</option>
-                  </select>
-                </div>
-                
-                {/* 咨询需求 */}
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    咨询需求 <span className="text-red-400">*</span>
-                  </label>
-                  <Textarea {...form.register('message', {
-                  required: '请描述您的咨询需求',
-                  minLength: {
-                    value: 10,
-                    message: '请至少输入10个字符'
-                  }
-                })} placeholder="请详细描述您的安保需求，以便我们为您提供更精准的方案..." rows={5} className="bg-[#2D3748] border-[#2D3748] text-white placeholder-gray-500 focus:border-[#D4AF37] resize-none" />
-                  {form.formState.errors.message && <p className="text-red-400 text-sm mt-1">{form.formState.errors.message.message}</p>}
-                </div>
-                
-                {/* Submit Button */}
-                <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C0C0C0] text-[#0A1628] py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                  {isSubmitting ? <span className="flex items-center justify-center">
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-[#0A1628]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      提交中...
-                    </span> : <span className="flex items-center justify-center">
-                      <Send className="mr-2 w-5 h-5" />
-                      提交咨询
-                    </span>}
-                </Button>
-              </form>
+                }} render={({
+                  field
+                }) => <FormItem>
+                        <FormLabel className="text-white font-medium">邮箱</FormLabel>
+                        <FormControl>
+                          <Input placeholder="请输入您的邮箱" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-red-400 text-sm" />
+                      </FormItem>} />
+                  
+                  <FormField control={form.control} name="company" render={({
+                  field
+                }) => <FormItem>
+                        <FormLabel className="text-white font-medium">公司/单位</FormLabel>
+                        <FormControl>
+                          <Input placeholder="请输入公司或单位名称" className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
+                        </FormControl>
+                      </FormItem>} />
+                  
+                  <FormField control={form.control} name="service" rules={{
+                  required: '请选择咨询需求'
+                }} render={({
+                  field
+                }) => <FormItem>
+                        <FormLabel className="text-white font-medium">咨询需求 *</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <FormControl>
+                            <SelectTrigger className="bg-[#2D3748] border-[#2D3748] text-white h-12 focus:border-[#D4AF37] focus:ring-[#D4AF37]">
+                              <SelectValue placeholder="请选择咨询需求" />
+                            </SelectTrigger>
+                          </FormControl>
+                          <SelectContent className="bg-[#2D3748] border-[#2D3748] text-white">
+                            <SelectItem value="人防服务">人防服务</SelectItem>
+                            <SelectItem value="技防系统">技防系统</SelectItem>
+                            <SelectItem value="物防设施">物防设施</SelectItem>
+                            <SelectItem value="智防方案">智防方案</SelectItem>
+                            <SelectItem value="四防一体化">四防一体化</SelectItem>
+                            <SelectItem value="其他需求">其他需求</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage className="text-red-400 text-sm" />
+                      </FormItem>} />
+                  
+                  <FormField control={form.control} name="message" rules={{
+                  required: '请输入咨询内容'
+                }} render={({
+                  field
+                }) => <FormItem>
+                        <FormLabel className="text-white font-medium">咨询内容 *</FormLabel>
+                        <FormControl>
+                          <Textarea placeholder="请详细描述您的安保需求..." className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 min-h-[120px] focus:border-[#D4AF37] focus:ring-[#D4AF37]" {...field} />
+                        </FormControl>
+                        <FormMessage className="text-red-400 text-sm" />
+                      </FormItem>} />
+                  
+                  <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C0C0C0] text-[#0A1628] h-14 text-lg font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none">
+                    {isSubmitting ? <span className="flex items-center">
+                        <div className="w-5 h-5 border-2 border-[#0A1628] border-t-transparent rounded-full animate-spin mr-2"></div>
+                        提交中...
+                      </span> : <span className="flex items-center">
+                        <Send className="w-5 h-5 mr-2" />
+                        提交咨询
+                      </span>}
+                  </Button>
+                </form>
+              </Form>
             </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
       </section>
