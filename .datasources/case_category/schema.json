@@ -1,0 +1,26 @@
+{
+  "name": "case_category",
+  "title": "案例分类",
+  "schemas": [
+    {
+      "name": "name",
+      "title": "分类名称",
+      "type": "String"
+    },
+    {
+      "name": "icon_name",
+      "title": "图标名称",
+      "type": "String"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
+}

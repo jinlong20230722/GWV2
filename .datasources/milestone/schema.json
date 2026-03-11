@@ -1,0 +1,31 @@
+{
+  "name": "milestone",
+  "title": "发展历程",
+  "schemas": [
+    {
+      "name": "year",
+      "title": "年份",
+      "type": "String"
+    },
+    {
+      "name": "title",
+      "title": "历程标题",
+      "type": "String"
+    },
+    {
+      "name": "description",
+      "title": "历程描述",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
+}

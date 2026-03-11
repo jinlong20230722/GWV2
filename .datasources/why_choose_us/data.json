@@ -1,0 +1,45 @@
+{
+  "data": [
+    {
+      "_id": "why-1",
+      "title": "四防一体",
+      "description": "人防、技防、物防、智防四位一体，全方位安全防护",
+      "icon_name": "CheckCircle",
+      "order": 1,
+      "is_active": true
+    },
+    {
+      "_id": "why-2",
+      "title": "专业团队",
+      "description": "所有安保人员均经过严格培训和认证",
+      "icon_name": "CheckCircle",
+      "order": 2,
+      "is_active": true
+    },
+    {
+      "_id": "why-3",
+      "title": "先进技术",
+      "description": "采用最新的安防技术和设备",
+      "icon_name": "CheckCircle",
+      "order": 3,
+      "is_active": true
+    },
+    {
+      "_id": "why-4",
+      "title": "快速响应",
+      "description": "24小时应急响应，随时待命",
+      "icon_name": "CheckCircle",
+      "order": 4,
+      "is_active": true
+    },
+    {
+      "_id": "why-5",
+      "title": "定制方案",
+      "description": "根据客户需求提供个性化解决方案",
+      "icon_name": "CheckCircle",
+      "order": 5,
+      "is_active": true
+    }
+  ],
+  "total": 5
+}
