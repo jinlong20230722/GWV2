@@ -1,7 +1,7 @@
 // @ts-ignore;
 import React, { useState, useEffect } from 'react';
 // @ts-ignore;
-import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play } from 'lucide-react';
+import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play, FileText, Calendar } from 'lucide-react';
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
@@ -124,7 +124,7 @@ export default function Home(props) {
     type: '锦旗',
     title: '专业高效 保驾护航',
     description: '感谢安保团队在大型活动中的专业表现',
-    client: '某知名企业',
+    client: '阿里巴巴集团杭州总部',
     date: '2025-12',
     image: 'https://images.unsplash.com/photo-1555431189-0fabf2667795?w=400'
   }, {
@@ -132,7 +132,7 @@ export default function Home(props) {
     type: '表扬信',
     title: '尽职尽责 温暖人心',
     description: '保安员帮助找回丢失贵重物品',
-    client: '某住宅小区',
+    client: '北京银泰中心小区',
     date: '2025-11',
     image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400'
   }, {
@@ -140,7 +140,7 @@ export default function Home(props) {
     type: '锦旗',
     title: '技术精湛 服务一流',
     description: '安防系统安装调试及时高效',
-    client: '某金融机构',
+    client: '招商银行深圳分行',
     date: '2025-10',
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400'
   }, {
@@ -148,7 +148,7 @@ export default function Home(props) {
     type: '感谢信',
     title: '风雨无阻 坚守岗位',
     description: '恶劣天气下依然保持高质量服务',
-    client: '某商业综合体',
+    client: '上海陆家嘴金融中心',
     date: '2025-09',
     image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400'
   }, {
@@ -156,7 +156,7 @@ export default function Home(props) {
     type: '锦旗',
     title: '智防先锋 创新引领',
     description: '智慧安防系统获得高度认可',
-    client: '某科技园区',
+    client: '中关村软件园二期',
     date: '2025-08',
     image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400'
   }, {
@@ -164,25 +164,9 @@ export default function Home(props) {
     type: '表扬信',
     title: '应急迅速 处置得当',
     description: '成功处理突发事件，保障人员安全',
-    client: '某学校',
+    client: '清华大学附属中学',
     date: '2025-07',
     image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400'
-  }, {
-    id: 7,
-    type: '锦旗',
-    title: '物防坚固 安心无忧',
-    description: '防护设施质量优异，防护效果显著',
-    client: '某工业园区',
-    date: '2025-06',
-    image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400'
-  }, {
-    id: 8,
-    type: '感谢信',
-    title: '人防到位 服务贴心',
-    description: '安保人员专业素养高，服务意识强',
-    client: '某医院',
-    date: '2025-05',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=400'
   }];
   useEffect(() => {
     const handleScroll = () => {
@@ -250,7 +234,7 @@ export default function Home(props) {
             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigateTo('home')}>
               <Shield className="w-10 h-10 text-[#D4AF37]" />
               <span className="text-2xl font-bold text-white font-serif tracking-wider">
-                SECURE<span className="text-[#D4AF37]">GUARD</span>
+                SecureGuard
               </span>
             </div>
 
@@ -530,7 +514,7 @@ export default function Home(props) {
             }}>
 
               {/* 第一组图片 */}
-              {[...honors, ...honors].map((honor, index) => <div key={`${honor.id}-${index}`} className="flex-shrink-0 w-80">
+              {honors.map((honor, index) => <div key={`${honor.id}-${index}`} className="flex-shrink-0 w-80">
                   <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 h-full">
                     <div className="relative mb-4 overflow-hidden rounded-xl">
                       <img src={honor.image} alt={honor.title} className="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500" />
@@ -591,6 +575,111 @@ export default function Home(props) {
         `}</style>
       </section>
 
+      {/* Quick Case Studies Section */}
+      <section className="py-24 bg-[#2D3748]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
+              <Award className="w-6 h-6 text-[#D4AF37]" />
+              <span className="text-[#D4AF37] font-semibold text-lg">成功案例</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+              典型案例展示
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              看看我们如何为各行业客户提供专业的安保解决方案
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[{
+              title: '阿里巴巴集团总部',
+              category: '企业园区',
+              service: '人防+智防+技防',
+              result: '降低95%安全隐患',
+              image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
+              problem: '大型园区人员流动大，需要全方位安全防护',
+              solution: '部署人脸识别系统+智能监控+专业安保团队'
+            }, {
+              title: '招商银行深圳分行',
+              category: '金融机构',
+              service: '物防+技防+智防',
+              result: '零安全事故',
+              image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400',
+              problem: '金融场所需要高等级安全防护',
+              solution: '24小时监控+智能预警系统+专业保安值守'
+            }, {
+              title: '北京银泰中心',
+              category: '高端住宅',
+              service: '人防+物防+技防',
+              result: '业主满意度100%',
+              image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400',
+              problem: '高端社区需要私密性与安全性并重',
+              solution: '门禁系统+巡逻队+智能访客管理'
+            }].map((caseStudy, index) => <div key={index} className="bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer" onClick={() => navigateTo('cases')}>
+                <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-xs font-semibold">
+                    {caseStudy.category}
+                  </div>
+                </div>
+                <h3 className="text-white font-bold text-lg mb-2 font-serif">{caseStudy.title}</h3>
+                <p className="text-[#D4AF37] text-sm mb-2 font-semibold">{caseStudy.service}</p>
+                <p className="text-gray-400 text-sm mb-3">{caseStudy.problem}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-400 text-sm font-semibold">{caseStudy.result}</span>
+                  <ArrowRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>)}
+          </div>
+          <div className="text-center mt-12">
+            <Button onClick={() => navigateTo('cases')} className="bg-[#D4AF37] text-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 shadow-lg">
+              查看更多案例
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Credentials Section */}
+      <section className="py-24 bg-[#0A1628]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+              资质与认证
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              我们的专业资质与荣誉，是您信赖的保障
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[{
+              name: '保安服务许可证',
+              icon: Shield,
+              color: 'from-blue-500 to-blue-700'
+            }, {
+              name: 'ISO9001认证',
+              icon: Award,
+              color: 'from-green-500 to-green-700'
+            }, {
+              name: '安防工程资质',
+              icon: Lock,
+              color: 'from-purple-500 to-purple-700'
+            }, {
+              name: 'AAA级信用企业',
+              icon: Star,
+              color: 'from-yellow-500 to-orange-700'
+            }].map((cred, index) => <div key={index} className="text-center group">
+                <div className={`w-20 h-20 bg-gradient-to-br ${cred.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <cred.icon className="w-10 h-10 text-white" />
+                </div>
+                <p className="text-white font-semibold">{cred.name}</p>
+              </div>)}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -600,10 +689,20 @@ export default function Home(props) {
           <p className="text-[#0A1628]/80 text-lg mb-8 max-w-2xl mx-auto">
             立即联系我们，获取专业的四防一体化安保方案，让安全成为您最坚实的后盾
           </p>
-          <Button onClick={() => navigateTo('contact')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
-            免费咨询
-            <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button onClick={() => navigateTo('contact')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
+              免费咨询
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button onClick={() => navigateTo('services')} className="border-2 border-[#0A1628] text-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105">
+              获取方案
+              <FileText className="ml-2 w-5 h-5" />
+            </Button>
+            <Button onClick={() => navigateTo('about')} className="border-2 border-[#0A1628]/50 text-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105">
+              预约考察
+              <Calendar className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -616,7 +715,7 @@ export default function Home(props) {
               <div className="flex items-center space-x-2 mb-6">
                 <Shield className="w-10 h-10 text-[#D4AF37]" />
                 <span className="text-2xl font-bold text-white font-serif tracking-wider">
-                  SECURE<span className="text-[#D4AF37]">GUARD</span>
+                  SecureGuard
                 </span>
               </div>
               <p className="text-gray-400 mb-6 leading-relaxed max-w-md">
@@ -649,11 +748,11 @@ export default function Home(props) {
                   <button onClick={() => navigateTo('services')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
                     四大防线
                   </button>
-                  <li>
+                </li>
+                <li>
                   <button onClick={() => navigateTo('cases')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
                     成功案例
                   </button>
-                </li>
                 </li>
                 <li>
                   <button onClick={() => navigateTo('about')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
@@ -674,15 +773,15 @@ export default function Home(props) {
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
                   <Phone className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-400">400-888-8888</span>
+                  <span className="text-gray-400">400-666-8888</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <Mail className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-400">info@secureguard.com</span>
+                  <span className="text-gray-400">service@secureguard.com</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <MapPin className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-400">北京市朝阳区建国路88号</span>
+                  <span className="text-gray-400">北京市海淀区中关村南大街5号</span>
                 </li>
               </ul>
             </div>
