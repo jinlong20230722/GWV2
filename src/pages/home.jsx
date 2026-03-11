@@ -10,6 +10,9 @@ import { LazyImage } from '@/components/ImageOptimizer.jsx';
 import { SEOOptimizer, StructuredData } from '@/components/SEOOptimizer.jsx';
 import { AccessibilityWrapper } from '@/components/AccessibilityWrapper.jsx';
 import { PageMeta } from '@/components/PageMeta.jsx';
+import { useAnalytics, AnalyticsDashboard } from '@/components/WebsiteAnalytics.jsx';
+import { MobileProvider, MobileOptimizedContainer } from '@/components/MobileOptimizer.jsx';
+import { PageWrapper } from '@/components/GlobalAppOptimizer.jsx';
 import OnlineChat from '@/components/OnlineChat.jsx';
 export default function Home(props) {
   const {

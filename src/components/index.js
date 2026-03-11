@@ -11,3 +11,6 @@ export * from './AccessibilityWrapper.jsx';
 export * from './PerformanceOptimizer.jsx';
 export * from './ContentUpdater.jsx';
 export * from './GlobalOptimizer.jsx';
+export * from './WebsiteAnalytics.jsx';
+export * from './MobileOptimizer.jsx';
+export * from './GlobalAppOptimizer.jsx';
