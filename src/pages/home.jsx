@@ -13,6 +13,7 @@ import { PageMeta } from '@/components/PageMeta.jsx';
 import { useAnalytics, AnalyticsDashboard } from '@/components/WebsiteAnalytics.jsx';
 import { MobileProvider, MobileOptimizedContainer } from '@/components/MobileOptimizer.jsx';
 import { PageWrapper } from '@/components/GlobalAppOptimizer.jsx';
+import { EnhancedStats, EnhancedCTAButtons, EnhancedCredentials, EnhancedCaseCard } from '@/components/HomeEnhancer.jsx';
 import OnlineChat from '@/components/OnlineChat.jsx';
 export default function Home(props) {
   const {

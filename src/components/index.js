@@ -17,3 +17,7 @@ export * from './GlobalAppOptimizer.jsx';
 export * from './AdminDataSourceManager.jsx';
 export * from './OperationLogManager.jsx';
 export * from './CompleteAdminSystem.jsx';
+export * from './EnhancedAnimations.jsx';
+export * from './CredentialDetailModal.jsx';
+export * from './HomeEnhancer.jsx';
+export * from './EnhancedHeroCarousel.jsx';
