@@ -3,6 +3,7 @@ import ABOUT from '../pages/about.jsx';
 import SERVICES from '../pages/services.jsx';
 import CONTACT from '../pages/contact.jsx';
 import CASES from '../pages/cases.jsx';
+import ADMIN from '../pages/admin.jsx';
 export const routers = [{
   id: "home",
   component: HOME
@@ -18,4 +19,7 @@ export const routers = [{
 }, {
   id: "cases",
   component: CASES
+}, {
+  id: "admin",
+  component: ADMIN
 }]

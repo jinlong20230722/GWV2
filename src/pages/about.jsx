@@ -6,6 +6,8 @@ import { Shield, Users, Award, Target, Menu, X, CheckCircle, ArrowRight, Calenda
 import { Button, useToast } from '@/components/ui';
 
 import OnlineChat from '@/components/OnlineChat.jsx';
+import { FadeIn, HoverScale, CountUp } from '@/components/AnimationProvider.jsx';
+import { LazyImage } from '@/components/ImageOptimizer.jsx';
 export default function About(props) {
   const {
     $w

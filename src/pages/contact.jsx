@@ -7,6 +7,8 @@ import { Button, Input, Textarea, useToast, Form, FormControl, FormField, FormIt
 
 import { useForm } from 'react-hook-form';
 import OnlineChat from '@/components/OnlineChat.jsx';
+import MapComponent from '@/components/MapComponent.jsx';
+import { FadeIn } from '@/components/AnimationProvider.jsx';
 export default function Contact(props) {
   const {
     $w
@@ -181,14 +183,10 @@ export default function Contact(props) {
                 </div>
               </div>
               
-              {/* Map Placeholder */}
-              <div className="bg-[#2D3748] rounded-2xl h-64 flex items-center justify-center border border-[#2D3748]">
-                <div className="text-center">
-                  <MapPin className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-                  <p className="text-gray-400">地图位置</p>
-                  <p className="text-gray-500 text-sm">北京市朝阳区建国路88号</p>
-                </div>
-              </div>
+              {/* Map Component */}
+              <FadeIn delay={200}>
+                <MapComponent address="北京市朝阳区建国路88号SOHO现代城A座18层" height="h-80" />
+              </FadeIn>
             </div>
 
             {/* Contact Form */}

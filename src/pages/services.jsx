@@ -6,6 +6,8 @@ import { Shield, Users, Lock, Brain, Camera, Home, Building2, Calendar, CheckCir
 import { Button, useToast } from '@/components/ui';
 
 import OnlineChat from '@/components/OnlineChat.jsx';
+import { FadeIn, HoverScale, Float } from '@/components/AnimationProvider.jsx';
+import { LazyImage } from '@/components/ImageOptimizer.jsx';
 export default function Services(props) {
   const {
     $w

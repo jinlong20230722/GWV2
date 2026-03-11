@@ -5,6 +5,10 @@ import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, C
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
+import { FadeIn, CountUp, GradientText, HoverScale } from '@/components/AnimationProvider.jsx';
+import { LazyImage } from '@/components/ImageOptimizer.jsx';
+// @ts-ignore;
+
 import OnlineChat from '@/components/OnlineChat.jsx';
 export default function Home(props) {
   const {
@@ -426,40 +430,54 @@ export default function Home(props) {
               </p>
               
               <div className="space-y-6">
-                {whyChooseUs.map((item, index) => <div key={index} className="flex items-start space-x-4">
-                    <div className="w-10 h-10 bg-[#D4AF37]/20 rounded-full flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-5 h-5 text-[#D4AF37]" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold text-lg mb-1">{item.title}</h4>
-                      <p className="text-gray-400">{item.desc}</p>
-                    </div>
-                  </div>)}
+                {whyChooseUs.map((item, index) => <FadeIn key={index} delay={index * 100} direction="right">
+                    <HoverScale>
+                      <div className="flex items-start space-x-4">
+                        <div className="w-10 h-10 bg-[#D4AF37]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-5 h-5 text-[#D4AF37]" />
+                        </div>
+                        <div>
+                          <h4 className="text-white font-semibold text-lg mb-1">{item.title}</h4>
+                          <p className="text-gray-400">{item.desc}</p>
+                        </div>
+                      </div>
+                    </HoverScale>
+                  </FadeIn>)}
               </div>
             </div>
 
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
-              <div className="relative bg-[#0A1628] rounded-3xl p-8 border border-[#2D3748]">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="专业安保人员执勤场景" className="w-full h-80 object-cover rounded-2xl mb-6" />
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-[#D4AF37] font-bold text-2xl font-serif">20+</div>
-                    <div className="text-gray-400 text-sm">年专业经验</div>
-                  </div>
-                  <div className="h-12 w-px bg-[#2D3748]" />
-                  <div>
-                    <div className="text-[#D4AF37] font-bold text-2xl font-serif">1000+</div>
-                    <div className="text-gray-400 text-sm">专业安保人员</div>
-                  </div>
-                  <div className="h-12 w-px bg-[#2D3748]" />
-                  <div>
-                    <div className="text-[#D4AF37] font-bold text-2xl font-serif">99%</div>
-                    <div className="text-gray-400 text-sm">客户满意度</div>
+            <FadeIn delay={300} direction="left">
+              <HoverScale>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
+                  <div className="relative bg-[#0A1628] rounded-3xl p-8 border border-[#2D3748]">
+                    <LazyImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="专业安保人员执勤场景" className="w-full h-80 object-cover rounded-2xl mb-6" aspectRatio="16/9" />
+                    <div className="flex items-center justify-between">
+                      <div className="text-center">
+                        <div className="text-[#D4AF37] font-bold text-2xl font-serif">
+                          <CountUp end={20} suffix="+" />
+                        </div>
+                        <div className="text-gray-400 text-sm">年专业经验</div>
+                      </div>
+                      <div className="h-12 w-px bg-[#2D3748]" />
+                      <div className="text-center">
+                        <div className="text-[#D4AF37] font-bold text-2xl font-serif">
+                          <CountUp end={1000} suffix="+" />
+                        </div>
+                        <div className="text-gray-400 text-sm">专业安保人员</div>
+                      </div>
+                      <div className="h-12 w-px bg-[#2D3748]" />
+                      <div className="text-center">
+                        <div className="text-[#D4AF37] font-bold text-2xl font-serif">
+                          <CountUp end={99} suffix="%" />
+                        </div>
+                        <div className="text-gray-400 text-sm">客户满意度</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
+              </HoverScale>
+            </FadeIn>
           </div>
         </div>
       </section>

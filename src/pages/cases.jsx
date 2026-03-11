@@ -6,6 +6,8 @@ import { Shield, Building2, GraduationCap, Factory, Home, Briefcase, Award, Menu
 import { Button, useToast } from '@/components/ui';
 
 import OnlineChat from '@/components/OnlineChat.jsx';
+import { FadeIn, HoverScale, GradientText } from '@/components/AnimationProvider.jsx';
+import { LazyImage } from '@/components/ImageOptimizer.jsx';
 export default function Cases(props) {
   const {
     $w
@@ -295,38 +297,42 @@ export default function Cases(props) {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredCases.map(caseItem => <div key={caseItem.id} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-3xl overflow-hidden border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-500 transform hover:-translate-y-2 group">
-                <div className="relative">
-                  <img src={caseItem.image} alt={caseItem.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute top-4 right-4 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-sm font-semibold">
-                    {caseItem.year}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white font-serif mb-2">{caseItem.title}</h3>
-                  <p className="text-[#D4AF37] text-sm font-medium mb-3">{caseItem.client}</p>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{caseItem.description}</p>
-                  
-                  <div className="mb-4">
-                    <div className="text-white font-semibold text-sm mb-2">服务内容：</div>
-                    <div className="flex flex-wrap gap-2">
-                      {caseItem.services.map((service, index) => <span key={index} className="bg-[#0A1628] text-gray-300 text-xs px-2 py-1 rounded">
-                          {service}
-                        </span>)}
+            {filteredCases.map((caseItem, index) => <FadeIn key={caseItem.id} delay={index * 100}>
+                <HoverScale>
+                  <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-3xl overflow-hidden border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-500 transform hover:-translate-y-2 group">
+                    <div className="relative">
+                      <LazyImage src={caseItem.image} alt={caseItem.alt} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500" aspectRatio="16/9" />
+                      <div className="absolute top-4 right-4 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-sm font-semibold">
+                        {caseItem.year}
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold text-white font-serif mb-2">{caseItem.title}</h3>
+                      <p className="text-[#D4AF37] text-sm font-medium mb-3">{caseItem.client}</p>
+                      <p className="text-gray-400 text-sm leading-relaxed mb-4">{caseItem.description}</p>
+                      
+                      <div className="mb-4">
+                        <div className="text-white font-semibold text-sm mb-2">服务内容：</div>
+                        <div className="flex flex-wrap gap-2">
+                          {caseItem.services.map((service, idx) => <span key={idx} className="bg-[#0A1628] text-gray-300 text-xs px-2 py-1 rounded">
+                              {service}
+                            </span>)}
+                        </div>
+                      </div>
+                      
+                      <div>
+                        <div className="text-white font-semibold text-sm mb-2">项目成果：</div>
+                        <ul className="space-y-1">
+                          {caseItem.results.map((result, idx) => <li key={idx} className="flex items-center space-x-2 text-gray-400 text-xs">
+                              <CheckCircle className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
+                              <span>{result}</span>
+                            </li>)}
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                  
-                  <div>
-                    <div className="text-white font-semibold text-sm mb-2">项目成果：</div>
-                    <ul className="space-y-1">
-                      {caseItem.results.map((result, index) => <li key={index} className="flex items-center space-x-2 text-gray-400 text-xs">
-                          <CheckCircle className="w-3 h-3 text-[#D4AF37] flex-shrink-0" />
-                          <span>{result}</span>
-                        </li>)}
-                    </ul>
-                  </div>
-                </div>
-              </div>)}
+                </HoverScale>
+              </FadeIn>)}
           </div>
         </div>
       </section>
