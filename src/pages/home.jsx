@@ -7,8 +7,9 @@ import { Button, useToast } from '@/components/ui';
 
 import { FadeIn, CountUp, GradientText, HoverScale } from '@/components/AnimationProvider.jsx';
 import { LazyImage } from '@/components/ImageOptimizer.jsx';
-// @ts-ignore;
-
+import { SEOOptimizer, StructuredData } from '@/components/SEOOptimizer.jsx';
+import { AccessibilityWrapper } from '@/components/AccessibilityWrapper.jsx';
+import { PageMeta } from '@/components/PageMeta.jsx';
 import OnlineChat from '@/components/OnlineChat.jsx';
 export default function Home(props) {
   const {
@@ -225,7 +226,19 @@ export default function Home(props) {
   };
   const currentDefense = defenses[currentSlide];
   const CurrentIcon = currentDefense.icon;
-  return <div className="min-h-screen bg-[#0A1628] font-sans">
+  return <AccessibilityWrapper>
+      <PageMeta pageId="home" />
+      <SEOOptimizer>
+        <StructuredData type="Organization" data={{
+        name: "SecureGuard",
+        description: "专业的四防一体化安全服务：人防、技防、物防、智防",
+        url: "https://secureguard.com",
+        logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300",
+        telephone: "+86-400-888-8888",
+        email: "contact@secureguard.com"
+      }} />
+      </SEOOptimizer>
+      <div id="main-content" className="min-h-screen bg-[#0A1628] font-sans">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -325,8 +338,8 @@ export default function Home(props) {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button onClick={() => navigateTo('services', {
-                defense: currentDefense.id
-              })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
+                  defense: currentDefense.id
+                })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
                   了解{currentDefense.title}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -376,14 +389,14 @@ export default function Home(props) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {defenses.map((defense, index) => {
-            const DefenseIcon = defense.icon;
-            return <div key={defense.id} onClick={() => {
-              setCurrentSlide(defense.id);
-              window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-              });
-            }} className={`group bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 cursor-pointer ${currentSlide === index ? 'border-[#D4AF37]' : 'border-[#2D3748] hover:border-[#D4AF37]/50'}`}>
+              const DefenseIcon = defense.icon;
+              return <div key={defense.id} onClick={() => {
+                setCurrentSlide(defense.id);
+                window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+                });
+              }} className={`group bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 cursor-pointer ${currentSlide === index ? 'border-[#D4AF37]' : 'border-[#2D3748] hover:border-[#D4AF37]/50'}`}>
                 <div className={`w-16 h-16 bg-gradient-to-br ${defense.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <DefenseIcon className="w-8 h-8 text-white" />
                 </div>
@@ -398,7 +411,7 @@ export default function Home(props) {
                   查看详情 <ArrowRight className="ml-2 w-4 h-4" />
                 </div>
               </div>;
-          })}
+            })}
           </div>
         </div>
       </section>
@@ -510,8 +523,8 @@ export default function Home(props) {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-32 h-full bg-gradient-to-l from-[#0A1628] to-transparent" />
             
             <div className="flex space-x-8 animate-scroll" style={{
-            animation: 'scroll 30s linear infinite'
-          }}>
+              animation: 'scroll 30s linear infinite'
+            }}>
 
               {/* 第一组图片 */}
               {[...honors, ...honors].map((honor, index) => <div key={`${honor.id}-${index}`} className="flex-shrink-0 w-80">
@@ -679,5 +692,6 @@ export default function Home(props) {
           </div>
         </div>
       </footer>
-    </div>;
+      </div>
+    </AccessibilityWrapper>;
 }

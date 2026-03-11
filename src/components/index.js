@@ -3,3 +3,8 @@ export * from './MapComponent.jsx';
 export * from './AdminDashboard.jsx';
 export * from './AnimationProvider.jsx';
 export * from './ImageOptimizer.jsx';
+export * from './SEOOptimizer.jsx';
+export * from './AccessibilityOptimizer.jsx';
+export * from './PageMeta.jsx';
+export * from './AriaLiveRegion.jsx';
+export * from './AccessibilityWrapper.jsx';
