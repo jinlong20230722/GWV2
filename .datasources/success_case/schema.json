@@ -1,0 +1,22 @@
+{
+  "name": "success_case",
+  "description": "成功案例数据模型",
+  "fields": {
+    "title": { "type": "string", "description": "案例标题" },
+    "category": { "type": "string", "description": "行业分类: finance金融, education教育, real-estate地产, enterprise企业, residential住宅" },
+    "client_name": { "type": "string", "description": "客户名称(脱敏)" },
+    "client_type": { "type": "string", "description": "客户类型描述" },
+    "description": { "type": "text", "description": "案例描述" },
+    "project_scale": { "type": "string", "description": "项目规模" },
+    "services": { "type": "array", "description": "服务内容列表" },
+    "results": { "type": "array", "description": "项目成果列表" },
+    "main_image": { "type": "string", "description": "主图片URL" },
+    "main_image_alt": { "type": "string", "description": "主图片ALT文案" },
+    "year": { "type": "string", "description": "项目年份" },
+    "sort_order": { "type": "number", "description": "排序顺序" },
+    "is_featured": { "type": "boolean", "description": "是否精选" },
+    "is_active": { "type": "boolean", "description": "是否启用" },
+    "created_at": { "type": "datetime", "description": "创建时间" },
+    "updated_at": { "type": "datetime", "description": "更新时间" }
+  }
+}

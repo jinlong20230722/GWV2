@@ -1,0 +1,20 @@
+{
+  "name": "contact_inquiry",
+  "description": "联系表单咨询数据模型",
+  "fields": {
+    "name": { "type": "string", "description": "联系人姓名" },
+    "phone": { "type": "string", "description": "联系电话" },
+    "email": { "type": "string", "description": "联系邮箱" },
+    "company": { "type": "string", "description": "公司/单位" },
+    "service_type": { "type": "string", "description": "咨询服务类型" },
+    "message": { "type": "text", "description": "咨询内容" },
+    "status": { "type": "string", "description": "处理状态: pending待处理, processing处理中, completed已完成, closed已关闭" },
+    "assigned_to": { "type": "string", "description": "分配给" },
+    "notes": { "type": "text", "description": "处理备注" },
+    "response_at": { "type": "datetime", "description": "回复时间" },
+    "closed_at": { "type": "datetime", "description": "关闭时间" },
+    "_openid": { "type": "string", "description": "用户标识" },
+    "created_at": { "type": "datetime", "description": "创建时间" },
+    "updated_at": { "type": "datetime", "description": "更新时间" }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "website_config",
+  "description": "网站全局配置数据模型",
+  "fields": {
+    "site_name": { "type": "string", "description": "网站名称" },
+    "logo_text": { "type": "string", "description": "Logo文字" },
+    "company_name": { "type": "string", "description": "公司名称" },
+    "founded_year": { "type": "number", "description": "成立年份" },
+    "copyright": { "type": "string", "description": "版权信息" },
+    "hotline": { "type": "string", "description": "客服热线" },
+    "emergency_hotline": { "type": "string", "description": "应急热线" },
+    "email": { "type": "string", "description": "联系邮箱" },
+    "address": { "type": "string", "description": "公司地址" },
+    "address_detail": { "type": "string", "description": "详细地址" },
+    "business_hours": { "type": "string", "description": "营业时间" },
+    "stats_time_range": { "type": "string", "description": "统计数据时间范围" },
+    "years_experience": { "type": "string", "description": "行业经验" },
+    "clients_count": { "type": "string", "description": "服务客户数" },
+    "staff_count": { "type": "string", "description": "安保人员数" },
+    "satisfaction_rate": { "type": "string", "description": "客户满意度" },
+    "seo_title": { "type": "string", "description": "SEO标题" },
+    "seo_description": { "type": "string", "description": "SEO描述" },
+    "seo_keywords": { "type": "string", "description": "SEO关键词" },
+    "is_active": { "type": "boolean", "description": "是否启用" },
+    "created_at": { "type": "datetime", "description": "创建时间" },
+    "updated_at": { "type": "datetime", "description": "更新时间" }
+  }
+}

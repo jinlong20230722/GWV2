@@ -1,0 +1,18 @@
+{
+  "name": "team_member",
+  "description": "团队成员数据模型",
+  "fields": {
+    "name": { "type": "string", "description": "姓名" },
+    "position": { "type": "string", "description": "职位" },
+    "description": { "type": "text", "description": "个人简介" },
+    "avatar_image": { "type": "string", "description": "头像图片URL" },
+    "avatar_image_alt": { "type": "string", "description": "头像ALT文案" },
+    "department": { "type": "string", "description": "部门" },
+    "join_year": { "type": "number", "description": "入职年份" },
+    "is_leader": { "type": "boolean", "description": "是否为领导" },
+    "sort_order": { "type": "number", "description": "排序顺序" },
+    "is_active": { "type": "boolean", "description": "是否启用" },
+    "created_at": { "type": "datetime", "description": "创建时间" },
+    "updated_at": { "type": "datetime", "description": "更新时间" }
+  }
+}
