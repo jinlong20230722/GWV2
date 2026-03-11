@@ -21,3 +21,5 @@ export * from './EnhancedAnimations.jsx';
 export * from './CredentialDetailModal.jsx';
 export * from './HomeEnhancer.jsx';
 export * from './EnhancedHeroCarousel.jsx';
+export * from './MobileExperienceAudit.jsx';
+export * from './MobileOptimizationFixes.jsx';
