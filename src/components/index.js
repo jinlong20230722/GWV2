@@ -8,3 +8,6 @@ export * from './AccessibilityOptimizer.jsx';
 export * from './PageMeta.jsx';
 export * from './AriaLiveRegion.jsx';
 export * from './AccessibilityWrapper.jsx';
+export * from './PerformanceOptimizer.jsx';
+export * from './ContentUpdater.jsx';
+export * from './GlobalOptimizer.jsx';
