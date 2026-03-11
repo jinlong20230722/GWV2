@@ -1,18 +1,41 @@
 {
   "name": "honor_award",
-  "description": "锦旗表扬信数据模型",
-  "fields": {
-    "type": { "type": "string", "description": "类型: banner锦旗, letter表扬信, thankyou感谢信" },
-    "title": { "type": "string", "description": "标题" },
-    "description": { "type": "text", "description": "描述" },
-    "client_name": { "type": "string", "description": "赠送客户(脱敏)" },
-    "client_type": { "type": "string", "description": "客户类型描述" },
-    "date": { "type": "string", "description": "日期" },
-    "main_image": { "type": "string", "description": "主图片URL" },
-    "main_image_alt": { "type": "string", "description": "图片ALT文案" },
-    "sort_order": { "type": "number", "description": "排序顺序" },
-    "is_active": { "type": "boolean", "description": "是否启用" },
-    "created_at": { "type": "datetime", "description": "创建时间" },
-    "updated_at": { "type": "datetime", "description": "更新时间" }
-  }
+  "title": "荣誉奖项",
+  "schemas": [
+    {
+      "name": "title",
+      "title": "奖项名称",
+      "type": "String"
+    },
+    {
+      "name": "year",
+      "title": "获得年份",
+      "type": "String"
+    },
+    {
+      "name": "issuer",
+      "title": "颁发机构",
+      "type": "String"
+    },
+    {
+      "name": "description",
+      "title": "奖项描述",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "image",
+      "title": "奖项图片",
+      "type": "Image"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
 }

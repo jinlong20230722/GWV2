@@ -1,7 +1,7 @@
 // @ts-ignore;
 import React, { useState, useEffect } from 'react';
 // @ts-ignore;
-import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award } from 'lucide-react';
+import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play } from 'lucide-react';
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
@@ -16,6 +16,7 @@ export default function Home(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isCarouselPaused, setIsCarouselPaused] = useState(false);
   const defenses = [{
     id: 0,
     title: '人防',
@@ -55,16 +56,20 @@ export default function Home(props) {
   }];
   const stats = [{
     number: '20+',
-    label: '年行业经验'
+    label: '年行业经验',
+    note: '截至2025年12月'
   }, {
     number: '500+',
-    label: '服务客户'
+    label: '服务客户',
+    note: '截至2025年12月'
   }, {
     number: '1000+',
-    label: '安保人员'
+    label: '安保人员',
+    note: '截至2025年12月'
   }, {
     number: '99%',
-    label: '客户满意度'
+    label: '客户满意度',
+    note: '截至2025年12月'
   }];
   const whyChooseUs = [{
     icon: CheckCircle,
@@ -89,16 +94,19 @@ export default function Home(props) {
   }];
   const testimonials = [{
     name: '张总',
+    position: '董事长',
     company: '某大型企业集团',
     content: 'SecureGuard 的四防一体化方案为我们提供了全方位的安全保障，专业、可靠、高效，让我们非常放心。',
     rating: 5
   }, {
     name: '李经理',
+    position: '行政总监',
     company: '知名会展中心',
     content: '多次大型活动的安保合作，每次都圆满完成任务，团队专业素质极高，特别是智防系统的应用大大提升了安保效率。',
     rating: 5
   }, {
     name: '王女士',
+    position: '业主委员会主任',
     company: '高端住宅小区',
     content: '小区安保服务非常到位，人防、技防、物防、智防四位一体，居民安全感大大提升，服务态度也很好。',
     rating: 5
@@ -176,11 +184,16 @@ export default function Home(props) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % defenses.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    let interval;
+    if (!isCarouselPaused) {
+      interval = setInterval(() => {
+        setCurrentSlide(prev => (prev + 1) % defenses.length);
+      }, 5000);
+    }
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isCarouselPaused]);
   const scrollToSection = id => {
     const element = document.getElementById(id);
     if (element) {
@@ -327,12 +340,20 @@ export default function Home(props) {
             <ChevronLeft className="w-6 h-6 text-white" />
           </button>
           
-          <div className="flex space-x-2">
-            {defenses.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-[#D4AF37] w-8' : 'bg-white/30 hover:bg-white/50'}`} />)}
+          <div className="flex space-x-3">
+            {defenses.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`relative transition-all duration-300 ${currentSlide === index ? 'bg-[#D4AF37] w-10 h-4' : 'bg-white/30 hover:bg-white/50 w-4 h-4'} rounded-full`}>
+                {currentSlide === index && <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-[#0A1628] text-xs font-bold">{index + 1}</span>
+                  </div>}
+              </button>)}
           </div>
           
           <button onClick={nextSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
             <ChevronRight className="w-6 h-6 text-white" />
+          </button>
+          
+          <button onClick={() => setIsCarouselPaused(!isCarouselPaused)} className="w-12 h-12 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-[#D4AF37]/30 transition-colors border border-[#D4AF37]/30">
+            {isCarouselPaused ? <Play className="w-5 h-5 text-[#D4AF37]" /> : <Pause className="w-5 h-5 text-[#D4AF37]" />}
           </button>
         </div>
       </section>
@@ -420,7 +441,7 @@ export default function Home(props) {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
               <div className="relative bg-[#0A1628] rounded-3xl p-8 border border-[#2D3748]">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="Professional Security Team" className="w-full h-80 object-cover rounded-2xl mb-6" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="专业安保人员执勤场景" className="w-full h-80 object-cover rounded-2xl mb-6" />
                 <div className="flex items-center justify-between">
                   <div>
                     <div className="text-[#D4AF37] font-bold text-2xl font-serif">20+</div>
@@ -456,6 +477,12 @@ export default function Home(props) {
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               每一份荣誉都是客户对我们的信任与认可
+              <span className="text-[#D4AF37] ml-2 text-sm inline-flex items-center">
+                <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                悬停可暂停浏览
+              </span>
             </p>
           </div>
 
@@ -629,7 +656,7 @@ export default function Home(props) {
 
           <div className="border-t border-[#2D3748] mt-12 pt-8 text-center">
             <p className="text-gray-500">
-              © 2026 SecureGuard. All rights reserved.
+              © 2025–2026 SecureGuard. All rights reserved.
             </p>
           </div>
         </div>

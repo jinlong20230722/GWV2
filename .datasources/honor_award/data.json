@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "1",
+    "title": "年度最佳安保服务企业",
+    "year": "2025",
+    "issuer": "中国安全防范产品行业协会",
+    "description": "在年度评选中荣获最佳安保服务企业称号",
+    "image": "",
+    "order": 1,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "2",
+    "title": "智慧安防创新奖",
+    "year": "2024",
+    "issuer": "中国智慧城市产业联盟",
+    "description": "智慧安防解决方案获得创新奖",
+    "image": "",
+    "order": 2,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "3",
+    "title": "优秀安保服务提供商",
+    "year": "2023",
+    "issuer": "北京市保安协会",
+    "description": "连续多年获得优秀安保服务提供商称号",
+    "image": "",
+    "order": 3,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "4",
+    "title": "社会责任贡献奖",
+    "year": "2022",
+    "issuer": "中国公益事业发展中心",
+    "description": "在社会责任履行方面获得认可",
+    "image": "",
+    "order": 4,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  }
+]

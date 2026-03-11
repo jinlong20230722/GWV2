@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "1",
+    "name": "张明",
+    "position": "创始人 & CEO",
+    "description": "20年安保行业经验，曾任职于多家知名安保企业",
+    "avatar": "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400",
+    "email": "zhangming@secureguard.com",
+    "phone": "",
+    "order": 1,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "2",
+    "name": "李华",
+    "position": "运营总监",
+    "description": "15年安保运营管理经验，专业高效",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400",
+    "email": "lihua@secureguard.com",
+    "phone": "",
+    "order": 2,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "3",
+    "name": "王强",
+    "position": "技术总监",
+    "description": "安防技术专家，引领技术创新",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400",
+    "email": "wangqiang@secureguard.com",
+    "phone": "",
+    "order": 3,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "4",
+    "name": "赵敏",
+    "position": "客户服务总监",
+    "description": "专注客户服务，确保客户满意度",
+    "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400",
+    "email": "zhaomin@secureguard.com",
+    "phone": "",
+    "order": 4,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  }
+]

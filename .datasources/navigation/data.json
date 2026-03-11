@@ -1,0 +1,67 @@
+[
+  {
+    "_id": "1",
+    "title": "首页",
+    "page_id": "home",
+    "link": "/",
+    "icon_name": "Home",
+    "parent_id": "",
+    "order": 1,
+    "is_active": true,
+    "is_external": false,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "2",
+    "title": "四大防线",
+    "page_id": "services",
+    "link": "/services",
+    "icon_name": "Shield",
+    "parent_id": "",
+    "order": 2,
+    "is_active": true,
+    "is_external": false,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "3",
+    "title": "成功案例",
+    "page_id": "cases",
+    "link": "/cases",
+    "icon_name": "Award",
+    "parent_id": "",
+    "order": 3,
+    "is_active": true,
+    "is_external": false,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "4",
+    "title": "关于我们",
+    "page_id": "about",
+    "link": "/about",
+    "icon_name": "Users",
+    "parent_id": "",
+    "order": 4,
+    "is_active": true,
+    "is_external": false,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "5",
+    "title": "联系我们",
+    "page_id": "contact",
+    "link": "/contact",
+    "icon_name": "Phone",
+    "parent_id": "",
+    "order": 5,
+    "is_active": true,
+    "is_external": false,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  }
+]

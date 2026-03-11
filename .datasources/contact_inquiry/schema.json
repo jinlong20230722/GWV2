@@ -1,20 +1,51 @@
 {
   "name": "contact_inquiry",
-  "description": "联系表单咨询数据模型",
-  "fields": {
-    "name": { "type": "string", "description": "联系人姓名" },
-    "phone": { "type": "string", "description": "联系电话" },
-    "email": { "type": "string", "description": "联系邮箱" },
-    "company": { "type": "string", "description": "公司/单位" },
-    "service_type": { "type": "string", "description": "咨询服务类型" },
-    "message": { "type": "text", "description": "咨询内容" },
-    "status": { "type": "string", "description": "处理状态: pending待处理, processing处理中, completed已完成, closed已关闭" },
-    "assigned_to": { "type": "string", "description": "分配给" },
-    "notes": { "type": "text", "description": "处理备注" },
-    "response_at": { "type": "datetime", "description": "回复时间" },
-    "closed_at": { "type": "datetime", "description": "关闭时间" },
-    "_openid": { "type": "string", "description": "用户标识" },
-    "created_at": { "type": "datetime", "description": "创建时间" },
-    "updated_at": { "type": "datetime", "description": "更新时间" }
-  }
+  "title": "联系咨询",
+  "schemas": [
+    {
+      "name": "name",
+      "title": "姓名",
+      "type": "String"
+    },
+    {
+      "name": "email",
+      "title": "邮箱",
+      "type": "Email"
+    },
+    {
+      "name": "phone",
+      "title": "电话",
+      "type": "String"
+    },
+    {
+      "name": "company",
+      "title": "公司名称",
+      "type": "String"
+    },
+    {
+      "name": "service",
+      "title": "咨询服务",
+      "type": "String"
+    },
+    {
+      "name": "message",
+      "title": "咨询内容",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "status",
+      "title": "处理状态",
+      "type": "String"
+    },
+    {
+      "name": "remarks",
+      "title": "备注",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "is_read",
+      "title": "是否已读",
+      "type": "Boolean"
+    }
+  ]
 }

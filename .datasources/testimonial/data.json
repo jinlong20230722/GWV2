@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "1",
+    "name": "张总",
+    "position": "董事长",
+    "company": "某大型企业集团",
+    "avatar": "",
+    "content": "SecureGuard 的四防一体化方案为我们提供了全方位的安全保障，专业、可靠、高效，让我们非常放心。",
+    "rating": 5,
+    "order": 1,
+    "is_featured": true,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "2",
+    "name": "李经理",
+    "position": "行政总监",
+    "company": "知名会展中心",
+    "avatar": "",
+    "content": "多次大型活动的安保合作，每次都圆满完成任务，团队专业素质极高，特别是智防系统的应用大大提升了安保效率。",
+    "rating": 5,
+    "order": 2,
+    "is_featured": true,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "3",
+    "name": "王女士",
+    "position": "业主委员会主任",
+    "company": "高端住宅小区",
+    "avatar": "",
+    "content": "小区安保服务非常到位，人防、技防、物防、智防四位一体，居民安全感大大提升，服务态度也很好。",
+    "rating": 5,
+    "order": 3,
+    "is_featured": true,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  }
+]

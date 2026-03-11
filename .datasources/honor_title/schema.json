@@ -1,15 +1,46 @@
 {
   "name": "honor_title",
-  "description": "荣誉奖项数据模型",
-  "fields": {
-    "title": { "type": "string", "description": "荣誉称号" },
-    "year": { "type": "string", "description": "获得年份" },
-    "issuer": { "type": "string", "description": "颁发机构" },
-    "description": { "type": "text", "description": "荣誉说明" },
-    "icon_name": { "type": "string", "description": "图标名称" },
-    "sort_order": { "type": "number", "description": "排序顺序" },
-    "is_active": { "type": "boolean", "description": "是否启用" },
-    "created_at": { "type": "datetime", "description": "创建时间" },
-    "updated_at": { "type": "datetime", "description": "更新时间" }
-  }
+  "title": "荣誉称号（锦旗/表扬信）",
+  "schemas": [
+    {
+      "name": "type",
+      "title": "类型",
+      "type": "String"
+    },
+    {
+      "name": "title",
+      "title": "标题",
+      "type": "String"
+    },
+    {
+      "name": "description",
+      "title": "描述",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "client",
+      "title": "客户名称",
+      "type": "String"
+    },
+    {
+      "name": "date",
+      "title": "日期",
+      "type": "String"
+    },
+    {
+      "name": "image",
+      "title": "图片",
+      "type": "Image"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
 }

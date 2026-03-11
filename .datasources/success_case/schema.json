@@ -1,22 +1,72 @@
 {
   "name": "success_case",
-  "description": "成功案例数据模型",
-  "fields": {
-    "title": { "type": "string", "description": "案例标题" },
-    "category": { "type": "string", "description": "行业分类: finance金融, education教育, real-estate地产, enterprise企业, residential住宅" },
-    "client_name": { "type": "string", "description": "客户名称(脱敏)" },
-    "client_type": { "type": "string", "description": "客户类型描述" },
-    "description": { "type": "text", "description": "案例描述" },
-    "project_scale": { "type": "string", "description": "项目规模" },
-    "services": { "type": "array", "description": "服务内容列表" },
-    "results": { "type": "array", "description": "项目成果列表" },
-    "main_image": { "type": "string", "description": "主图片URL" },
-    "main_image_alt": { "type": "string", "description": "主图片ALT文案" },
-    "year": { "type": "string", "description": "项目年份" },
-    "sort_order": { "type": "number", "description": "排序顺序" },
-    "is_featured": { "type": "boolean", "description": "是否精选" },
-    "is_active": { "type": "boolean", "description": "是否启用" },
-    "created_at": { "type": "datetime", "description": "创建时间" },
-    "updated_at": { "type": "datetime", "description": "更新时间" }
-  }
+  "title": "成功案例",
+  "schemas": [
+    {
+      "name": "title",
+      "title": "案例标题",
+      "type": "String"
+    },
+    {
+      "name": "category",
+      "title": "案例分类",
+      "type": "String"
+    },
+    {
+      "name": "client",
+      "title": "客户名称",
+      "type": "String"
+    },
+    {
+      "name": "description",
+      "title": "案例描述",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "services",
+      "title": "提供服务",
+      "type": "Array",
+      "items": {
+        "type": "String"
+      }
+    },
+    {
+      "name": "results",
+      "title": "服务成果",
+      "type": "Array",
+      "items": {
+        "type": "String"
+      }
+    },
+    {
+      "name": "image",
+      "title": "案例图片",
+      "type": "Image"
+    },
+    {
+      "name": "year",
+      "title": "年份",
+      "type": "String"
+    },
+    {
+      "name": "stats_time",
+      "title": "数据统计时间",
+      "type": "String"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_featured",
+      "title": "是否推荐",
+      "type": "Boolean"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
 }

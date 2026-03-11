@@ -1,25 +1,77 @@
 {
   "name": "company_info",
-  "description": "公司信息数据模型",
-  "fields": {
-    "about_title": { "type": "string", "description": "关于我们标题" },
-    "about_subtitle": { "type": "string", "description": "关于我们副标题" },
-    "company_story": { "type": "text", "description": "公司故事" },
-    "mission": { "type": "text", "description": "使命" },
-    "vision": { "type": "text", "description": "愿景" },
-    "core_values": { "type": "array", "description": "核心价值观" },
-    "hero_image": { "type": "string", "description": "英雄区图片" },
-    "hero_image_alt": { "type": "string", "description": "英雄区图片ALT文案" },
-    "tech_subsidiary_title": { "type": "string", "description": "科技子公司标题" },
-    "tech_subsidiary_desc": { "type": "text", "description": "科技子公司描述" },
-    "tech_features": { "type": "array", "description": "科技特色" },
-    "ceo_message": { "type": "text", "description": "CEO寄语" },
-    "ceo_name": { "type": "string", "description": "CEO姓名" },
-    "ceo_title": { "type": "string", "description": "CEO职位" },
-    "ceo_image": { "type": "string", "description": "CEO照片" },
-    "ceo_image_alt": { "type": "string", "description": "CEO照片ALT文案" },
-    "is_active": { "type": "boolean", "description": "是否启用" },
-    "created_at": { "type": "datetime", "description": "创建时间" },
-    "updated_at": { "type": "datetime", "description": "更新时间" }
-  }
+  "title": "公司信息",
+  "schemas": [
+    {
+      "name": "company_name",
+      "title": "公司名称",
+      "type": "String"
+    },
+    {
+      "name": "founded_year",
+      "title": "成立年份",
+      "type": "String"
+    },
+    {
+      "name": "company_story",
+      "title": "公司故事",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "company_mission",
+      "title": "公司使命",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "company_vision",
+      "title": "公司愿景",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "core_values",
+      "title": "核心价值观",
+      "type": "Array",
+      "items": {
+        "type": "String"
+      }
+    },
+    {
+      "name": "milestones",
+      "title": "发展历程",
+      "type": "Array",
+      "items": {
+        "type": "Object"
+      }
+    },
+    {
+      "name": "stats_years_experience",
+      "title": "行业经验年数",
+      "type": "String"
+    },
+    {
+      "name": "stats_clients",
+      "title": "服务客户数",
+      "type": "String"
+    },
+    {
+      "name": "stats_employees",
+      "title": "员工人数",
+      "type": "String"
+    },
+    {
+      "name": "stats_satisfaction",
+      "title": "客户满意度",
+      "type": "String"
+    },
+    {
+      "name": "stats_time_note",
+      "title": "数据统计时间",
+      "type": "String"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
 }

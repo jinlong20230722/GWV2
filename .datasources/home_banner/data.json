@@ -1,0 +1,28 @@
+[
+  {
+    "_id": "1",
+    "title": "四防一体化",
+    "subtitle": "专业安保服务",
+    "description": "人防、技防、物防、智防四位一体，为您提供全方位的安全保障",
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920",
+    "button_text": "了解更多",
+    "button_link": "/services",
+    "order": 1,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "2",
+    "title": "专业团队",
+    "subtitle": "20年行业经验",
+    "description": "拥有经验丰富的专业安保团队，为您提供最可靠的安全守护",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920",
+    "button_text": "查看案例",
+    "button_link": "/cases",
+    "order": 2,
+    "is_active": true,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  }
+]

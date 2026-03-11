@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "1",
+    "name": "张三",
+    "email": "zhangsan@example.com",
+    "phone": "13800138000",
+    "company": "某某科技有限公司",
+    "service": "人防服务",
+    "message": "我们公司需要安保服务，想了解一下具体的服务内容和价格。",
+    "status": "待处理",
+    "remarks": "",
+    "is_read": false,
+    "createdAt": 1741651446543,
+    "updatedAt": 1741651446543
+  },
+  {
+    "_id": "2",
+    "name": "李四",
+    "email": "lisi@example.com",
+    "phone": "13900139000",
+    "company": "某某地产集团",
+    "service": "智防系统",
+    "message": "我们小区需要安装智能安防系统，希望能安排人员现场勘查。",
+    "status": "处理中",
+    "remarks": "已安排技术人员下周一看现场",
+    "is_read": true,
+    "createdAt": 1741565046543,
+    "updatedAt": 1741651446543
+  }
+]
