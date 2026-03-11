@@ -254,20 +254,20 @@ export default function Cases(props) {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
             <div className="bg-[#2D3748]/50 backdrop-blur-sm p-6 rounded-2xl border border-[#2D3748]">
+              <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">20+</div>
+              <div className="text-gray-400">年行业经验</div>
+            </div>
+            <div className="bg-[#2D3748]/50 backdrop-blur-sm p-6 rounded-2xl border border-[#2D3748]">
               <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">500+</div>
-              <div className="text-gray-400">成功案例</div>
+              <div className="text-gray-400">服务客户</div>
+            </div>
+            <div className="bg-[#2D3748]/50 backdrop-blur-sm p-6 rounded-2xl border border-[#2D3748]">
+              <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">1000+</div>
+              <div className="text-gray-400">安保人员</div>
             </div>
             <div className="bg-[#2D3748]/50 backdrop-blur-sm p-6 rounded-2xl border border-[#2D3748]">
               <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">99%</div>
               <div className="text-gray-400">客户满意度</div>
-            </div>
-            <div className="bg-[#2D3748]/50 backdrop-blur-sm p-6 rounded-2xl border border-[#2D3748]">
-              <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">20+</div>
-              <div className="text-gray-400">行业经验</div>
-            </div>
-            <div className="bg-[#2D3748]/50 backdrop-blur-sm p-6 rounded-2xl border border-[#2D3748]">
-              <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">50+</div>
-              <div className="text-gray-400">资质认证</div>
             </div>
           </div>
         </div>

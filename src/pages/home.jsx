@@ -296,85 +296,43 @@ export default function Home(props) {
 
         {/* Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Left Main Content */}
-            <div className="text-center lg:text-left">
-              {/* Slogan */}
-              <div className="animate-fade-in-up">
-                <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
-                  <Shield className="w-6 h-6 text-[#D4AF37]" />
-                  <span className="text-[#D4AF37] font-semibold text-lg">四防一体 · 智慧安保新纪元</span>
-                </div>
-                
-                <h1 className="text-5xl md:text-7xl font-bold text-white font-serif mb-6 leading-tight">
-                  {currentDefense.title}
-                  <span className={`block mt-2 bg-gradient-to-r ${currentDefense.color} bg-clip-text text-transparent`}>
-                    {currentDefense.subtitle}
-                  </span>
-                </h1>
-                
-                <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto lg:mx-0 leading-relaxed">
-                  {currentDefense.description}
-                </p>
-                
-                {/* Features */}
-                <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
-                  {currentDefense.features.map((feature, index) => <div key={index} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                      <CheckCircle className="w-5 h-5 text-[#D4AF37]" />
-                      <span className="text-white font-medium">{feature}</span>
-                    </div>)}
-                </div>
-                
-                {/* Main Stats Display */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
-                  {stats.map((stat, index) => <div key={index} className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-[#D4AF37] font-serif mb-1">
-                        {stat.number}
-                      </div>
-                      <div className="text-gray-300 text-sm md:text-base">{stat.label}</div>
-                    </div>)}
-                </div>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                  <Button onClick={() => navigateTo('services', {
-                    defense: currentDefense.id
-                  })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
-                    了解{currentDefense.title}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                  <Button onClick={() => navigateTo('contact')} variant="outline" className="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A1628] transition-all duration-300 text-black">
-                    立即咨询
-                  </Button>
-                </div>
+          <div className="text-center">
+            {/* Slogan */}
+            <div className="animate-fade-in-up mb-8">
+              <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
+                <Shield className="w-6 h-6 text-[#D4AF37]" />
+                <span className="text-[#D4AF37] font-semibold text-lg">四防一体 · 智慧安保新纪元</span>
               </div>
-            </div>
-            
-            {/* Right Image Overlay with Stats */}
-            <div className="relative hidden lg:block">
-              <div className="relative">
-                <img src={currentDefense.image} alt={currentDefense.title} className="w-full h-[600px] object-cover rounded-3xl shadow-2xl" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628]/80 to-[#2D3748]/60 rounded-3xl" />
-                
-                {/* Stats Overlay on Right Image */}
-                <div className="absolute bottom-0 left-0 right-0 p-8">
-                  <div className="grid grid-cols-3 gap-6">
-                    {[{
-                      number: stats[0].number,
-                      label: '年专业经验'
-                    }, {
-                      number: stats[2].number,
-                      label: '专业安保人员'
-                    }, {
-                      number: stats[3].number,
-                      label: '客户满意度'
-                    }].map((stat, index) => <div key={index} className="text-center bg-black/30 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
-                        <div className="text-3xl font-bold text-[#D4AF37] font-serif mb-1">
-                          {stat.number}
-                        </div>
-                        <div className="text-white text-sm">{stat.label}</div>
-                      </div>)}
-                  </div>
-                </div>
+              
+              <h1 className="text-5xl md:text-7xl font-bold text-white font-serif mb-6 leading-tight">
+                {currentDefense.title}
+                <span className={`block mt-2 bg-gradient-to-r ${currentDefense.color} bg-clip-text text-transparent`}>
+                  {currentDefense.subtitle}
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                {currentDefense.description}
+              </p>
+              
+              {/* Features */}
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                {currentDefense.features.map((feature, index) => <div key={index} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <CheckCircle className="w-5 h-5 text-[#D4AF37]" />
+                    <span className="text-white font-medium">{feature}</span>
+                  </div>)}
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button onClick={() => navigateTo('services', {
+                  defense: currentDefense.id
+                })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
+                  了解{currentDefense.title}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button onClick={() => navigateTo('contact')} variant="outline" className="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A1628] transition-all duration-300 text-black">
+                  立即咨询
+                </Button>
               </div>
             </div>
           </div>
