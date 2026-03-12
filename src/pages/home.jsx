@@ -1,7 +1,7 @@
 // @ts-ignore;
 import React, { useState, useEffect } from 'react';
 // @ts-ignore;
-import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play, FileText, Calendar, Home, Briefcase, MessageSquare, FolderOpen, User } from 'lucide-react';
+import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play, FileText, Calendar, Home as HomeIcon, Briefcase, MessageSquare, FolderOpen, User } from 'lucide-react';
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
@@ -228,7 +228,7 @@ export default function Home(props) {
       </SEOOptimizer>
       <div id="main-content" className="min-h-screen bg-[#0A1628] font-sans">
       {/* Navigation */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 safe-area-top ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -286,6 +286,9 @@ export default function Home(props) {
             </div>
           </div>}
       </nav>
+
+      {/* 导航栏占位空间 */}
+      <div className="h-20 safe-area-top"></div>
 
       {/* Hero Section - Four Defenses Carousel */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -800,7 +803,7 @@ export default function Home(props) {
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0A1628]/95 backdrop-blur-lg border-t border-[#2D3748] z-50 safe-area-bottom bottom-nav-safe">
         <nav className="flex justify-around items-center py-2">
           <button onClick={() => navigateTo('home')} className="flex flex-col items-center justify-center touch-target space-y-1 text-[#D4AF37]">
-            <Home className="w-6 h-6" />
+            <HomeIcon className="w-6 h-6" />
             <span className="text-xs font-medium">首页</span>
           </button>
           <button onClick={() => navigateTo('services')} className="flex flex-col items-center justify-center touch-target space-y-1 text-gray-400 hover:text-[#D4AF37] transition-colors">
