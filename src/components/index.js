@@ -26,3 +26,8 @@ export * from './MobileOptimizationFixes.jsx';
 export * from './MobileTabBar.jsx';
 export * from './MobileOptimizationSummary.jsx';
 export * from './CompleteMobileOptimization.jsx';
+export * from './MobileTestingVerification.jsx';
+export * from './MobileHamburgerMenu.jsx';
+export * from './MobileImageOptimizer.jsx';
+export * from './MobileTouchFeedback.jsx';
+export * from './MobileIssueFixes.jsx';
