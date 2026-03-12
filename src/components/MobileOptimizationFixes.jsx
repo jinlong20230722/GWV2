@@ -110,7 +110,7 @@ export function MobileOptimizedInput({
 }
 
 // 移动端优化的图片组件
-export function MobileOptimizedImage({
+export function SimpleMobileImage({
   src,
   alt,
   className = '',
