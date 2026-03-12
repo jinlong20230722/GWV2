@@ -23,3 +23,5 @@ export * from './HomeEnhancer.jsx';
 export * from './EnhancedHeroCarousel.jsx';
 export * from './MobileExperienceAudit.jsx';
 export * from './MobileOptimizationFixes.jsx';
+export * from './MobileTabBar.jsx';
+export * from './MobileOptimizationSummary.jsx';
