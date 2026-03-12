@@ -25,3 +25,4 @@ export * from './MobileExperienceAudit.jsx';
 export * from './MobileOptimizationFixes.jsx';
 export * from './MobileTabBar.jsx';
 export * from './MobileOptimizationSummary.jsx';
+export * from './CompleteMobileOptimization.jsx';
