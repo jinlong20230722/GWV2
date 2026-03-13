@@ -9,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import OnlineChat from '@/components/OnlineChat.jsx';
 import MapComponent from '@/components/MapComponent.jsx';
 import { FadeIn } from '@/components/AnimationProvider.jsx';
+import MobileTabBar from '@/components/MobileTabBar.jsx';
 export default function Contact(props) {
   const {
     $w
@@ -291,35 +292,7 @@ export default function Contact(props) {
       {/* Online Chat */}
       <OnlineChat />
 
-      {/* 移动端底部导航 */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0A1628]/95 backdrop-blur-lg border-t border-[#2D3748] z-50 safe-area-bottom bottom-nav-safe">
-        <nav className="flex justify-around items-center py-2">
-          <button onClick={() => navigateTo('home')} className="flex flex-col items-center justify-center touch-target space-y-1 text-gray-400 hover:text-[#D4AF37] transition-colors">
-            <Home className="w-6 h-6" />
-            <span className="text-xs font-medium">首页</span>
-          </button>
-          <button onClick={() => navigateTo('services')} className="flex flex-col items-center justify-center touch-target space-y-1 text-gray-400 hover:text-[#D4AF37] transition-colors">
-            <Briefcase className="w-6 h-6" />
-            <span className="text-xs font-medium">服务</span>
-          </button>
-          <button onClick={() => navigateTo('contact')} className="flex flex-col items-center justify-center touch-target space-y-1 text-[#D4AF37] relative -mt-8">
-            <div className="bg-[#D4AF37] text-[#0A1628] rounded-full p-3 shadow-lg transform hover:scale-110 transition-transform">
-              <MessageSquare className="w-6 h-6" />
-            </div>
-            <span className="text-xs font-medium text-gray-400 mt-1">咨询</span>
-          </button>
-          <button onClick={() => navigateTo('cases')} className="flex flex-col items-center justify-center touch-target space-y-1 text-gray-400 hover:text-[#D4AF37] transition-colors">
-            <FolderOpen className="w-6 h-6" />
-            <span className="text-xs font-medium">案例</span>
-          </button>
-          <button onClick={() => navigateTo('about')} className="flex flex-col items-center justify-center touch-target space-y-1 text-gray-400 hover:text-[#D4AF37] transition-colors">
-            <User className="w-6 h-6" />
-            <span className="text-xs font-medium">关于</span>
-          </button>
-        </nav>
-      </div>
-
-      {/* 为底部导航留出空间 */}
-      <div className="h-20 md:hidden"></div>
+      {/* 统一移动端底部导航 */}
+      <MobileTabBar navigateTo={navigateTo} currentPage="contact" />
     </div>;
 }
