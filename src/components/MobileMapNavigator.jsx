@@ -11,7 +11,6 @@ export default function MobileMapNavigator({
   height = "h-80"
 }) {
   const [isMobile, setIsMobile] = useState(false);
-  const [showOptions, setShowOptions] = useState(false);
   useEffect(() => {
     // 检测是否为移动设备
     const checkMobile = () => {
@@ -113,39 +112,29 @@ export default function MobileMapNavigator({
             <p className="text-gray-400 text-xs md:text-sm max-w-xs mx-auto leading-relaxed">{address}</p>
           </div>
           
-          {!showOptions ?
-        // 主导航按钮 - 移动端优化尺寸
-        <button onClick={() => setShowOptions(true)} className="inline-flex items-center space-x-2 px-6 py-2 md:px-8 md:py-3 bg-gradient-to-r from-[#D4AF37] to-[#C0C0C0] text-[#0A1628] rounded-full font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm md:text-base">
-              <Navigation className="w-4 h-4 md:w-5 md:h-5" />
-              <span>开始导航</span>
-            </button> :
-        // 地图选择选项 - 移动端优化布局
-        <div className="space-y-2 md:space-y-3">
-              <div className="text-gray-300 text-xs md:text-sm mb-3 md:mb-4">
-                {isMobile ? '选择您的导航应用' : '选择地图服务'}
-              </div>
-              
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
-                <button onClick={() => openMapApp('amap')} className="flex flex-col items-center justify-center px-3 py-2 md:px-4 md:py-3 bg-[#2D3748] border border-[#2D3748] hover:border-[#D4AF37] rounded-xl transition-all duration-300 transform hover:scale-105">
-                  <Smartphone className="w-5 h-5 md:w-6 md:h-6 text-[#D4AF37] mb-1 md:mb-2" />
-                  <span className="text-white text-xs md:text-sm font-medium">高德地图</span>
-                </button>
-                
-                <button onClick={() => openMapApp('qqmap')} className="flex flex-col items-center justify-center px-3 py-2 md:px-4 md:py-3 bg-[#2D3748] border border-[#2D3748] hover:border-[#D4AF37] rounded-xl transition-all duration-300 transform hover:scale-105">
-                  <Smartphone className="w-5 h-5 md:w-6 md:h-6 text-[#D4AF37] mb-1 md:mb-2" />
-                  <span className="text-white text-xs md:text-sm font-medium">腾讯地图</span>
-                </button>
-                
-                <button onClick={() => openMapApp('baidu')} className="flex flex-col items-center justify-center px-3 py-2 md:px-4 md:py-3 bg-[#2D3748] border border-[#2D3748] hover:border-[#D4AF37] rounded-xl transition-all duration-300 transform hover:scale-105">
-                  <Globe className="w-5 h-5 md:w-6 md:h-6 text-[#D4AF37] mb-1 md:mb-2" />
-                  <span className="text-white text-xs md:text-sm font-medium">百度地图</span>
-                </button>
-              </div>
-              
-              <button onClick={() => setShowOptions(false)} className="text-gray-400 text-xs md:text-sm hover:text-white transition-colors mt-1 md:mt-2">
-                返回
+          {/* 直接显示地图选择选项 */}
+          <div className="space-y-2 md:space-y-3">
+            <div className="text-gray-300 text-xs md:text-sm mb-3 md:mb-4">
+              {isMobile ? '选择您的导航应用' : '选择地图服务'}
+            </div>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-3">
+              <button onClick={() => openMapApp('amap')} className="flex flex-col items-center justify-center px-3 py-2 md:px-4 md:py-3 bg-[#2D3748] border border-[#2D3748] hover:border-[#D4AF37] rounded-xl transition-all duration-300 transform hover:scale-105">
+                <Smartphone className="w-5 h-5 md:w-6 md:h-6 text-[#D4AF37] mb-1 md:mb-2" />
+                <span className="text-white text-xs md:text-sm font-medium">高德地图</span>
               </button>
-            </div>}
+              
+              <button onClick={() => openMapApp('qqmap')} className="flex flex-col items-center justify-center px-3 py-2 md:px-4 md:py-3 bg-[#2D3748] border border-[#2D3748] hover:border-[#D4AF37] rounded-xl transition-all duration-300 transform hover:scale-105">
+                <Smartphone className="w-5 h-5 md:w-6 md:h-6 text-[#D4AF37] mb-1 md:mb-2" />
+                <span className="text-white text-xs md:text-sm font-medium">腾讯地图</span>
+              </button>
+              
+              <button onClick={() => openMapApp('baidu')} className="flex flex-col items-center justify-center px-3 py-2 md:px-4 md:py-3 bg-[#2D3748] border border-[#2D3748] hover:border-[#D4AF37] rounded-xl transition-all duration-300 transform hover:scale-105">
+                <Globe className="w-5 h-5 md:w-6 md:h-6 text-[#D4AF37] mb-1 md:mb-2" />
+                <span className="text-white text-xs md:text-sm font-medium">百度地图</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       
