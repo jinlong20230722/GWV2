@@ -11,31 +11,52 @@ export function LazyImage({
 }) {
   const [imageSrc, setImageSrc] = useState(placeholder);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   const imgRef = useRef(null);
+  const imageObjRef = useRef(null);
   useEffect(() => {
+    setIsMounted(true);
+    return () => {
+      setIsMounted(false);
+      // 清理图片对象
+      if (imageObjRef.current) {
+        imageObjRef.current.onload = null;
+        imageObjRef.current.onerror = null;
+      }
+    };
+  }, []);
+  useEffect(() => {
+    if (!isMounted || !imgRef.current) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (isMounted && entry.isIntersecting) {
         // 开始加载真实图片
         const img = new Image();
+        imageObjRef.current = img;
         img.src = src;
-        img.onload = () => {
-          setImageSrc(src);
-          setIsLoaded(true);
+        const handleLoad = () => {
+          if (isMounted) {
+            setImageSrc(src);
+            setIsLoaded(true);
+          }
+        };
+        img.onload = handleLoad;
+        img.onerror = () => {
+          if (isMounted) {
+            setIsLoaded(false);
+          }
         };
         observer.unobserve(entry.target);
       }
     }, {
       threshold
     });
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
+    observer.observe(imgRef.current);
     return () => {
       if (imgRef.current) {
         observer.unobserve(imgRef.current);
       }
     };
-  }, [src, threshold]);
+  }, [src, threshold, isMounted]);
   return <div ref={imgRef} className={`relative overflow-hidden ${className}`}>
       <img src={imageSrc} alt={alt} className={`w-full h-full object-cover transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} loading="lazy" />
       {!isLoaded && <div className="absolute inset-0 bg-[#2D3748] animate-pulse" />}

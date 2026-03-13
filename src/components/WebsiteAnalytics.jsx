@@ -115,43 +115,65 @@ class AnalyticsManager {
   }
   trackPerformance() {
     if (window.performance) {
-      window.addEventListener('load', () => {
+      const performanceHandler = () => {
         setTimeout(() => {
-          const timing = performance.timing;
-          const performanceData = {
-            domLoad: timing.domContentLoadedEventEnd - timing.navigationStart,
-            fullLoad: timing.loadEventEnd - timing.navigationStart,
-            domReady: timing.domComplete - timing.domLoading,
-            redirect: timing.redirectEnd - timing.redirectStart,
-            lookup: timing.domainLookupEnd - timing.domainLookupStart,
-            connect: timing.connectEnd - timing.connectStart,
-            request: timing.responseEnd - timing.requestStart,
-            response: timing.responseEnd - timing.responseStart
-          };
-          const event = {
-            type: AnalyticsEvent.PERFORMANCE,
-            ...performanceData,
-            timestamp: new Date().toISOString(),
-            sessionId: this.sessionId,
-            userId: this.userId
-          };
-          this.events.push(event);
-          console.log('⚡ Performance tracked:', performanceData);
-          this.sendToAnalytics(event);
+          try {
+            const timing = performance.timing;
+            const performanceData = {
+              domLoad: timing.domContentLoadedEventEnd - timing.navigationStart,
+              fullLoad: timing.loadEventEnd - timing.navigationStart,
+              domReady: timing.domComplete - timing.domLoading,
+              redirect: timing.redirectEnd - timing.redirectStart,
+              lookup: timing.domainLookupEnd - timing.domainLookupStart,
+              connect: timing.connectEnd - timing.connectStart,
+              request: timing.responseEnd - timing.requestStart,
+              response: timing.responseEnd - timing.responseStart
+            };
+            const event = {
+              type: AnalyticsEvent.PERFORMANCE,
+              ...performanceData,
+              timestamp: new Date().toISOString(),
+              sessionId: this.sessionId,
+              userId: this.userId
+            };
+            this.events.push(event);
+            console.log('⚡ Performance tracked:', performanceData);
+            this.sendToAnalytics(event);
+          } catch (error) {
+            console.warn('Performance tracking error:', error);
+          }
         }, 0);
-      });
+      };
+      window.addEventListener('load', performanceHandler);
+
+      // 存储处理器以便清理
+      if (!this.performanceHandlers) {
+        this.performanceHandlers = [];
+      }
+      this.performanceHandlers.push(performanceHandler);
     }
   }
   setupErrorTracking() {
-    window.addEventListener('error', event => {
+    const errorHandler = event => {
       this.trackError(event.error || event, {
         type: 'window_error'
       });
-    });
-    window.addEventListener('unhandledrejection', event => {
+    };
+    const rejectionHandler = event => {
       this.trackError(event.reason, {
         type: 'unhandled_rejection'
       });
+    };
+    window.addEventListener('error', errorHandler);
+    window.addEventListener('unhandledrejection', rejectionHandler);
+
+    // 存储处理器以便清理
+    if (!this.errorHandlers) {
+      this.errorHandlers = [];
+    }
+    this.errorHandlers.push({
+      errorHandler,
+      rejectionHandler
     });
   }
   sendToAnalytics(event) {
@@ -184,6 +206,18 @@ class AnalyticsManager {
       startTime: this.events[0]?.timestamp
     };
   }
+  cleanup() {
+    // 清理所有事件监听器
+    this.errorHandlers?.forEach(handler => {
+      window.removeEventListener('error', handler.errorHandler);
+      window.removeEventListener('unhandledrejection', handler.rejectionHandler);
+    });
+    this.performanceHandlers?.forEach(handler => {
+      window.removeEventListener('load', handler);
+    });
+    this.errorHandlers = [];
+    this.performanceHandlers = [];
+  }
 }
 
 // 创建全局分析实例
@@ -192,11 +226,23 @@ const analytics = new AnalyticsManager();
 // React Hook
 export function useAnalytics() {
   const [isInitialized, setIsInitialized] = useState(false);
+  const isMountedRef = useRef(true);
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
   useEffect(() => {
     analytics.init();
-    setIsInitialized(true);
+    if (isMountedRef.current) {
+      setIsInitialized(true);
+    }
     return () => {
-      // 清理
+      // 清理事件监听器
+      if (typeof analytics.cleanup === 'function') {
+        analytics.cleanup();
+      }
     };
   }, []);
   return {
@@ -255,10 +301,16 @@ export function AnalyticsDashboard() {
   const [stats, setStats] = useState(null);
   const [events, setEvents] = useState([]);
   const [showEvents, setShowEvents] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!isMounted) return;
     setStats(getSessionStats());
     setEvents(getStoredEvents().slice(-20).reverse());
-  }, [getSessionStats, getStoredEvents]);
+  }, [getSessionStats, getStoredEvents, isMounted]);
   if (!stats) return null;
   return <div className="fixed bottom-20 right-4 z-50">
       <div className="bg-white rounded-lg shadow-xl p-4 max-w-sm">
