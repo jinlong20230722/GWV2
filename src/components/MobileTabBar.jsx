@@ -31,8 +31,8 @@ export default function MobileTabBar({
   }];
   return <>
       {/* 移动端底部导航 */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0A1628]/95 backdrop-blur-lg border-t border-[#2D3748] z-50 safe-area-bottom bottom-nav-safe">
-        <nav className="flex justify-around items-center py-2">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-[#0A1628]/95 backdrop-blur-lg border-t border-[#2D3748] z-50 safe-area-bottom">
+        <nav className="flex justify-around items-center py-2 pb-6">
           {navItems.map(item => {
           const isActive = currentPage === item.id;
           const Icon = item.icon;
@@ -52,7 +52,7 @@ export default function MobileTabBar({
         </nav>
       </div>
 
-      {/* 为底部导航留出空间 */}
-      <div className="h-20 md:hidden"></div>
+      {/* 为底部导航留出足够空间，防止内容被遮挡 */}
+      <div className="h-24 md:hidden"></div>
     </>;
 }
