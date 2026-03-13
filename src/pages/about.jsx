@@ -248,40 +248,40 @@ export default function About(props) {
 
 
       {/* Core Values */}
-      <section className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
-              核心价值观
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              我们始终坚持这些价值观，指导我们的每一个决策和行动
-            </p>
-          </div>
+      
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[{
-            icon: Shield,
-            title: '专业',
-            description: '专业的团队、专业的服务、专业的态度' },
-          {
-            icon: CheckCircle,
-            title: '可靠',
-            description: '值得信赖的服务质量，让客户放心' },
-          {
-            icon: Award,
-            title: '创新',
-            description: '不断创新，引领行业发展' }].
-          map((value, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#2D3748] hover:border-[#D4AF37]/50">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <value.icon className="w-8 h-8 text-[#0A1628]" />
-                </div>
-                <h3 className="text-2xl font-bold text-white font-serif mb-4">{value.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{value.description}</p>
-              </div>)}
-          </div>
-        </div>
-      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Milestones */}
       <section className="py-24 bg-gradient-to-br from-[#2D3748] to-[#0A1628]">

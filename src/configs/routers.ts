@@ -1,7 +1,6 @@
 import HOME from '../pages/home.jsx';
 import ABOUT from '../pages/about.jsx';
 import SERVICES from '../pages/services.jsx';
-import CONTACT from '../pages/contact.jsx';
 import CASES from '../pages/cases.jsx';
 import ADMIN from '../pages/admin.jsx';
 import MOBILE_TESTING from '../pages/mobile-testing.jsx';
@@ -15,9 +14,6 @@ export const routers = [{
 }, {
   id: "services",
   component: SERVICES
-}, {
-  id: "contact",
-  component: CONTACT
 }, {
   id: "cases",
   component: CASES
