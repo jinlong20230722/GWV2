@@ -1,7 +1,7 @@
 // @ts-ignore;
 import React from 'react';
 
-import { AccessibilityProvider, AccessibilityToolbar } from './AccessibilityOptimizer';
+import { AccessibilityProvider } from './AccessibilityOptimizer';
 import { SkipLink } from './AriaLiveRegion';
 export const AccessibilityWrapper = ({
   children
@@ -9,6 +9,5 @@ export const AccessibilityWrapper = ({
   return <AccessibilityProvider>
       <SkipLink />
       {children}
-      <AccessibilityToolbar />
     </AccessibilityProvider>;
 };
