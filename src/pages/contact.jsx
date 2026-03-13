@@ -12,11 +12,11 @@ import { FadeIn } from '@/components/AnimationProvider.jsx';
 import MobileTabBar from '@/components/MobileTabBar.jsx';
 export default function Contact(props) {
   const {
-    $w
-  } = props;
+    $w } =
+  props;
   const {
-    toast
-  } = useToast();
+    toast } =
+  useToast();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -27,36 +27,36 @@ export default function Contact(props) {
       phone: '',
       company: '',
       service: '',
-      message: ''
-    },
-    mode: 'onChange'
-  });
-  const onSubmit = async data => {
+      message: '' },
+
+    mode: 'onChange' });
+
+  const onSubmit = async (data) => {
     setIsSubmitting(true);
     try {
       // 模拟表单提交
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise((resolve) => setTimeout(resolve, 1500));
       toast({
         title: '提交成功',
         description: '我们会尽快与您联系！',
-        variant: 'default'
-      });
+        variant: 'default' });
+
       form.reset();
     } catch (error) {
       toast({
         title: '提交失败',
         description: error.message || '请稍后重试',
-        variant: 'destructive'
-      });
+        variant: 'destructive' });
+
     } finally {
       setIsSubmitting(false);
     }
   };
-  const navigateTo = pageId => {
+  const navigateTo = (pageId) => {
     $w.utils.navigateTo({
       pageId,
-      params: {}
-    });
+      params: {} });
+
     setIsMenuOpen(false);
   };
   React.useEffect(() => {
@@ -207,125 +207,94 @@ export default function Contact(props) {
             </div>
 
             {/* Contact Form */}
-            <div>
-              <h2 className="text-4xl font-bold text-white font-serif mb-8">
-                在线咨询
-              </h2>
-              
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <FormField control={form.control} name="name" render={({
-                    field
-                  }) => <FormItem>
-                          <FormLabel className="text-white">姓名</FormLabel>
-                          <FormControl>
-                            <Input placeholder="请输入您的姓名" {...field} className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 focus:border-[#D4AF37] focus:ring-[#D4AF37]" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>} />
-                    
-                    <FormField control={form.control} name="email" render={({
-                    field
-                  }) => <FormItem>
-                          <FormLabel className="text-white">邮箱</FormLabel>
-                          <FormControl>
-                            <Input placeholder="请输入您的邮箱" {...field} className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 focus:border-[#D4AF37] focus:ring-[#D4AF37]" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>} />
-                  </div>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <FormField control={form.control} name="phone" render={({
-                    field
-                  }) => <FormItem>
-                          <FormLabel className="text-white">电话</FormLabel>
-                          <FormControl>
-                            <Input placeholder="请输入您的电话" {...field} className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 focus:border-[#D4AF37] focus:ring-[#D4AF37]" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>} />
-                    
-                    <FormField control={form.control} name="company" render={({
-                    field
-                  }) => <FormItem>
-                          <FormLabel className="text-white">公司</FormLabel>
-                          <FormControl>
-                            <Input placeholder="请输入您的公司名称" {...field} className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 focus:border-[#D4AF37] focus:ring-[#D4AF37]" />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>} />
-                  </div>
-                  
-                  <FormField control={form.control} name="service" render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white">服务类型</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger className="bg-[#2D3748] border-[#2D3748] text-white">
-                              <SelectValue placeholder="请选择服务类型" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent className="bg-[#2D3748] border-[#2D3748]">
-                            <SelectItem value="security" className="text-white">安保服务</SelectItem>
-                            <SelectItem value="consulting" className="text-white">安全咨询</SelectItem>
-                            <SelectItem value="training" className="text-white">安全培训</SelectItem>
-                            <SelectItem value="technology" className="text-white">科技安防</SelectItem>
-                            <SelectItem value="other" className="text-white">其他服务</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>} />
-                  
-                  <FormField control={form.control} name="message" render={({
-                  field
-                }) => <FormItem>
-                        <FormLabel className="text-white">留言内容</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="请输入您的留言内容" {...field} rows={5} className="bg-[#2D3748] border-[#2D3748] text-white placeholder:text-gray-500 focus:border-[#D4AF37] focus:ring-[#D4AF37] resize-none" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>} />
-                  
-                  <Button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-[#D4AF37] to-[#C0C0C0] text-[#0A1628] font-semibold py-6 hover:opacity-90 transition-all duration-300 transform hover:scale-[1.02]">
-                    {isSubmitting ? <div className="flex items-center space-x-2">
-                        <div className="w-5 h-5 border-2 border-[#0A1628] border-t-transparent rounded-full animate-spin" />
-                        <span>提交中...</span>
-                      </div> : <div className="flex items-center space-x-2">
-                        <Send className="w-5 h-5" />
-                        <span>提交咨询</span>
-                      </div>}
-                  </Button>
-                </form>
-              </Form>
-            </div>
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-[#2D3748] to-[#0A1628]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <FadeIn>
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-6">
-              准备好开始了吗？
-            </h2>
-            <p className="text-xl text-gray-300 mb-10">
-              我们的专业团队随时为您提供最优质的安保服务
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={() => navigateTo('services')} className="bg-gradient-to-r from-[#D4AF37] to-[#C0C0C0] text-[#0A1628] px-8 py-6 rounded-full font-semibold hover:opacity-90 transition-all duration-300 transform hover:scale-105">
-                了解我们的服务
-              </Button>
-              <Button onClick={() => navigateTo('contact')} className="border-2 border-[#D4AF37] text-[#D4AF37] px-8 py-6 rounded-full font-semibold hover:bg-[#D4AF37] hover:text-[#0A1628] transition-all duration-300">
-                立即咨询
-              </Button>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Footer */}
       <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">

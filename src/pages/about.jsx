@@ -11,54 +11,54 @@ import { LazyImage } from '@/components/ImageOptimizer.jsx';
 import MobileTabBar from '@/components/MobileTabBar.jsx';
 export default function About(props) {
   const {
-    $w
-  } = props;
+    $w } =
+  props;
   const {
-    toast
-  } = useToast();
+    toast } =
+  useToast();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const milestones = [{
     year: '2006',
     title: '公司成立',
-    desc: 'SecureGuard 正式成立，开启专业安保服务'
-  }, {
+    desc: 'SecureGuard 正式成立，开启专业安保服务' },
+  {
     year: '2010',
     title: '业务扩展',
-    desc: '服务范围扩展至全国主要城市'
-  }, {
+    desc: '服务范围扩展至全国主要城市' },
+  {
     year: '2015',
     title: '技术升级',
-    desc: '引入先进安防技术，提升服务质量'
-  }, {
+    desc: '引入先进安防技术，提升服务质量' },
+  {
     year: '2020',
     title: '品牌升级',
-    desc: '完成品牌全面升级，确立行业领先地位'
-  }, {
+    desc: '完成品牌全面升级，确立行业领先地位' },
+  {
     year: '2026',
     title: '持续创新',
-    desc: '持续创新，引领行业发展'
-  }];
+    desc: '持续创新，引领行业发展' }];
+
   const team = [{
     name: '张明',
     position: '创始人 & CEO',
     description: '20年安保行业经验，曾任职于多家知名安保企业',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400'
-  }, {
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400' },
+  {
     name: '李华',
     position: '运营总监',
     description: '15年安保运营管理经验，专业高效',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400'
-  }, {
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400' },
+  {
     name: '王强',
     position: '技术总监',
     description: '安防技术专家，引领技术创新',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400'
-  }, {
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400' },
+  {
     name: '赵敏',
     position: '客户服务总监',
     description: '专注客户服务，确保客户满意度',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400'
-  }];
+    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400' }];
+
   const jobs = [{
     id: 1,
     title: '高级安保经理',
@@ -66,37 +66,37 @@ export default function About(props) {
     location: '北京',
     salary: '15K-25K',
     requirements: ['5年以上安保行业经验', '具备团队管理能力', '熟悉安保业务流程', '持有相关资格证书'],
-    description: '负责安保团队管理、客户关系维护、服务质量提升等工作。'
-  }, {
+    description: '负责安保团队管理、客户关系维护、服务质量提升等工作。' },
+  {
     id: 2,
     title: '安防技术工程师',
     department: '技术部',
     location: '北京',
     salary: '12K-20K',
     requirements: ['3年以上安防技术经验', '熟悉各类安防设备', '具备系统集成能力', '良好的沟通能力'],
-    description: '负责安防系统设计、安装调试、技术支持等工作。'
-  }, {
+    description: '负责安防系统设计、安装调试、技术支持等工作。' },
+  {
     id: 3,
     title: '商务拓展经理',
     department: '市场部',
     location: '北京',
     salary: '10K-20K',
     requirements: ['3年以上销售经验', '具备市场开拓能力', '优秀的沟通表达能力', '有安保行业经验优先'],
-    description: '负责市场开拓、客户开发、商务谈判等工作。'
-  }, {
+    description: '负责市场开拓、客户开发、商务谈判等工作。' },
+  {
     id: 4,
     title: '安保专员',
     department: '运营部',
     location: '北京/上海/深圳',
     salary: '6K-10K',
     requirements: ['身体健康，无犯罪记录', '退伍军人优先', '具备良好的服务意识', '能适应轮班工作'],
-    description: '负责客户现场安保工作，确保客户安全。'
-  }];
-  const navigateTo = pageId => {
+    description: '负责客户现场安保工作，确保客户安全。' }];
+
+  const navigateTo = (pageId) => {
     $w.utils.navigateTo({
       pageId,
-      params: {}
-    });
+      params: {} });
+
     setIsMenuOpen(false);
   };
   return <div className="min-h-screen bg-[#0A1628] font-sans">
@@ -219,33 +219,33 @@ export default function About(props) {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-24 bg-gradient-to-br from-[#2D3748] to-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div className="bg-[#0A1628] p-10 rounded-3xl border border-[#2D3748]">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-2xl flex items-center justify-center mb-6">
-                <Target className="w-8 h-8 text-[#0A1628]" />
-              </div>
-              <h3 className="text-3xl font-bold text-white font-serif mb-4">我们的使命</h3>
-              <p className="text-gray-300 leading-relaxed">
-                为客户提供最专业、最可靠的安保服务，用实力和信誉赢得客户的信任，
-                成为客户最值得信赖的安全合作伙伴。
-              </p>
-            </div>
+      
 
-            <div className="bg-[#0A1628] p-10 rounded-3xl border border-[#2D3748]">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-2xl flex items-center justify-center mb-6">
-                <TrendingUp className="w-8 h-8 text-[#0A1628]" />
-              </div>
-              <h3 className="text-3xl font-bold text-white font-serif mb-4">我们的愿景</h3>
-              <p className="text-gray-300 leading-relaxed">
-                成为国内领先的安保服务提供商，引领行业发展，
-                用创新和专业为客户创造更大的价值。
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Core Values */}
       <section className="py-24 bg-[#0A1628]">
@@ -263,16 +263,16 @@ export default function About(props) {
             {[{
             icon: Shield,
             title: '专业',
-            description: '专业的团队、专业的服务、专业的态度'
-          }, {
+            description: '专业的团队、专业的服务、专业的态度' },
+          {
             icon: CheckCircle,
             title: '可靠',
-            description: '值得信赖的服务质量，让客户放心'
-          }, {
+            description: '值得信赖的服务质量，让客户放心' },
+          {
             icon: Award,
             title: '创新',
-            description: '不断创新，引领行业发展'
-          }].map((value, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#2D3748] hover:border-[#D4AF37]/50">
+            description: '不断创新，引领行业发展' }].
+          map((value, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-8 rounded-2xl text-center hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#2D3748] hover:border-[#D4AF37]/50">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-[#0A1628]" />
                 </div>
