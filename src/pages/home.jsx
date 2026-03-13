@@ -1,8 +1,12 @@
 // @ts-ignore;
 import React, { useState, useEffect } from 'react';
 // @ts-ignore;
-import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play, FileText, Calendar, Home as HomeIcon, Briefcase, MessageSquare, FolderOpen, User } from 'lucide-react'; // @ts-ignore;
-import { Button, useToast } from '@/components/ui';import { FadeIn, CountUp, GradientText, HoverScale } from '@/components/AnimationProvider.jsx';import { LazyImage } from '@/components/ImageOptimizer.jsx';
+import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play, FileText, Calendar, Home as HomeIcon, Briefcase, MessageSquare, FolderOpen, User } from 'lucide-react';
+// @ts-ignore;
+import { Button, useToast } from '@/components/ui';
+
+import { FadeIn, CountUp, GradientText, HoverScale } from '@/components/AnimationProvider.jsx';
+import { LazyImage } from '@/components/ImageOptimizer.jsx';
 import { SEOOptimizer, StructuredData } from '@/components/SEOOptimizer.jsx';
 import { AccessibilityWrapper } from '@/components/AccessibilityWrapper.jsx';
 import { PageMeta } from '@/components/PageMeta.jsx';
@@ -14,11 +18,11 @@ import OnlineChat from '@/components/OnlineChat.jsx';
 import MobileTabBar from '@/components/MobileTabBar.jsx';
 export default function Home(props) {
   const {
-    $w } =
-  props;
+    $w
+  } = props;
   const {
-    toast } =
-  useToast();
+    toast
+  } = useToast();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,8 +35,8 @@ export default function Home(props) {
     icon: Users,
     color: 'from-blue-500 to-blue-600',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920',
-    features: ['专业保安团队', '严格培训体系', '应急处理流程', '成功案例丰富'] },
-  {
+    features: ['专业保安团队', '严格培训体系', '应急处理流程', '成功案例丰富']
+  }, {
     id: 1,
     title: '技防',
     subtitle: '科技赋能 精准防控',
@@ -40,8 +44,8 @@ export default function Home(props) {
     icon: Lock,
     color: 'from-emerald-500 to-emerald-600',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920',
-    features: ['高清监控系统', '智能门禁系统', '入侵报警系统', '远程监控服务'] },
-  {
+    features: ['高清监控系统', '智能门禁系统', '入侵报警系统', '远程监控服务']
+  }, {
     id: 2,
     title: '物防',
     subtitle: '坚固可靠 实体防护',
@@ -49,8 +53,8 @@ export default function Home(props) {
     icon: Shield,
     color: 'from-orange-500 to-orange-600',
     image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=1920',
-    features: ['高强度围栏', '防爆器材', '安检设备', '防护等级认证'] },
-  {
+    features: ['高强度围栏', '防爆器材', '安检设备', '防护等级认证']
+  }, {
     id: 3,
     title: '智防',
     subtitle: '智能预警 智慧管理',
@@ -58,65 +62,65 @@ export default function Home(props) {
     icon: Brain,
     color: 'from-purple-500 to-purple-600',
     image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920',
-    features: ['AI智能监控', '物联网安防', '大数据预警', '智慧园区管理'] }];
-
+    features: ['AI智能监控', '物联网安防', '大数据预警', '智慧园区管理']
+  }];
   const stats = [{
     number: '20+',
     label: '年行业经验',
-    note: '截至2025年12月' },
-  {
+    note: '截至2025年12月'
+  }, {
     number: '500+',
     label: '服务客户',
-    note: '截至2025年12月' },
-  {
+    note: '截至2025年12月'
+  }, {
     number: '1000+',
     label: '安保人员',
-    note: '截至2025年12月' },
-  {
+    note: '截至2025年12月'
+  }, {
     number: '99%',
     label: '客户满意度',
-    note: '截至2025年12月' }];
-
+    note: '截至2025年12月'
+  }];
   const whyChooseUs = [{
     icon: CheckCircle,
     title: '四防一体',
-    desc: '人防、技防、物防、智防四位一体，全方位安全防护' },
-  {
+    desc: '人防、技防、物防、智防四位一体，全方位安全防护'
+  }, {
     icon: CheckCircle,
     title: '专业团队',
-    desc: '所有安保人员均经过严格培训和认证' },
-  {
+    desc: '所有安保人员均经过严格培训和认证'
+  }, {
     icon: CheckCircle,
     title: '先进技术',
-    desc: '采用最新的安防技术和设备' },
-  {
+    desc: '采用最新的安防技术和设备'
+  }, {
     icon: CheckCircle,
     title: '快速响应',
-    desc: '24小时应急响应，随时待命' },
-  {
+    desc: '24小时应急响应，随时待命'
+  }, {
     icon: CheckCircle,
     title: '定制方案',
-    desc: '根据客户需求提供个性化解决方案' }];
-
+    desc: '根据客户需求提供个性化解决方案'
+  }];
   const testimonials = [{
     name: '张总',
     position: '董事长',
     company: '某大型企业集团',
     content: 'SecureGuard 的四防一体化方案为我们提供了全方位的安全保障，专业、可靠、高效，让我们非常放心。',
-    rating: 5 },
-  {
+    rating: 5
+  }, {
     name: '李经理',
     position: '行政总监',
     company: '知名会展中心',
     content: '多次大型活动的安保合作，每次都圆满完成任务，团队专业素质极高，特别是智防系统的应用大大提升了安保效率。',
-    rating: 5 },
-  {
+    rating: 5
+  }, {
     name: '王女士',
     position: '业主委员会主任',
     company: '高端住宅小区',
     content: '小区安保服务非常到位，人防、技防、物防、智防四位一体，居民安全感大大提升，服务态度也很好。',
-    rating: 5 }];
-
+    rating: 5
+  }];
   const honors = [{
     id: 1,
     type: '锦旗',
@@ -124,48 +128,48 @@ export default function Home(props) {
     description: '感谢安保团队在大型活动中的专业表现',
     client: '阿里巴巴集团杭州总部',
     date: '2025-12',
-    image: 'https://images.unsplash.com/photo-1555431189-0fabf2667795?w=400' },
-  {
+    image: 'https://images.unsplash.com/photo-1555431189-0fabf2667795?w=400'
+  }, {
     id: 2,
     type: '表扬信',
     title: '尽职尽责 温暖人心',
     description: '保安员帮助找回丢失贵重物品',
     client: '北京银泰中心小区',
     date: '2025-11',
-    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400' },
-  {
+    image: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?w=400'
+  }, {
     id: 3,
     type: '锦旗',
     title: '技术精湛 服务一流',
     description: '安防系统安装调试及时高效',
     client: '招商银行深圳分行',
     date: '2025-10',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400' },
-  {
+    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400'
+  }, {
     id: 4,
     type: '感谢信',
     title: '风雨无阻 坚守岗位',
     description: '恶劣天气下依然保持高质量服务',
     client: '上海陆家嘴金融中心',
     date: '2025-09',
-    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400' },
-  {
+    image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400'
+  }, {
     id: 5,
     type: '锦旗',
     title: '智防先锋 创新引领',
     description: '智慧安防系统获得高度认可',
     client: '中关村软件园二期',
     date: '2025-08',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400' },
-  {
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400'
+  }, {
     id: 6,
     type: '表扬信',
     title: '应急迅速 处置得当',
     description: '成功处理突发事件，保障人员安全',
     client: '清华大学附属中学',
     date: '2025-07',
-    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400' }];
-
+    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=400'
+  }];
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -177,37 +181,37 @@ export default function Home(props) {
     let interval;
     if (!isCarouselPaused) {
       interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % defenses.length);
+        setCurrentSlide(prev => (prev + 1) % defenses.length);
       }, 5000);
     }
     return () => {
       if (interval) clearInterval(interval);
     };
   }, [isCarouselPaused]);
-  const scrollToSection = (id) => {
+  const scrollToSection = id => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
-        behavior: 'smooth' });
-
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
   const navigateTo = (pageId, params = {}) => {
     $w.utils.navigateTo({
       pageId,
-      params });
-
+      params
+    });
     setIsMenuOpen(false);
   };
-  const goToSlide = (index) => {
+  const goToSlide = index => {
     setCurrentSlide(index);
   };
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % defenses.length);
+    setCurrentSlide(prev => (prev + 1) % defenses.length);
   };
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + defenses.length) % defenses.length);
+    setCurrentSlide(prev => (prev - 1 + defenses.length) % defenses.length);
   };
   const currentDefense = defenses[currentSlide];
   const CurrentIcon = currentDefense.icon;
@@ -220,7 +224,8 @@ export default function Home(props) {
         url: "https://secureguard.com",
         logo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300",
         telephone: "+86-400-888-8888",
-        email: "contact@secureguard.com" }} />
+        email: "contact@secureguard.com"
+      }} />
 
       </SEOOptimizer>
       <div id="main-content" className="min-h-screen bg-[#0A1628] font-sans">
@@ -250,8 +255,8 @@ export default function Home(props) {
               <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
                 关于我们
               </button>
-              <button onClick={() => navigateTo('contact')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 ml-4">
-                联系我们
+              <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 ml-4">
+                关于我们
               </button>
             </div>
 
@@ -277,8 +282,8 @@ export default function Home(props) {
               <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
                 关于我们
               </button>
-              <button onClick={() => navigateTo('contact')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors mt-2">
-                联系我们
+              <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors mt-2">
+                关于我们
               </button>
             </div>
           </div>}
@@ -326,12 +331,12 @@ export default function Home(props) {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button onClick={() => navigateTo('services', {
-                  defense: currentDefense.id })}
-                className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
+                  defense: currentDefense.id
+                })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
                   了解{currentDefense.title}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
-                <Button onClick={() => navigateTo('contact')} variant="outline" className="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A1628] transition-all duration-300 text-black">
+                <Button onClick={() => navigateTo('about')} variant="outline" className="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A1628] transition-all duration-300 text-black">
                   立即咨询
                 </Button>
               </div>
@@ -382,8 +387,8 @@ export default function Home(props) {
                 setCurrentSlide(defense.id);
                 window.scrollTo({
                   top: 0,
-                  behavior: 'smooth' });
-
+                  behavior: 'smooth'
+                });
               }} className={`group bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 cursor-pointer ${currentSlide === index ? 'border-[#D4AF37]' : 'border-[#2D3748] hover:border-[#D4AF37]/50'}`}>
                 <div className={`w-16 h-16 bg-gradient-to-br ${defense.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <DefenseIcon className="w-8 h-8 text-white" />
@@ -511,7 +516,8 @@ export default function Home(props) {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-32 h-full bg-gradient-to-l from-[#0A1628] to-transparent" />
             
             <div className="flex space-x-8 animate-scroll" style={{
-              animation: 'scroll 30s linear infinite' }}>
+              animation: 'scroll 30s linear infinite'
+            }}>
 
 
               {/* 第一组图片 */}
@@ -554,26 +560,6 @@ export default function Home(props) {
 
 
         </div>
-
-        <style jsx>{`
-          @keyframes scroll {
-            0% {
-              transform: translateX(0);
-            }
-            100% {
-              transform: translateX(-50%);
-            }
-          }
-          
-          .animate-scroll {
-            display: flex;
-            width: max-content;
-          }
-          
-          .animate-scroll:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
       </section>
 
       {/* Quick Case Studies Section */}
@@ -600,24 +586,24 @@ export default function Home(props) {
               result: '降低95%安全隐患',
               image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
               problem: '大型园区人员流动大，需要全方位安全防护',
-              solution: '部署人脸识别系统+智能监控+专业安保团队' },
-            {
+              solution: '部署人脸识别系统+智能监控+专业安保团队'
+            }, {
               title: '招商银行深圳分行',
               category: '金融机构',
               service: '物防+技防+智防',
               result: '零安全事故',
               image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400',
               problem: '金融场所需要高等级安全防护',
-              solution: '24小时监控+智能预警系统+专业保安值守' },
-            {
+              solution: '24小时监控+智能预警系统+专业保安值守'
+            }, {
               title: '北京银泰中心',
               category: '高端住宅',
               service: '人防+物防+技防',
               result: '业主满意度100%',
               image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400',
               problem: '高端社区需要私密性与安全性并重',
-              solution: '门禁系统+巡逻队+智能访客管理' }].
-            map((caseStudy, index) => <div key={index} className="bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer" onClick={() => navigateTo('cases')}>
+              solution: '门禁系统+巡逻队+智能访客管理'
+            }].map((caseStudy, index) => <div key={index} className="bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer" onClick={() => navigateTo('cases')}>
                 <div className="relative mb-4 overflow-hidden rounded-xl">
                   <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute top-3 left-3 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-xs font-semibold">
@@ -658,20 +644,20 @@ export default function Home(props) {
             {[{
               name: '保安服务许可证',
               icon: Shield,
-              color: 'from-blue-500 to-blue-700' },
-            {
+              color: 'from-blue-500 to-blue-700'
+            }, {
               name: 'ISO9001认证',
               icon: Award,
-              color: 'from-green-500 to-green-700' },
-            {
+              color: 'from-green-500 to-green-700'
+            }, {
               name: '安防工程资质',
               icon: Lock,
-              color: 'from-purple-500 to-purple-700' },
-            {
+              color: 'from-purple-500 to-purple-700'
+            }, {
               name: 'AAA级信用企业',
               icon: Star,
-              color: 'from-yellow-500 to-orange-700' }].
-            map((cred, index) => <div key={index} className="text-center group">
+              color: 'from-yellow-500 to-orange-700'
+            }].map((cred, index) => <div key={index} className="text-center group">
                 <div className={`w-20 h-20 bg-gradient-to-br ${cred.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <cred.icon className="w-10 h-10 text-white" />
                 </div>
@@ -691,7 +677,7 @@ export default function Home(props) {
             立即联系我们，获取专业的四防一体化安保方案，让安全成为您最坚实的后盾
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button onClick={() => navigateTo('contact')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
               免费咨询
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
@@ -761,8 +747,8 @@ export default function Home(props) {
                   </button>
                 </li>
                 <li>
-                  <button onClick={() => navigateTo('contact')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
-                    联系我们
+                  <button onClick={() => navigateTo('about')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
+                    关于我们
                   </button>
                 </li>
               </ul>

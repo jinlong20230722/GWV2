@@ -203,8 +203,8 @@ export default function Cases(props) {
                 关于我们
               </button>
               <button className="text-[#D4AF37] font-medium">成功案例</button>
-              <button onClick={() => navigateTo('contact')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
-                联系我们
+              <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
+                关于我们
               </button>
             </div>
 
@@ -226,8 +226,8 @@ export default function Cases(props) {
                 关于我们
               </button>
               <button className="block w-full text-left text-[#D4AF37] py-2">成功案例</button>
-              <button onClick={() => navigateTo('contact')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
-                联系我们
+              <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
+                关于我们
               </button>
             </div>
           </div>}
@@ -407,7 +407,7 @@ export default function Cases(props) {
           <p className="text-[#0A1628]/80 text-lg mb-8 max-w-2xl mx-auto">
             让我们用20年专业经验和500+成功案例，为您提供最优质的安保服务
           </p>
-          <Button onClick={() => navigateTo('contact')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
             立即咨询
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>

@@ -215,8 +215,8 @@ export default function Services(props) {
               <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
                 成功案例
               </button>
-              <button onClick={() => navigateTo('contact')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
-                联系我们
+              <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
+                关于我们
               </button>
             </div>
 
@@ -238,8 +238,8 @@ export default function Services(props) {
               <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
                 成功案例
               </button>
-              <button onClick={() => navigateTo('contact')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
-                联系我们
+              <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
+                关于我们
               </button>
             </div>
           </div>}
@@ -385,7 +385,7 @@ export default function Services(props) {
 
           {/* CTA Button */}
           <div className="text-center">
-            <Button onClick={() => navigateTo('contact', {
+            <Button onClick={() => navigateTo('about', {
             defense: activeDefenseData.id
           })} className={`bg-gradient-to-r ${activeDefenseData.color} text-white px-12 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
               咨询{activeDefenseData.title}服务
@@ -404,7 +404,7 @@ export default function Services(props) {
           <p className="text-[#0A1628]/80 text-lg mb-8 max-w-2xl mx-auto">
             我们的专业团队将根据您的具体需求，提供个性化的四防一体化安保解决方案
           </p>
-          <Button onClick={() => navigateTo('contact')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
             立即咨询
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
