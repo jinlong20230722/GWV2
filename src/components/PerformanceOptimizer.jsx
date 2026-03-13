@@ -8,10 +8,16 @@ const PerformanceOptimizer = ({
 }) => {
   const [performanceMetrics, setPerformanceMetrics] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   const observerRef = useRef(null);
   useEffect(() => {
-    if (!enableMonitoring || typeof window === 'undefined') return;
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!enableMonitoring || typeof window === 'undefined' || !isMounted) return;
     const collectMetrics = () => {
+      if (!isMounted) return;
       try {
         const navigation = performance.getEntriesByType('navigation')[0];
         const paint = performance.getEntriesByType('paint');
@@ -25,8 +31,10 @@ const PerformanceOptimizer = ({
           totalTransferSize: resources.reduce((acc, r) => acc + (r.transferSize || 0), 0),
           timestamp: new Date().toISOString()
         };
-        setPerformanceMetrics(metrics);
-        setIsLoaded(true);
+        if (isMounted) {
+          setPerformanceMetrics(metrics);
+          setIsLoaded(true);
+        }
         if (process.env.NODE_ENV === 'development') {
           console.log('📊 Performance Metrics:', metrics);
         }
@@ -44,12 +52,13 @@ const PerformanceOptimizer = ({
     return () => {
       window.removeEventListener('load', collectMetrics);
     };
-  }, [enableMonitoring]);
+  }, [enableMonitoring, isMounted]);
 
   // 内存使用监控（仅开发环境）
   useEffect(() => {
-    if (!enableMonitoring || process.env.NODE_ENV !== 'development') return;
+    if (!enableMonitoring || process.env.NODE_ENV !== 'development' || !isMounted) return;
     const logMemoryUsage = () => {
+      if (!isMounted) return;
       if (performance.memory) {
         const usedMB = Math.round(performance.memory.usedJSHeapSize / 1048576);
         const totalMB = Math.round(performance.memory.jsHeapSizeLimit / 1048576);
@@ -58,7 +67,7 @@ const PerformanceOptimizer = ({
     };
     const memoryInterval = setInterval(logMemoryUsage, 30000);
     return () => clearInterval(memoryInterval);
-  }, [enableMonitoring]);
+  }, [enableMonitoring, isMounted]);
   return <>{children}</>;
 };
 

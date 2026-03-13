@@ -32,6 +32,7 @@ export function MobileProvider({
   const [screenHeight, setScreenHeight] = useState(window.innerHeight);
   const [orientation, setOrientation] = useState('portrait');
   const [isTouch, setIsTouch] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   const [safeArea, setSafeArea] = useState({
     top: 0,
     bottom: 0,
@@ -69,6 +70,7 @@ export function MobileProvider({
 
   // 更新设备状态
   const updateDeviceState = () => {
+    if (!isMounted) return;
     const width = window.innerWidth;
     const height = window.innerHeight;
     setScreenWidth(width);
@@ -84,17 +86,26 @@ export function MobileProvider({
 
   // 初始化
   useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!isMounted) return;
     setIsTouch(detectTouch());
     updateDeviceState();
 
     // 监听窗口大小变化
     const handleResize = () => {
-      updateDeviceState();
+      if (isMounted) {
+        updateDeviceState();
+      }
     };
 
     // 监听方向变化
     const handleOrientationChange = () => {
-      setOrientation(detectOrientation());
+      if (isMounted) {
+        setOrientation(detectOrientation());
+      }
     };
     window.addEventListener('resize', handleResize);
     window.addEventListener('orientationchange', handleOrientationChange);
@@ -102,7 +113,7 @@ export function MobileProvider({
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('orientationchange', handleOrientationChange);
     };
-  }, []);
+  }, [isMounted]);
 
   // 移动端友好的点击事件
   const mobileClick = (onClick, options = {}) => {

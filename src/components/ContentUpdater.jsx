@@ -12,21 +12,33 @@ const ContentUpdater = ({
   const [lastUpdated, setLastUpdated] = useState(null);
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [updateHistory, setUpdateHistory] = useState([]);
+  const [isMounted, setIsMounted] = useState(true);
   useEffect(() => {
-    const savedHistory = localStorage.getItem(`content-history-${contentId}`);
-    if (savedHistory) {
-      setUpdateHistory(JSON.parse(savedHistory));
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!isMounted) return;
+    try {
+      const savedHistory = localStorage.getItem(`content-history-${contentId}`);
+      if (isMounted && savedHistory) {
+        setUpdateHistory(JSON.parse(savedHistory));
+      }
+      const lastUpdate = localStorage.getItem(`last-updated-${contentId}`);
+      if (isMounted && lastUpdate) {
+        setLastUpdated(new Date(lastUpdate));
+      }
+    } catch (error) {
+      console.error('ContentUpdater init error:', error);
     }
-    const lastUpdate = localStorage.getItem(`last-updated-${contentId}`);
-    if (lastUpdate) {
-      setLastUpdated(new Date(lastUpdate));
-    }
-  }, [contentId]);
+  }, [contentId, isMounted]);
   const handleRefresh = async () => {
+    if (!isMounted) return;
     setIsRefreshing(true);
     try {
       // 模拟内容刷新
       await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!isMounted) return;
       const now = new Date();
       setLastUpdated(now);
       localStorage.setItem(`last-updated-${contentId}`, now.toISOString());
@@ -40,7 +52,9 @@ const ContentUpdater = ({
     } catch (error) {
       console.error('Content refresh failed:', error);
     } finally {
-      setIsRefreshing(false);
+      if (isMounted) {
+        setIsRefreshing(false);
+      }
     }
   };
   const formatLastUpdated = () => {
@@ -79,7 +93,13 @@ const ContentStatusIndicator = ({
   lastUpdated
 }) => {
   const [status, setStatus] = useState('fresh');
+  const [isMounted, setIsMounted] = useState(true);
   useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!isMounted) return;
     if (!lastUpdated) {
       setStatus('unknown');
       return;
@@ -88,7 +108,7 @@ const ContentStatusIndicator = ({
     const ageMs = now - lastUpdated;
     const ageHours = ageMs / (1000 * 60 * 60);
     if (ageHours < 1) setStatus('fresh');else if (ageHours < 24) setStatus('recent');else if (ageHours < 168) setStatus('stale');else setStatus('outdated');
-  }, [lastUpdated]);
+  }, [lastUpdated, isMounted]);
   const statusConfig = {
     fresh: {
       color: 'bg-green-500',
@@ -129,14 +149,21 @@ const ContentStatusIndicator = ({
 const useAutoRefresh = (callback, interval = 300000, enabled = true) => {
   const [isActive, setIsActive] = useState(enabled);
   const [lastRefresh, setLastRefresh] = useState(null);
+  const [isMounted, setIsMounted] = useState(true);
   useEffect(() => {
-    if (!isActive) return;
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!isActive || !isMounted) return;
     const refreshInterval = setInterval(() => {
-      callback();
-      setLastRefresh(new Date());
+      if (isMounted) {
+        callback();
+        setLastRefresh(new Date());
+      }
     }, interval);
     return () => clearInterval(refreshInterval);
-  }, [callback, interval, isActive]);
+  }, [callback, interval, isActive, isMounted]);
   return {
     isActive,
     setIsActive,
