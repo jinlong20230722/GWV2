@@ -11,24 +11,33 @@ export const EnhancedHeroCarousel = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [direction, setDirection] = useState('next');
+  const [isMounted, setIsMounted] = useState(true);
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
   const nextSlide = useCallback(() => {
+    if (!isMounted) return;
     setDirection('next');
     setCurrentIndex(prev => (prev + 1) % slides.length);
-  }, [slides.length]);
+  }, [slides.length, isMounted]);
   const prevSlide = useCallback(() => {
+    if (!isMounted) return;
     setDirection('prev');
     setCurrentIndex(prev => (prev - 1 + slides.length) % slides.length);
-  }, [slides.length]);
+  }, [slides.length, isMounted]);
   const goToSlide = useCallback(index => {
+    if (!isMounted) return;
     setDirection(index > currentIndex ? 'next' : 'prev');
     setCurrentIndex(index);
-  }, [currentIndex]);
+  }, [currentIndex, isMounted]);
   useEffect(() => {
+    if (!isMounted) return;
     if (autoPlay && !isPaused) {
       const timer = setInterval(nextSlide, interval);
       return () => clearInterval(timer);
     }
-  }, [autoPlay, isPaused, interval, nextSlide]);
+  }, [autoPlay, isPaused, interval, nextSlide, isMounted]);
   return <div className="relative overflow-hidden" onMouseEnter={() => setIsPaused(true)} onMouseLeave={() => setIsPaused(false)}>
       {/* Slides */}
       {slides.map((slide, index) => {

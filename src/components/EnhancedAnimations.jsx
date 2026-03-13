@@ -12,25 +12,29 @@ export const SlideIn = ({
   className = ''
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   const ref = useRef(null);
   useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  useEffect(() => {
+    if (!isMounted || !ref.current) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (isMounted && entry.isIntersecting) {
         setIsVisible(true);
         observer.unobserve(entry.target);
       }
     }, {
       threshold: 0.1
     });
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(ref.current);
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
       }
     };
-  }, []);
+  }, [isMounted]);
   return <div ref={ref} className={`transition-all ease-out ${className}`} style={{
     transform: isVisible ? 'translate(0, 0)' : direction === 'left' ? 'translateX(-100px)' : direction === 'right' ? 'translateX(100px)' : direction === 'up' ? 'translateY(100px)' : 'translateY(-100px)',
     opacity: isVisible ? 1 : 0,
@@ -75,37 +79,48 @@ export const AnimatedCounter = ({
   prefix = ''
 }) => {
   const [count, setCount] = useState(0);
+  const [isMounted, setIsMounted] = useState(true);
   const ref = useRef(null);
   const hasAnimated = useRef(false);
+  const animationRef = useRef(null);
   useEffect(() => {
+    setIsMounted(true);
+    return () => {
+      setIsMounted(false);
+      if (animationRef.current) {
+        window.cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, []);
+  useEffect(() => {
+    if (!isMounted || !ref.current) return;
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !hasAnimated.current) {
+      if (isMounted && entry.isIntersecting && !hasAnimated.current) {
         hasAnimated.current = true;
         let startTimestamp = null;
         const step = timestamp => {
+          if (!isMounted) return;
           if (!startTimestamp) startTimestamp = timestamp;
           const progress = Math.min((timestamp - startTimestamp) / duration, 1);
           const currentCount = Math.floor(progress * end);
           setCount(currentCount);
           if (progress < 1) {
-            window.requestAnimationFrame(step);
+            animationRef.current = window.requestAnimationFrame(step);
           }
         };
-        window.requestAnimationFrame(step);
+        animationRef.current = window.requestAnimationFrame(step);
         observer.unobserve(entry.target);
       }
     }, {
       threshold: 0.5
     });
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(ref.current);
     return () => {
       if (ref.current) {
         observer.unobserve(ref.current);
       }
     };
-  }, [end, duration]);
+  }, [end, duration, isMounted]);
   return <span ref={ref}>
       {prefix}{count}{suffix}
     </span>;

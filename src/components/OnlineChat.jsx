@@ -1,5 +1,5 @@
 // @ts-ignore;
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // @ts-ignore;
 import { MessageCircle, X, Send, Phone, Mail, Minimize2, Maximize2 } from 'lucide-react';
 // @ts-ignore;
@@ -8,55 +8,65 @@ import { Button, Input, useToast } from '@/components/ui';
 import { useForm } from 'react-hook-form';
 export function OnlineChat(props) {
   const {
-    toast } =
-  useToast();
+    toast
+  } = useToast();
   const [isOpen, setIsOpen] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMounted, setIsMounted] = useState(true);
   const [messages, setMessages] = useState([{
     id: 1,
     type: 'bot',
-    content: '您好！欢迎咨询 SecureGuard 安保服务。请问有什么可以帮助您的？' }]);
-
+    content: '您好！欢迎咨询 SecureGuard 安保服务。请问有什么可以帮助您的？'
+  }]);
   const form = useForm({
     defaultValues: {
-      message: '' } });
-
-
-  const onSubmit = async (data) => {
-    if (!data.message.trim()) return;
+      message: ''
+    }
+  });
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+  const onSubmit = async data => {
+    if (!data.message.trim() || !isMounted) return;
     setIsSubmitting(true);
 
     // 添加用户消息
     const userMessage = {
       id: messages.length + 1,
       type: 'user',
-      content: data.message };
-
+      content: data.message
+    };
     setMessages([...messages, userMessage]);
     form.reset();
     try {
       // 模拟客服回复
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!isMounted) return;
       const botMessage = {
         id: messages.length + 2,
         type: 'bot',
-        content: '感谢您的咨询！我们的专业顾问会尽快与您联系。您也可以拨打 400-888-8888 直接咨询。' };
-
-      setMessages((prev) => [...prev, botMessage]);
+        content: '感谢您的咨询！我们的专业顾问会尽快与您联系。您也可以拨打 400-888-8888 直接咨询。'
+      };
+      setMessages(prev => [...prev, botMessage]);
       toast({
         title: '消息已发送',
         description: '我们的顾问会尽快与您联系',
-        variant: 'default' });
-
+        variant: 'default'
+      });
     } catch (error) {
-      toast({
-        title: '发送失败',
-        description: '请稍后重试',
-        variant: 'destructive' });
-
+      if (isMounted) {
+        toast({
+          title: '发送失败',
+          description: '请稀后重试',
+          variant: 'destructive'
+        });
+      }
     } finally {
-      setIsSubmitting(false);
+      if (isMounted) {
+        setIsSubmitting(false);
+      }
     }
   };
   return <div className="fixed bottom-6 right-6 z-50">
@@ -86,7 +96,7 @@ export function OnlineChat(props) {
           {!isMinimized && <>
               {/* Messages */}
               <div className="h-[340px] overflow-y-auto p-4 space-y-4">
-                {messages.map((msg) => <div key={msg.id} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                {messages.map(msg => <div key={msg.id} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
                     <div className={`max-w-[80%] p-3 rounded-2xl ${msg.type === 'user' ? 'bg-[#D4AF37] text-[#0A1628]' : 'bg-[#2D3748] text-white'}`}>
                       <p className="text-sm leading-relaxed">{msg.content}</p>
                     </div>
@@ -97,10 +107,12 @@ export function OnlineChat(props) {
                       <div className="flex space-x-1">
                         <div className="w-2 h-2 bg-[#D4AF37] rounded-full animate-bounce" />
                         <div className="w-2 h-2 bg-[#D4AF37] rounded-full animate-bounce" style={{
-                  animationDelay: '0.1s' }} />
+                  animationDelay: '0.1s'
+                }} />
 
                         <div className="w-2 h-2 bg-[#D4AF37] rounded-full animate-bounce" style={{
-                  animationDelay: '0.2s' }} />
+                  animationDelay: '0.2s'
+                }} />
 
                       </div>
                     </div>

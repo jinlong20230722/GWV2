@@ -85,7 +85,7 @@ export function MobileHamburgerMenu({
 
               {/* 联系我们按钮 */}
               <div className="p-6 border-t border-[#2D3748]">
-                <button onClick={() => handleNavigation('contact')} className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-[#0A1628] px-6 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-200 touch-target flex items-center justify-center space-x-3">
+                <button onClick={() => handleNavigation('about')} className="w-full bg-gradient-to-r from-[#D4AF37] to-[#B8860B] text-[#0A1628] px-6 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-200 touch-target flex items-center justify-center space-x-3">
                   <MessageSquare className="w-5 h-5" />
                   <span>立即咨询</span>
                 </button>
@@ -93,23 +93,6 @@ export function MobileHamburgerMenu({
             </div>
           </div>
         </>}
-
-      <style jsx>{`
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes slide-in-right {
-          from { 
-            transform: translateX(100%);
-            opacity: 0;
-          }
-          to { 
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-      `}</style>
     </>;
 }
 export default MobileHamburgerMenu;
