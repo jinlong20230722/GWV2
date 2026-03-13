@@ -2,9 +2,7 @@
 import React, { useState, useEffect } from 'react';
 // @ts-ignore;
 import { Shield, Users, Lock, Brain, ArrowRight, Menu, X, Phone, Mail, MapPin, CheckCircle, Star, ChevronLeft, ChevronRight, Award, Pause, Play, FileText, Calendar, Home as HomeIcon, Briefcase, MessageSquare, FolderOpen, User } from 'lucide-react'; // @ts-ignore;
-import { Button, useToast } from '@/components/ui';
-import { FadeIn, CountUp, GradientText, HoverScale } from '@/components/AnimationProvider.jsx';
-import { LazyImage } from '@/components/ImageOptimizer.jsx';
+import { Button, useToast } from '@/components/ui';import { FadeIn, CountUp, GradientText, HoverScale } from '@/components/AnimationProvider.jsx';import { LazyImage } from '@/components/ImageOptimizer.jsx';
 import { SEOOptimizer, StructuredData } from '@/components/SEOOptimizer.jsx';
 import { AccessibilityWrapper } from '@/components/AccessibilityWrapper.jsx';
 import { PageMeta } from '@/components/PageMeta.jsx';
@@ -697,7 +695,7 @@ export default function Home(props) {
               免费咨询
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
-            <Button onClick={() => navigateTo('services')} className="border-2 border-[#0A1628] text-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105">
+            <Button onClick={() => navigateTo('services')} className="border-2 border-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105 bg-black text-white">
               获取方案
               <FileText className="ml-2 w-5 h-5" />
             </Button>
