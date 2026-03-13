@@ -31,3 +31,4 @@ export * from './MobileHamburgerMenu.jsx';
 export * from './MobileImageOptimizer.jsx';
 export * from './MobileTouchFeedback.jsx';
 export * from './MobileIssueFixes.jsx';
+export * from './MobileMapNavigator.jsx';
