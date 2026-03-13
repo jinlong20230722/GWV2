@@ -19,6 +19,7 @@ export default function Contact(props) {
   } = useToast();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const form = useForm({
     defaultValues: {
       name: '',
@@ -58,55 +59,70 @@ export default function Contact(props) {
     });
     setIsMenuOpen(false);
   };
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return <div className="min-h-screen bg-[#0A1628] font-sans">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A1628]/95 backdrop-blur-md shadow-lg">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 safe-area-top ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
+            {/* Logo */}
             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigateTo('home')}>
               <Shield className="w-10 h-10 text-[#D4AF37]" />
               <span className="text-2xl font-bold text-white font-serif tracking-wider">
-                SECURE<span className="text-[#D4AF37]">GUARD</span>
+                SecureGuard
               </span>
             </div>
 
-            <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => navigateTo('home')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center">
+              <button onClick={() => navigateTo('home')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
                 首页
               </button>
-              <button onClick={() => navigateTo('services')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
+              <button onClick={() => navigateTo('services')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
                 四大防线
               </button>
-              <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
+              <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
                 成功案例
               </button>
-              <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
+              <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
                 关于我们
               </button>
-              <button className="text-[#D4AF37] font-medium">联系我们</button>
+              <button onClick={() => navigateTo('contact')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 ml-4">
+                联系我们
+              </button>
             </div>
 
+            {/* Mobile Menu Button */}
             <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && <div className="md:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-[#2D3748]">
-            <div className="px-4 py-4 space-y-3">
-              <button onClick={() => navigateTo('home')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
+            <div className="px-4 py-4">
+              <button onClick={() => navigateTo('home')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
                 首页
               </button>
-              <button onClick={() => navigateTo('services')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
+              <button onClick={() => navigateTo('services')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
                 四大防线
               </button>
-              <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
+              <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
                 成功案例
               </button>
-              <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
+              <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
                 关于我们
               </button>
-              <button className="block w-full text-left text-[#D4AF37] py-2">联系我们</button>
+              <button onClick={() => navigateTo('contact')} className="block w-full text-left text-[#D4AF37] py-3 transition-colors">
+                联系我们
+              </button>
             </div>
           </div>}
       </nav>
