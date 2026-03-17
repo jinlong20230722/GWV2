@@ -1,37 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
-
-// XSS防护工具函数
-export const sanitizeHTML = (html) => {
-  if (!html) return '';
-  const tempDiv = document.createElement('div');
-  tempDiv.textContent = html;
-  return tempDiv.innerHTML;
-};
-
-export const safeText = (text) => {
-  if (!text) return '';
-  return String(text)
-    .replace(/[&<>"']/g, (m) => ({
-      '&': '&amp;',
-      '<': '&lt;',
-      '>': '&gt;',
-      '"': '&quot;',
-      "'": '&#039;'
-    }[m]));
-};
-
-export const safeURL = (url) => {
-  if (!url) return '';
-  try {
-    const urlObj = new URL(url);
-    if (['http:', 'https:'].includes(urlObj.protocol)) {
-      return url;
-    }
-  } catch {
-    // 如果不是有效的URL，返回空
-  }
-  return '';
-};
+import { sanitizeHTML, safeText, safeURL } from '@/components/SecurityOptimizer.jsx';
 
 // 主数据Hook
 export function useWebsiteData(props) {
