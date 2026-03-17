@@ -16,7 +16,7 @@ export default function MobileTabBar({
     icon: Briefcase,
     label: '服务'
   }, {
-    id: 'contact',
+    id: 'about',
     icon: MessageSquare,
     label: '咨询',
     isFloating: true

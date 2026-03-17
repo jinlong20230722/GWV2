@@ -59,7 +59,7 @@ export function OnlineChat(props) {
       if (isMounted) {
         toast({
           title: '发送失败',
-          description: '请稀后重试',
+          description: '请稍后重试',
           variant: 'destructive'
         });
       }
