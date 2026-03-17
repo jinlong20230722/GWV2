@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 export function useDataSource(dataSourceName) {
   const [loading, setLoading] = useState(false);
@@ -6,8 +6,18 @@ export function useDataSource(dataSourceName) {
   const [data, setData] = useState(null);
   const [records, setRecords] = useState([]);
   const [total, setTotal] = useState(0);
+  const isMountedRef = useRef(true);
+  
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
 
   const create = useCallback(async (data) => {
+    if (!isMountedRef.current) return;
+    
     setLoading(true);
     setError(null);
     try {
@@ -18,15 +28,21 @@ export function useDataSource(dataSourceName) {
       });
       return result;
     } catch (e) {
-      setError(e.message || '创建失败');
+      if (isMountedRef.current) {
+        setError(e.message || '创建失败');
+      }
       console.error('Create error:', e);
       throw e;
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   }, [dataSourceName]);
 
   const update = useCallback(async (filter, data) => {
+    if (!isMountedRef.current) return;
+    
     setLoading(true);
     setError(null);
     try {
@@ -37,15 +53,21 @@ export function useDataSource(dataSourceName) {
       });
       return result;
     } catch (e) {
-      setError(e.message || '更新失败');
+      if (isMountedRef.current) {
+        setError(e.message || '更新失败');
+      }
       console.error('Update error:', e);
       throw e;
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   }, [dataSourceName]);
 
   const deleteItem = useCallback(async (filter) => {
+    if (!isMountedRef.current) return;
+    
     setLoading(true);
     setError(null);
     try {
@@ -56,15 +78,21 @@ export function useDataSource(dataSourceName) {
       });
       return result;
     } catch (e) {
-      setError(e.message || '删除失败');
+      if (isMountedRef.current) {
+        setError(e.message || '删除失败');
+      }
       console.error('Delete error:', e);
       throw e;
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   }, [dataSourceName]);
 
   const getOne = useCallback(async (filter) => {
+    if (!isMountedRef.current) return;
+    
     setLoading(true);
     setError(null);
     try {
@@ -76,18 +104,27 @@ export function useDataSource(dataSourceName) {
           select: { $master: true } 
         }
       });
-      setData(result);
+      
+      if (isMountedRef.current) {
+        setData(result);
+      }
       return result;
     } catch (e) {
-      setError(e.message || '查询失败');
+      if (isMountedRef.current) {
+        setError(e.message || '查询失败');
+      }
       console.error('Get one error:', e);
       throw e;
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   }, [dataSourceName]);
 
   const getList = useCallback(async (options = {}) => {
+    if (!isMountedRef.current) return;
+    
     setLoading(true);
     setError(null);
     try {
@@ -110,15 +147,21 @@ export function useDataSource(dataSourceName) {
         params
       });
       
-      setRecords(result.records || []);
-      setTotal(result.total || 0);
+      if (isMountedRef.current) {
+        setRecords(result.records || []);
+        setTotal(result.total || 0);
+      }
       return result;
     } catch (e) {
-      setError(e.message || '查询列表失败');
+      if (isMountedRef.current) {
+        setError(e.message || '查询列表失败');
+      }
       console.error('Get list error:', e);
       throw e;
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) {
+        setLoading(false);
+      }
     }
   }, [dataSourceName]);
 

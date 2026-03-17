@@ -5,6 +5,7 @@ import CASES from '../pages/cases.jsx';
 import ADMIN from '../pages/admin.jsx';
 import MOBILE_TESTING from '../pages/mobile-testing.jsx';
 import MOBILE_FIXES from '../pages/mobile-fixes.jsx';
+import HOME_DATA-INTEGRATED from '../pages/home-data-integrated.jsx';
 export const routers = [{
   id: "home",
   component: HOME
@@ -26,4 +27,7 @@ export const routers = [{
 }, {
   id: "mobile-fixes",
   component: MOBILE_FIXES
+}, {
+  id: "home-data-integrated",
+  component: HOME_DATA-INTEGRATED
 }]

@@ -32,3 +32,8 @@ export * from './MobileImageOptimizer.jsx';
 export * from './MobileTouchFeedback.jsx';
 export * from './MobileIssueFixes.jsx';
 export * from './MobileMapNavigator.jsx';
+export * from './SecurityOptimizer.jsx';
+export * from './PerformanceMetrics.jsx';
+export * from './DataSourceProvider.jsx';
+export * from './WebsiteFooter.jsx';
+export * from './WebsiteHeader.jsx';
