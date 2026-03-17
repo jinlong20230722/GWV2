@@ -1,56 +1,47 @@
-[
-  {
-    "_id": "cat-all",
-    "name": "全部案例",
-    "icon_name": "Briefcase",
-    "order": 1,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "cat-finance",
-    "name": "金融行业",
-    "icon_name": "Building2",
-    "order": 2,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "cat-education",
-    "name": "教育行业",
-    "icon_name": "GraduationCap",
-    "order": 3,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "cat-real-estate",
-    "name": "地产行业",
-    "icon_name": "Home",
-    "order": 4,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "cat-enterprise",
-    "name": "企业园区",
-    "icon_name": "Factory",
-    "order": 5,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "cat-residential",
-    "name": "住宅小区",
-    "icon_name": "Building2",
-    "order": 6,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  }
-]
+{
+  "data": [
+    {
+      "_id": "cat-all",
+      "name": "全部案例",
+      "icon_name": "Briefcase",
+      "order": 1,
+      "is_active": true
+    },
+    {
+      "_id": "cat-finance",
+      "name": "金融行业",
+      "icon_name": "Building2",
+      "order": 2,
+      "is_active": true
+    },
+    {
+      "_id": "cat-education",
+      "name": "教育行业",
+      "icon_name": "GraduationCap",
+      "order": 3,
+      "is_active": true
+    },
+    {
+      "_id": "cat-real-estate",
+      "name": "地产行业",
+      "icon_name": "Home",
+      "order": 4,
+      "is_active": true
+    },
+    {
+      "_id": "cat-enterprise",
+      "name": "企业园区",
+      "icon_name": "Factory",
+      "order": 5,
+      "is_active": true
+    },
+    {
+      "_id": "cat-residential",
+      "name": "住宅小区",
+      "icon_name": "Building2",
+      "order": 6,
+      "is_active": true
+    }
+  ],
+  "total": 6
+}

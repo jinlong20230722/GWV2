@@ -9,6 +9,7 @@ import OnlineChat from '@/components/OnlineChat.jsx';
 import { FadeIn, HoverScale, GradientText } from '@/components/AnimationProvider.jsx';
 import { LazyImage } from '@/components/ImageOptimizer.jsx';
 import MobileTabBar from '@/components/MobileTabBar.jsx';
+import { CredentialShowcase, EnhancedCaseDetail } from '@/components/CredentialShowcase.jsx';
 export default function Cases(props) {
   const {
     $w
@@ -40,6 +41,7 @@ export default function Cases(props) {
     name: '住宅小区'
   }];
   const cases = [{
+    _id: '1',
     id: 1,
     title: '某大型银行总部安保项目',
     category: 'finance',
@@ -48,8 +50,14 @@ export default function Cases(props) {
     services: ['人防团队', '智能监控', '门禁系统', '应急响应'],
     results: ['安全事故零发生', '客户满意度100%', '应急响应时间<3分钟'],
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800',
-    year: '2025'
+    year: '2025',
+    start_date: '2023-01-15',
+    end_date: '2028-01-14',
+    project_scale: '大型项目',
+    project_budget: '500-800万元/年',
+    team_size: '专业保安86人，技术团队25人'
   }, {
+    _id: '2',
     id: 2,
     title: '知名大学校园安保系统',
     category: 'education',
@@ -58,8 +66,14 @@ export default function Cases(props) {
     services: ['AI监控分析', '智能门禁', '电子围栏', '24小时巡逻'],
     results: ['校园安全事件下降80%', '师生安全感显著提升', '系统稳定运行99.9%'],
     image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=800',
-    year: '2025'
+    year: '2025',
+    start_date: '2024-03-01',
+    end_date: '2027-02-28',
+    project_scale: '超大型项目',
+    project_budget: '1200-1500万元/年',
+    team_size: '安保人员120人，技术团队35人'
   }, {
+    _id: '3',
     id: 3,
     title: '高端住宅小区安保服务',
     category: 'residential',
@@ -68,8 +82,14 @@ export default function Cases(props) {
     services: ['专业保安', '智能门禁', '视频监控', '应急响应'],
     results: ['居民满意度98%', '安全事件零发生', '服务响应时间<5分钟'],
     image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800',
-    year: '2024'
+    year: '2024',
+    start_date: '2022-06-01',
+    end_date: '2025-05-31',
+    project_scale: '中型项目',
+    project_budget: '200-300万元/年',
+    team_size: '保安人员45人，客服团队12人'
   }, {
+    _id: '4',
     id: 4,
     title: '大型工业园区安保项目',
     category: 'enterprise',
@@ -78,8 +98,14 @@ export default function Cases(props) {
     services: ['周界防护', '智能监控', '人员管理', '应急响应'],
     results: ['安全事故零发生', '生产效率提升15%', '管理成本降低20%'],
     image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800',
-    year: '2024'
+    year: '2024',
+    start_date: '2023-08-15',
+    end_date: '2026-08-14',
+    project_scale: '大型项目',
+    project_budget: '600-900万元/年',
+    team_size: '安保人员95人，技术支持20人'
   }, {
+    _id: '5',
     id: 5,
     title: '商业综合体安保系统',
     category: 'real-estate',
@@ -88,8 +114,14 @@ export default function Cases(props) {
     services: ['智能监控', '客流分析', '应急联动', '24小时值守'],
     results: ['安全事件下降70%', '商户满意度95%', '应急响应时间<2分钟'],
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800',
-    year: '2024'
+    year: '2024',
+    start_date: '2023-11-01',
+    end_date: '2026-10-31',
+    project_scale: '超大型项目',
+    project_budget: '1500-2000万元/年',
+    team_size: '安保人员150人，技术团队40人'
   }, {
+    _id: '6',
     id: 6,
     title: '国际学校安保项目',
     category: 'education',
@@ -98,50 +130,79 @@ export default function Cases(props) {
     services: ['专业安保团队', '智能门禁', '视频监控', '应急响应'],
     results: ['安全事故零发生', '家长满意度99%', '系统稳定运行100%'],
     image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800',
-    year: '2023'
+    year: '2023',
+    start_date: '2021-09-01',
+    end_date: '2024-08-31',
+    project_scale: '中型项目',
+    project_budget: '350-450万元/年',
+    team_size: '安保人员65人，后勤团队15人'
   }];
   const certifications = [{
-    id: 1,
+    _id: '1',
     title: 'ISO9001质量管理体系认证',
     issuer: '国际标准化组织',
     year: '2018',
     description: '通过ISO9001质量管理体系认证，确保服务质量达到国际标准',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600'
+    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600',
+    certificate_number: 'ISO9001-2018-001',
+    valid_until: '2026-12-31',
+    order: 1,
+    is_active: true
   }, {
-    id: 2,
+    _id: '2',
     title: '保安服务许可证',
     issuer: '公安部',
     year: '2006',
     description: '获得公安部颁发的保安服务许可证，具备合法经营资质',
-    image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600'
+    image: 'https://images.unsplash.com/photo-1584473759923-6c8a7f7f9f2c?w=600',
+    certificate_number: 'GA-XK-2006-001',
+    valid_until: '2026-12-31',
+    order: 2,
+    is_active: true
   }, {
-    id: 3,
+    _id: '3',
     title: '安防工程企业资质证书',
     issuer: '公安部',
     year: '2010',
     description: '获得安防工程企业一级资质，具备承接大型安防工程的能力',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600'
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600',
+    certificate_number: 'AF-XK-2010-001',
+    valid_until: '2026-12-31',
+    order: 3,
+    is_active: true
   }, {
-    id: 4,
+    _id: '4',
     title: '中国安防行业优秀企业',
     issuer: '中国安全防范产品行业协会',
     year: '2023',
     description: '荣获中国安防行业优秀企业称号，行业影响力显著',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600'
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600',
+    certificate_number: 'CSP-2023-012',
+    valid_until: '2026-12-31',
+    order: 4,
+    is_active: true
   }, {
-    id: 5,
+    _id: '5',
     title: '高新技术企业证书',
     issuer: '科学技术部',
     year: '2022',
     description: '获得高新技术企业认证，技术创新能力得到认可',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600'
+    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600',
+    certificate_number: 'GR-2022-0345',
+    valid_until: '2025-12-31',
+    order: 5,
+    is_active: true
   }, {
-    id: 6,
+    _id: '6',
     title: 'AAA级信用企业',
     issuer: '中国信用评估中心',
     year: '2024',
     description: '获得AAA级信用企业认证，企业信誉度达到最高等级',
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600'
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600',
+    certificate_number: 'CCC-2024-AAA-089',
+    valid_until: '2027-12-31',
+    order: 6,
+    is_active: true
   }];
   const honors = [{
     id: 1,
@@ -312,6 +373,30 @@ export default function Cases(props) {
                       <p className="text-[#D4AF37] text-sm font-medium mb-3">{caseItem.client}</p>
                       <p className="text-gray-400 text-sm leading-relaxed mb-4">{caseItem.description}</p>
                       
+                      {/* 项目规模信息 */}
+                      {caseItem.project_scale && <div className="mb-4 p-3 bg-[#0A1628]/50 rounded-lg border border-[#2D3748]">
+                          <div className="grid grid-cols-2 gap-3 text-xs">
+                            <div>
+                              <span className="text-gray-500">项目规模</span>
+                              <p className="text-white font-medium">{caseItem.project_scale}</p>
+                            </div>
+                            {caseItem.project_budget && <div>
+                                <span className="text-gray-500">项目预算</span>
+                                <p className="text-[#D4AF37] font-medium">{caseItem.project_budget}</p>
+                              </div>}
+                            {caseItem.start_date && <div className="col-span-2">
+                                <span className="text-gray-500">合作周期</span>
+                                <p className="text-white font-medium">
+                                  {caseItem.start_date} {caseItem.end_date ? `- ${caseItem.end_date}` : '至今'}
+                                </p>
+                              </div>}
+                            {caseItem.team_size && <div className="col-span-2">
+                                <span className="text-gray-500">团队配置</span>
+                                <p className="text-white font-medium">{caseItem.team_size}</p>
+                              </div>}
+                          </div>
+                        </div>}
+                      
                       <div className="mb-4">
                         <div className="text-white font-semibold text-sm mb-2">服务内容：</div>
                         <div className="flex flex-wrap gap-2">
@@ -350,21 +435,7 @@ export default function Cases(props) {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certifications.map(cert => <div key={cert.id} onClick={() => openCertModal(cert)} className="bg-[#0A1628] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 cursor-pointer group">
-                <div className="flex items-start space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Award className="w-8 h-8 text-[#0A1628]" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-lg font-bold text-white font-serif mb-2">{cert.title}</h3>
-                    <p className="text-[#D4AF37] text-sm font-medium mb-1">{cert.issuer}</p>
-                    <p className="text-gray-400 text-xs mb-2">{cert.year}年获得</p>
-                    <p className="text-gray-500 text-sm leading-relaxed">{cert.description}</p>
-                  </div>
-                </div>
-              </div>)}
-          </div>
+          <CredentialShowcase credentials={certifications} onViewDetail={cert => openCertModal(cert)} />
         </div>
       </section>
 

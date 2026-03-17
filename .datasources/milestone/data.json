@@ -1,52 +1,45 @@
-[
-  {
-    "_id": "milestone-1",
-    "year": "2006",
-    "title": "公司成立",
-    "description": "SecureGuard 正式成立，开启专业安保服务",
-    "order": 1,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "milestone-2",
-    "year": "2010",
-    "title": "业务扩展",
-    "description": "服务范围扩展至全国主要城市",
-    "order": 2,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "milestone-3",
-    "year": "2015",
-    "title": "技术升级",
-    "description": "引入先进安防技术，提升服务质量",
-    "order": 3,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "milestone-4",
-    "year": "2020",
-    "title": "品牌升级",
-    "description": "完成品牌全面升级，确立行业领先地位",
-    "order": 4,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  },
-  {
-    "_id": "milestone-5",
-    "year": "2026",
-    "title": "持续创新",
-    "description": "持续创新，引领行业发展",
-    "order": 5,
-    "is_active": true,
-    "createdAt": 1741651446543,
-    "updatedAt": 1741651446543
-  }
-]
+{
+  "data": [
+    {
+      "_id": "milestone-1",
+      "year": "2006",
+      "title": "公司成立",
+      "description": "SecureGuard 正式成立，开启专业安保服务",
+      "order": 1,
+      "is_active": true
+    },
+    {
+      "_id": "milestone-2",
+      "year": "2010",
+      "title": "业务扩展",
+      "description": "服务范围扩展至全国主要城市",
+      "order": 2,
+      "is_active": true
+    },
+    {
+      "_id": "milestone-3",
+      "year": "2015",
+      "title": "技术升级",
+      "description": "引入先进安防技术，提升服务质量",
+      "order": 3,
+      "is_active": true
+    },
+    {
+      "_id": "milestone-4",
+      "year": "2020",
+      "title": "品牌升级",
+      "description": "完成品牌全面升级，确立行业领先地位",
+      "order": 4,
+      "is_active": true
+    },
+    {
+      "_id": "milestone-5",
+      "year": "2026",
+      "title": "持续创新",
+      "description": "持续创新，引领行业发展",
+      "order": 5,
+      "is_active": true
+    }
+  ],
+  "total": 5
+}

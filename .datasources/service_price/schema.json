@@ -1,0 +1,59 @@
+{
+  "name": "service_price",
+  "title": "服务价格",
+  "schemas": [
+    {
+      "name": "service_type",
+      "title": "服务类型",
+      "type": "String"
+    },
+    {
+      "name": "service_name",
+      "title": "服务名称",
+      "type": "String"
+    },
+    {
+      "name": "price_range",
+      "title": "价格范围",
+      "type": "String"
+    },
+    {
+      "name": "unit",
+      "title": "计价单位",
+      "type": "String"
+    },
+    {
+      "name": "description",
+      "title": "服务描述",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "features",
+      "title": "服务特性",
+      "type": "Array",
+      "items": {
+        "type": "String"
+      }
+    },
+    {
+      "name": "icon_name",
+      "title": "图标名称",
+      "type": "String"
+    },
+    {
+      "name": "is_popular",
+      "title": "是否热门",
+      "type": "Boolean"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
+}

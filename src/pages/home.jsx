@@ -16,6 +16,8 @@ import { PageWrapper } from '@/components/GlobalAppOptimizer.jsx';
 import { EnhancedStats, EnhancedCTAButtons, EnhancedCredentials, EnhancedCaseCard } from '@/components/HomeEnhancer.jsx';
 import OnlineChat from '@/components/OnlineChat.jsx';
 import MobileTabBar from '@/components/MobileTabBar.jsx';
+import { CompleteMobilePackage, MobileFirstButton, MobileCard, MobileGrid, MobileSection } from '@/components/CompleteMobileOptimization.jsx';
+import { EnhancedCarousel, BannerCarousel, TestimonialCarousel } from '@/components/CarouselEnhancer.jsx';
 export default function Home(props) {
   const {
     $w
@@ -256,7 +258,7 @@ export default function Home(props) {
                 关于我们
               </button>
               <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 ml-4">
-                关于我们
+                立即咨询
               </button>
             </div>
 
@@ -283,7 +285,7 @@ export default function Home(props) {
                 关于我们
               </button>
               <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors mt-2">
-                关于我们
+                立即咨询
               </button>
             </div>
           </div>}
@@ -673,22 +675,35 @@ export default function Home(props) {
           <h2 className="text-4xl md:text-5xl font-bold text-[#0A1628] font-serif mb-6">
             准备好提升您的安全了吗？
           </h2>
-          <p className="text-[#0A1628]/80 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-[#0A1628]/80 text-lg mb-12 max-w-2xl mx-auto">
             立即联系我们，获取专业的四防一体化安保方案，让安全成为您最坚实的后盾
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
+          
+          {/* 主要行动按钮组 */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+            {/* 主要CTA - 免费咨询 */}
+            <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-2xl">
               免费咨询
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-3 w-6 h-6" />
             </Button>
-            <Button onClick={() => navigateTo('services')} className="border-2 border-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105 bg-black text-white">
+            
+            {/* 次要CTA - 获取方案 */}
+            <Button onClick={() => navigateTo('services')} className="border-3 border-[#0A1628] px-10 py-5 rounded-full font-bold text-xl hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105 text-[#0A1628] bg-transparent">
               获取方案
-              <FileText className="ml-2 w-5 h-5" />
+              <FileText className="ml-3 w-6 h-6" />
             </Button>
-            <Button onClick={() => navigateTo('about')} className="border-2 border-[#0A1628]/50 px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105 text-white">
-              预约考察
-              <Calendar className="ml-2 w-5 h-5" />
-            </Button>
+          </div>
+          
+          {/* 辅助行动链接 */}
+          <div className="flex items-center justify-center gap-8">
+            <button onClick={() => navigateTo('about')} className="text-[#0A1628]/80 hover:text-[#0A1628] font-semibold text-lg transition-colors flex items-center space-x-2">
+              <Calendar className="w-5 h-5" />
+              <span>预约考察</span>
+            </button>
+            <button onClick={() => navigateTo('cases')} className="text-[#0A1628]/80 hover:text-[#0A1628] font-semibold text-lg transition-colors flex items-center space-x-2">
+              <Award className="w-5 h-5" />
+              <span>查看案例</span>
+            </button>
           </div>
         </div>
       </section>
@@ -746,11 +761,6 @@ export default function Home(props) {
                     关于我们
                   </button>
                 </li>
-                <li>
-                  <button onClick={() => navigateTo('about')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
-                    关于我们
-                  </button>
-                </li>
               </ul>
             </div>
 
@@ -785,5 +795,11 @@ export default function Home(props) {
       {/* 统一移动端底部导航 */}
       <MobileTabBar navigateTo={navigateTo} currentPage="home" />
       </div>
+        </MobileOptimizedContainer>
+      </MobileProvider>
+    </PageWrapper>
+    </SEOOptimizer>
+    </div>
+    </CompleteMobilePackage>
     </AccessibilityWrapper>;
 }

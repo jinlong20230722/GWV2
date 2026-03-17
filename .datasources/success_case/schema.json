@@ -49,6 +49,31 @@
       "type": "String"
     },
     {
+      "name": "start_date",
+      "title": "合作开始日期",
+      "type": "Date"
+    },
+    {
+      "name": "end_date",
+      "title": "合作结束日期",
+      "type": "Date"
+    },
+    {
+      "name": "project_scale",
+      "title": "项目规模",
+      "type": "String"
+    },
+    {
+      "name": "project_budget",
+      "title": "项目预算",
+      "type": "String"
+    },
+    {
+      "name": "team_size",
+      "title": "团队规模",
+      "type": "String"
+    },
+    {
       "name": "stats_time",
       "title": "数据统计时间",
       "type": "String"

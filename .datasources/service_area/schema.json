@@ -1,0 +1,61 @@
+{
+  "name": "service_area",
+  "title": "服务区域",
+  "schemas": [
+    {
+      "name": "region",
+      "title": "大区",
+      "type": "String"
+    },
+    {
+      "name": "province",
+      "title": "省份",
+      "type": "String"
+    },
+    {
+      "name": "city",
+      "title": "城市",
+      "type": "String"
+    },
+    {
+      "name": "is_municipality",
+      "title": "是否直辖市",
+      "type": "Boolean"
+    },
+    {
+      "name": "coverage_level",
+      "title": "覆盖级别",
+      "type": "String"
+    },
+    {
+      "name": "description",
+      "title": "区域描述",
+      "type": "MultiLineString"
+    },
+    {
+      "name": "office_address",
+      "title": "办公地址",
+      "type": "String"
+    },
+    {
+      "name": "contact_phone",
+      "title": "联系电话",
+      "type": "String"
+    },
+    {
+      "name": "is_headquarters",
+      "title": "是否总部",
+      "type": "Boolean"
+    },
+    {
+      "name": "order",
+      "title": "排序",
+      "type": "Number"
+    },
+    {
+      "name": "is_active",
+      "title": "是否启用",
+      "type": "Boolean"
+    }
+  ]
+}

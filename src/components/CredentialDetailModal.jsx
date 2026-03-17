@@ -1,5 +1,5 @@
 // @ts-ignore;
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 // @ts-ignore;
 import { X, CheckCircle, Calendar, Award, FileText } from 'lucide-react';
 
@@ -47,34 +47,17 @@ const credentials = [{
 export const useCredentialModal = () => {
   const [selectedCredential, setSelectedCredential] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(true);
-  const timeoutRef = useRef(null);
-  useEffect(() => {
-    setIsMounted(true);
-    return () => {
-      setIsMounted(false);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
-      }
-    };
-  }, []);
-  const openCredential = useCallback(credentialId => {
-    if (!isMounted) return;
+  const openCredential = credentialId => {
     const credential = credentials.find(c => c.id === credentialId);
     if (credential) {
       setSelectedCredential(credential);
       setIsModalOpen(true);
     }
-  }, [isMounted]);
-  const closeModal = useCallback(() => {
-    if (!isMounted) return;
+  };
+  const closeModal = () => {
     setIsModalOpen(false);
-    timeoutRef.current = setTimeout(() => {
-      if (isMounted) {
-        setSelectedCredential(null);
-      }
-    }, 300);
-  }, [isMounted]);
+    setTimeout(() => setSelectedCredential(null), 300);
+  };
   return {
     credentials,
     selectedCredential,
