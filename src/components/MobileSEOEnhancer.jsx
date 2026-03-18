@@ -83,7 +83,7 @@ export const SEOContentOptimizer = ({
       </article>
     </>;
 };
-export const ResponsiveGrid = ({
+export const SEOResponsiveGrid = ({
   children,
   columns = {
     sm: 1,

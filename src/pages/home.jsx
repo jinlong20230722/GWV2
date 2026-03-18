@@ -16,8 +16,6 @@ import { PageWrapper } from '@/components/GlobalAppOptimizer.jsx';
 import { EnhancedStats, EnhancedCTAButtons, EnhancedCredentials, EnhancedCaseCard } from '@/components/HomeEnhancer.jsx';
 import OnlineChat from '@/components/OnlineChat.jsx';
 import MobileTabBar from '@/components/MobileTabBar.jsx';
-import { CompleteMobilePackage, MobileFirstButton, MobileCard, MobileGrid, MobileSection } from '@/components/CompleteMobileOptimization.jsx';
-import { EnhancedCarousel, BannerCarousel, TestimonialCarousel } from '@/components/CarouselEnhancer.jsx';
 export default function Home(props) {
   const {
     $w
@@ -218,8 +216,8 @@ export default function Home(props) {
   const currentDefense = defenses[currentSlide];
   const CurrentIcon = currentDefense.icon;
   return <AccessibilityWrapper>
-      <PageMeta pageId="home" />
-      <SEOOptimizer>
+      <SEOOptimizer title="SecureGuard - 四防一体化安全解决方案 | 专业安保服务" description="SecureGuard提供专业的四防一体化安全服务：人防、技防、物防、智防，为企业、社区、活动提供全方位安全保障。20年行业经验，1000+专业安保人员。" keywords={["安保服务", "四防一体化", "安全解决方案", "人防服务", "技防系统", "物防设施", "智防方案", "北京安保公司"]}>
+        <PageMeta pageId="home" />
         <StructuredData type="Organization" data={{
         name: "SecureGuard",
         description: "专业的四防一体化安全服务：人防、技防、物防、智防",
@@ -228,9 +226,6 @@ export default function Home(props) {
         telephone: "+86-400-888-8888",
         email: "contact@secureguard.com"
       }} />
-      <PageWrapper>
-      <MobileProvider>
-        <MobileOptimizedContainer>
       <div id="main-content" className="min-h-screen bg-[#0A1628] font-sans">
       {/* Navigation */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 safe-area-top ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
@@ -334,8 +329,8 @@ export default function Home(props) {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button onClick={() => navigateTo('services', {
-                          defense: currentDefense.id
-                        })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
+                    defense: currentDefense.id
+                  })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
                   了解{currentDefense.title}
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
@@ -385,14 +380,14 @@ export default function Home(props) {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {defenses.map((defense, index) => {
-                      const DefenseIcon = defense.icon;
-                      return <div key={defense.id} onClick={() => {
-                        setCurrentSlide(defense.id);
-                        window.scrollTo({
-                          top: 0,
-                          behavior: 'smooth'
-                        });
-                      }} className={`group bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 cursor-pointer ${currentSlide === index ? 'border-[#D4AF37]' : 'border-[#2D3748] hover:border-[#D4AF37]/50'}`}>
+                const DefenseIcon = defense.icon;
+                return <div key={defense.id} onClick={() => {
+                  setCurrentSlide(defense.id);
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                }} className={`group bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 cursor-pointer ${currentSlide === index ? 'border-[#D4AF37]' : 'border-[#2D3748] hover:border-[#D4AF37]/50'}`}>
                 <div className={`w-16 h-16 bg-gradient-to-br ${defense.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <DefenseIcon className="w-8 h-8 text-white" />
                 </div>
@@ -407,7 +402,7 @@ export default function Home(props) {
                   查看详情 <ArrowRight className="ml-2 w-4 h-4" />
                 </div>
               </div>;
-                    })}
+              })}
           </div>
         </div>
       </section>
@@ -519,8 +514,8 @@ export default function Home(props) {
             <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-32 h-full bg-gradient-to-l from-[#0A1628] to-transparent" />
             
             <div className="flex space-x-8 animate-scroll" style={{
-                      animation: 'scroll 30s linear infinite'
-                    }}>
+                animation: 'scroll 30s linear infinite'
+              }}>
 
 
               {/* 第一组图片 */}
@@ -583,30 +578,30 @@ export default function Home(props) {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[{
-                      title: '阿里巴巴集团总部',
-                      category: '企业园区',
-                      service: '人防+智防+技防',
-                      result: '降低95%安全隐患',
-                      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
-                      problem: '大型园区人员流动大，需要全方位安全防护',
-                      solution: '部署人脸识别系统+智能监控+专业安保团队'
-                    }, {
-                      title: '招商银行深圳分行',
-                      category: '金融机构',
-                      service: '物防+技防+智防',
-                      result: '零安全事故',
-                      image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400',
-                      problem: '金融场所需要高等级安全防护',
-                      solution: '24小时监控+智能预警系统+专业保安值守'
-                    }, {
-                      title: '北京银泰中心',
-                      category: '高端住宅',
-                      service: '人防+物防+技防',
-                      result: '业主满意度100%',
-                      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400',
-                      problem: '高端社区需要私密性与安全性并重',
-                      solution: '门禁系统+巡逻队+智能访客管理'
-                    }].map((caseStudy, index) => <div key={index} className="bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer" onClick={() => navigateTo('cases')}>
+                title: '阿里巴巴集团总部',
+                category: '企业园区',
+                service: '人防+智防+技防',
+                result: '降低95%安全隐患',
+                image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
+                problem: '大型园区人员流动大，需要全方位安全防护',
+                solution: '部署人脸识别系统+智能监控+专业安保团队'
+              }, {
+                title: '招商银行深圳分行',
+                category: '金融机构',
+                service: '物防+技防+智防',
+                result: '零安全事故',
+                image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400',
+                problem: '金融场所需要高等级安全防护',
+                solution: '24小时监控+智能预警系统+专业保安值守'
+              }, {
+                title: '北京银泰中心',
+                category: '高端住宅',
+                service: '人防+物防+技防',
+                result: '业主满意度100%',
+                image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400',
+                problem: '高端社区需要私密性与安全性并重',
+                solution: '门禁系统+巡逻队+智能访客管理'
+              }].map((caseStudy, index) => <div key={index} className="bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer" onClick={() => navigateTo('cases')}>
                 <div className="relative mb-4 overflow-hidden rounded-xl">
                   <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500" />
                   <div className="absolute top-3 left-3 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-xs font-semibold">
@@ -645,22 +640,22 @@ export default function Home(props) {
 
           <div className="grid md:grid-cols-4 gap-8">
             {[{
-                      name: '保安服务许可证',
-                      icon: Shield,
-                      color: 'from-blue-500 to-blue-700'
-                    }, {
-                      name: 'ISO9001认证',
-                      icon: Award,
-                      color: 'from-green-500 to-green-700'
-                    }, {
-                      name: '安防工程资质',
-                      icon: Lock,
-                      color: 'from-purple-500 to-purple-700'
-                    }, {
-                      name: 'AAA级信用企业',
-                      icon: Star,
-                      color: 'from-yellow-500 to-orange-700'
-                    }].map((cred, index) => <div key={index} className="text-center group">
+                name: '保安服务许可证',
+                icon: Shield,
+                color: 'from-blue-500 to-blue-700'
+              }, {
+                name: 'ISO9001认证',
+                icon: Award,
+                color: 'from-green-500 to-green-700'
+              }, {
+                name: '安防工程资质',
+                icon: Lock,
+                color: 'from-purple-500 to-purple-700'
+              }, {
+                name: 'AAA级信用企业',
+                icon: Star,
+                color: 'from-yellow-500 to-orange-700'
+              }].map((cred, index) => <div key={index} className="text-center group">
                 <div className={`w-20 h-20 bg-gradient-to-br ${cred.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                   <cred.icon className="w-10 h-10 text-white" />
                 </div>
@@ -796,9 +791,6 @@ export default function Home(props) {
       {/* 统一移动端底部导航 */}
       <MobileTabBar navigateTo={navigateTo} currentPage="home" />
       </div>
-        </MobileOptimizedContainer>
-      </MobileProvider>
-    </PageWrapper>
-    </SEOOptimizer>
+      </SEOOptimizer>
     </AccessibilityWrapper>;
 }
