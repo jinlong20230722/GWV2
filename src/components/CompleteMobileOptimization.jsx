@@ -76,7 +76,7 @@ export const MobileFirstButton = ({
       {children}
     </button>;
 };
-export const MobileOptimizationCard = ({
+export const MobileCard = ({
   children,
   padding = 'p-6',
   className = ''
