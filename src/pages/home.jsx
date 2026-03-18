@@ -216,8 +216,8 @@ export default function Home(props) {
   const currentDefense = defenses[currentSlide];
   const CurrentIcon = currentDefense.icon;
   return <AccessibilityWrapper>
-      <PageMeta pageId="home" />
-      <SEOOptimizer>
+      <SEOOptimizer title="SecureGuard - 四防一体化安全解决方案 | 专业安保服务" description="SecureGuard提供专业的四防一体化安全服务：人防、技防、物防、智防，为企业、社区、活动提供全方位安全保障。20年行业经验，1000+专业安保人员。" keywords={["安保服务", "四防一体化", "安全解决方案", "人防服务", "技防系统", "物防设施", "智防方案", "北京安保公司"]}>
+        <PageMeta pageId="home" />
         <StructuredData type="Organization" data={{
         name: "SecureGuard",
         description: "专业的四防一体化安全服务：人防、技防、物防、智防",
@@ -226,161 +226,571 @@ export default function Home(props) {
         telephone: "+86-400-888-8888",
         email: "contact@secureguard.com"
       }} />
-      </SEOOptimizer>
-
       <div id="main-content" className="min-h-screen bg-[#0A1628] font-sans">
-        {/* Navigation */}
-        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 safe-area-top ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-20">
-              {/* Logo */}
-              <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigateTo('home')}>
+      {/* Navigation */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 safe-area-top ${scrolled ? 'bg-[#0A1628]/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigateTo('home')}>
+              <Shield className="w-10 h-10 text-[#D4AF37]" />
+              <span className="text-2xl font-bold text-white font-serif tracking-wider">
+                SecureGuard
+              </span>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center">
+              <button onClick={() => navigateTo('home')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
+                首页
+              </button>
+              <button onClick={() => navigateTo('services')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
+                四大防线
+              </button>
+              <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
+                成功案例
+              </button>
+              <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
+                关于我们
+              </button>
+              <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 ml-4">
+                立即咨询
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && <div className="md:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-[#2D3748]">
+            <div className="px-4 py-4">
+              <button onClick={() => navigateTo('home')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
+                首页
+              </button>
+              <button onClick={() => navigateTo('services')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
+                四大防线
+              </button>
+              <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
+                成功案例
+              </button>
+              <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
+                关于我们
+              </button>
+              <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors mt-2">
+                立即咨询
+              </button>
+            </div>
+          </div>}
+      </nav>
+
+      {/* 导航栏占位空间 */}
+      <div className="h-20 safe-area-top"></div>
+
+      {/* Hero Section - Four Defenses Carousel */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Slides */}
+        {defenses.map((defense, index) => <div key={defense.id} className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0A1628]/90 to-[#2D3748]/80" />
+            <div className={`absolute inset-0 bg-[url('${defense.image}')] bg-cover bg-center opacity-30`} />
+          </div>)}
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            {/* Slogan */}
+            <div className="animate-fade-in-up mb-8">
+              <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
+                <Shield className="w-6 h-6 text-[#D4AF37]" />
+                <span className="text-[#D4AF37] font-semibold text-lg">四防一体 · 智慧安保新纪元</span>
+              </div>
+              
+              <h1 className="text-5xl md:text-7xl font-bold text-white font-serif mb-6 leading-tight">
+                {currentDefense.title}
+                <span className={`block mt-2 bg-gradient-to-r ${currentDefense.color} bg-clip-text text-transparent`}>
+                  {currentDefense.subtitle}
+                </span>
+              </h1>
+              
+              <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+                {currentDefense.description}
+              </p>
+              
+              {/* Features */}
+              <div className="flex flex-wrap justify-center gap-4 mb-12">
+                {currentDefense.features.map((feature, index) => <div key={index} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
+                    <CheckCircle className="w-5 h-5 text-[#D4AF37]" />
+                    <span className="text-white font-medium">{feature}</span>
+                  </div>)}
+              </div>
+              
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Button onClick={() => navigateTo('services', {
+                    defense: currentDefense.id
+                  })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
+                  了解{currentDefense.title}
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+                <Button onClick={() => navigateTo('about')} variant="outline" className="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A1628] transition-all duration-300 text-black">
+                  立即咨询
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Carousel Controls */}
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
+          <button onClick={prevSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+            <ChevronLeft className="w-6 h-6 text-white" />
+          </button>
+          
+          <div className="flex space-x-3">
+            {defenses.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`relative transition-all duration-300 ${currentSlide === index ? 'bg-[#D4AF37] w-10 h-4' : 'bg-white/30 hover:bg-white/50 w-4 h-4'} rounded-full`}>
+                {currentSlide === index && <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-[#0A1628] text-xs font-bold">{index + 1}</span>
+                  </div>}
+              </button>)}
+          </div>
+          
+          <button onClick={nextSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+            <ChevronRight className="w-6 h-6 text-white" />
+          </button>
+          
+          <button onClick={() => setIsCarouselPaused(!isCarouselPaused)} className="w-12 h-12 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-[#D4AF37]/30 transition-colors border border-[#D4AF37]/30">
+            {isCarouselPaused ? <Play className="w-5 h-5 text-[#D4AF37]" /> : <Pause className="w-5 h-5 text-[#D4AF37]" />}
+          </button>
+        </div>
+      </section>
+
+      {/* Four Defenses Overview Section */}
+      <section className="py-24 bg-[#2D3748]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+              四大防线一体化
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              人防、技防、物防、智防四位一体，构建全方位安全防护体系
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {defenses.map((defense, index) => {
+                const DefenseIcon = defense.icon;
+                return <div key={defense.id} onClick={() => {
+                  setCurrentSlide(defense.id);
+                  window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                  });
+                }} className={`group bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border-2 cursor-pointer ${currentSlide === index ? 'border-[#D4AF37]' : 'border-[#2D3748] hover:border-[#D4AF37]/50'}`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${defense.color} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <DefenseIcon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2 font-serif">{defense.title}</h3>
+                <p className={`text-sm font-semibold mb-3 bg-gradient-to-r ${defense.color} bg-clip-text text-transparent`}>
+                  {defense.subtitle}
+                </p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                  {defense.description}
+                </p>
+                <div className="flex items-center text-[#D4AF37] font-semibold text-sm group-hover:translate-x-2 transition-transform duration-300">
+                  查看详情 <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </div>;
+              })}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-20 bg-[#0A1628]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => <div key={index} className="text-center group">
+                <div className="text-4xl md:text-5xl font-bold text-[#D4AF37] font-serif mb-2 group-hover:scale-110 transition-transform duration-300">
+                  {stat.number}
+                </div>
+                <div className="text-gray-300 text-lg">{stat.label}</div>
+              </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-24 bg-gradient-to-br from-[#2D3748] to-[#0A1628]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-6">
+                为什么选择我们
+              </h2>
+              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
+                我们致力于为客户提供最专业、最可靠的安保服务，用实力和信誉赢得您的信任
+              </p>
+              
+              <div className="space-y-6">
+                {whyChooseUs.map((item, index) => <FadeIn key={index} delay={index * 100} direction="right">
+                    <HoverScale>
+                      <div className="flex items-start space-x-4">
+                        <div className="w-10 h-10 bg-[#D4AF37]/20 rounded-full flex items-center justify-center flex-shrink-0">
+                          <item.icon className="w-5 h-5 text-[#D4AF37]" />
+                        </div>
+                        <div>
+                          <h4 className="text-white font-semibold text-lg mb-1">{item.title}</h4>
+                          <p className="text-gray-400">{item.desc}</p>
+                        </div>
+                      </div>
+                    </HoverScale>
+                  </FadeIn>)}
+              </div>
+            </div>
+
+            <FadeIn delay={300} direction="left">
+              <HoverScale>
+                <div className="relative">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
+                  <div className="relative bg-[#0A1628] rounded-3xl p-8 border border-[#2D3748]">
+                    <LazyImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600" alt="专业安保人员执勤场景" className="w-full h-80 object-cover rounded-2xl mb-6" aspectRatio="16/9" />
+                    <div className="flex items-center justify-between">
+                      <div className="text-center">
+                        <div className="text-[#D4AF37] font-bold text-2xl font-serif">
+                          <CountUp end={20} suffix="+" />
+                        </div>
+                        <div className="text-gray-400 text-sm">年专业经验</div>
+                      </div>
+                      <div className="h-12 w-px bg-[#2D3748]" />
+                      <div className="text-center">
+                        <div className="text-[#D4AF37] font-bold text-2xl font-serif">
+                          <CountUp end={1000} suffix="+" />
+                        </div>
+                        <div className="text-gray-400 text-sm">专业安保人员</div>
+                      </div>
+                      <div className="h-12 w-px bg-[#2D3748]" />
+                      <div className="text-center">
+                        <div className="text-[#D4AF37] font-bold text-2xl font-serif">
+                          <CountUp end={99} suffix="%" />
+                        </div>
+                        <div className="text-gray-400 text-sm">客户满意度</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </HoverScale>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - 锦旗表扬信滚动展示 */}
+      <section className="py-24 bg-[#0A1628] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
+              <Award className="w-6 h-6 text-[#D4AF37]" />
+              <span className="text-[#D4AF37] font-semibold text-lg">客户认可</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+              锦旗与表扬信
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              每一份荣誉都是客户对我们的信任与认可
+              <span className="text-[#D4AF37] ml-2 text-sm inline-flex items-center">
+                <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zM7 8a1 1 0 012 0v4a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v4a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
+                </svg>
+                悬停可暂停浏览
+              </span>
+            </p>
+          </div>
+
+          {/* 滚动图片展示 */}
+          <div className="relative">
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-32 h-full bg-gradient-to-r from-[#0A1628] to-transparent" />
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-32 h-full bg-gradient-to-l from-[#0A1628] to-transparent" />
+            
+            <div className="flex space-x-8 animate-scroll" style={{
+                animation: 'scroll 30s linear infinite'
+              }}>
+
+
+              {/* 第一组图片 */}
+              {honors.map((honor, index) => <div key={`${honor.id}-${index}`} className="flex-shrink-0 w-80">
+                  <div className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 h-full">
+                    <div className="relative mb-4 overflow-hidden rounded-xl">
+                      <img src={honor.image} alt={honor.title} className="w-full h-48 object-cover transform hover:scale-110 transition-transform duration-500" />
+                      <div className="absolute top-3 right-3 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-xs font-semibold">
+                        {honor.type}
+                      </div>
+                    </div>
+                    <h3 className="text-white font-semibold text-lg mb-2 font-serif">{honor.title}</h3>
+                    <p className="text-gray-400 text-sm mb-3">{honor.description}</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-gray-500 text-xs">{honor.date}</span>
+                      <span className="text-[#D4AF37] text-xs font-semibold">{honor.client}</span>
+                    </div>
+                  </div>
+                </div>)}
+            </div>
+          </div>
+
+          {/* 统计数据 */}
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+      </section>
+
+      {/* Quick Case Studies Section */}
+      <section className="py-24 bg-[#2D3748]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
+              <Award className="w-6 h-6 text-[#D4AF37]" />
+              <span className="text-[#D4AF37] font-semibold text-lg">成功案例</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+              典型案例展示
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              看看我们如何为各行业客户提供专业的安保解决方案
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[{
+                title: '阿里巴巴集团总部',
+                category: '企业园区',
+                service: '人防+智防+技防',
+                result: '降低95%安全隐患',
+                image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400',
+                problem: '大型园区人员流动大，需要全方位安全防护',
+                solution: '部署人脸识别系统+智能监控+专业安保团队'
+              }, {
+                title: '招商银行深圳分行',
+                category: '金融机构',
+                service: '物防+技防+智防',
+                result: '零安全事故',
+                image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?w=400',
+                problem: '金融场所需要高等级安全防护',
+                solution: '24小时监控+智能预警系统+专业保安值守'
+              }, {
+                title: '北京银泰中心',
+                category: '高端住宅',
+                service: '人防+物防+技防',
+                result: '业主满意度100%',
+                image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=400',
+                problem: '高端社区需要私密性与安全性并重',
+                solution: '门禁系统+巡逻队+智能访客管理'
+              }].map((caseStudy, index) => <div key={index} className="bg-gradient-to-br from-[#0A1628] to-[#1a202c] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 group cursor-pointer" onClick={() => navigateTo('cases')}>
+                <div className="relative mb-4 overflow-hidden rounded-xl">
+                  <img src={caseStudy.image} alt={caseStudy.title} className="w-full h-48 object-cover transform group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute top-3 left-3 bg-[#D4AF37] text-[#0A1628] px-3 py-1 rounded-full text-xs font-semibold">
+                    {caseStudy.category}
+                  </div>
+                </div>
+                <h3 className="text-white font-bold text-lg mb-2 font-serif">{caseStudy.title}</h3>
+                <p className="text-[#D4AF37] text-sm mb-2 font-semibold">{caseStudy.service}</p>
+                <p className="text-gray-400 text-sm mb-3">{caseStudy.problem}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-400 text-sm font-semibold">{caseStudy.result}</span>
+                  <ArrowRight className="w-4 h-4 text-[#D4AF37] group-hover:translate-x-1 transition-transform" />
+                </div>
+              </div>)}
+          </div>
+          <div className="text-center mt-12">
+            <Button onClick={() => navigateTo('cases')} className="bg-[#D4AF37] text-[#0A1628] px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 shadow-lg">
+              查看更多案例
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Credentials Section */}
+      <section className="py-24 bg-[#0A1628]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+              资质与认证
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              我们的专业资质与荣誉，是您信赖的保障
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[{
+                name: '保安服务许可证',
+                icon: Shield,
+                color: 'from-blue-500 to-blue-700'
+              }, {
+                name: 'ISO9001认证',
+                icon: Award,
+                color: 'from-green-500 to-green-700'
+              }, {
+                name: '安防工程资质',
+                icon: Lock,
+                color: 'from-purple-500 to-purple-700'
+              }, {
+                name: 'AAA级信用企业',
+                icon: Star,
+                color: 'from-yellow-500 to-orange-700'
+              }].map((cred, index) => <div key={index} className="text-center group">
+                <div className={`w-20 h-20 bg-gradient-to-br ${cred.color} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                  <cred.icon className="w-10 h-10 text-white" />
+                </div>
+                <p className="text-white font-semibold">{cred.name}</p>
+              </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0A1628] font-serif mb-6">
+            准备好提升您的安全了吗？
+          </h2>
+          <p className="text-[#0A1628]/80 text-lg mb-12 max-w-2xl mx-auto">
+            立即联系我们，获取专业的四防一体化安保方案，让安全成为您最坚实的后盾
+          </p>
+          
+          {/* 主要行动按钮组 */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+            {/* 主要CTA - 免费咨询 */}
+            <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-12 py-5 rounded-full font-bold text-xl hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-2xl">
+              免费咨询
+              <ArrowRight className="ml-3 w-6 h-6" />
+            </Button>
+            
+            {/* 次要CTA - 获取方案 */}
+            <Button onClick={() => navigateTo('services')} className="border-3 border-[#0A1628] px-10 py-5 rounded-full font-bold text-xl hover:bg-[#0A1628] hover:text-white transition-all duration-300 transform hover:scale-105 text-[#0A1628] bg-transparent">
+              获取方案
+              <FileText className="ml-3 w-6 h-6" />
+            </Button>
+          </div>
+          
+          {/* 辅助行动链接 */}
+          <div className="flex items-center justify-center gap-8">
+            <button onClick={() => navigateTo('about')} className="text-[#0A1628]/80 hover:text-[#0A1628] font-semibold text-lg transition-colors flex items-center space-x-2">
+              <Calendar className="w-5 h-5" />
+              <span>预约考察</span>
+            </button>
+            <button onClick={() => navigateTo('cases')} className="text-[#0A1628]/80 hover:text-[#0A1628] font-semibold text-lg transition-colors flex items-center space-x-2">
+              <Award className="w-5 h-5" />
+              <span>查看案例</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#0A1628] border-t border-[#2D3748] py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-4 gap-12">
+            {/* Company Info */}
+            <div className="md:col-span-2">
+              <div className="flex items-center space-x-2 mb-6">
                 <Shield className="w-10 h-10 text-[#D4AF37]" />
                 <span className="text-2xl font-bold text-white font-serif tracking-wider">
                   SecureGuard
                 </span>
               </div>
-
-              {/* Desktop Navigation */}
-              <div className="hidden md:flex items-center">
-                <button onClick={() => navigateTo('home')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
-                  首页
-                </button>
-                <button onClick={() => navigateTo('services')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
-                  四大防线
-                </button>
-                <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
-                  成功案例
-                </button>
-                <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium px-4">
-                  关于我们
-                </button>
-                <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105 ml-4">
-                  立即咨询
-                </button>
-              </div>
-
-              {/* Mobile Menu Button */}
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
-                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMenuOpen && <div className="md:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-[#2D3748]">
-              <div className="px-4 py-4">
-                <button onClick={() => navigateTo('home')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
-                  首页
-                </button>
-                <button onClick={() => navigateTo('services')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
-                  四大防线
-                </button>
-                <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
-                  成功案例
-                </button>
-                <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-3 transition-colors">
-                  关于我们
-                </button>
-                <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors mt-2">
-                  立即咨询
-                </button>
-              </div>
-            </div>}
-        </nav>
-
-        {/* 导航栏占位空间 */}
-        <div className="h-20 safe-area-top"></div>
-
-        {/* Hero Section - Four Defenses Carousel */}
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-          {/* Background Slides */}
-          {defenses.map((defense, index) => <div key={defense.id} className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0A1628]/90 to-[#2D3748]/80" />
-              <div className={`absolute inset-0 bg-[url('${defense.image}')] bg-cover bg-center opacity-30`} />
-            </div>)}
-
-          {/* Content */}
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
-              {/* Slogan */}
-              <div className="animate-fade-in-up mb-8">
-                <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
-                  <Shield className="w-6 h-6 text-[#D4AF37]" />
-                  <span className="text-[#D4AF37] font-semibold text-lg">四防一体 · 智慧安保新纪元</span>
-                </div>
-                
-                <h1 className="text-5xl md:text-7xl font-bold text-white font-serif mb-6 leading-tight">
-                  {currentDefense.title}
-                  <span className={`block mt-2 bg-gradient-to-r ${currentDefense.color} bg-clip-text text-transparent`}>
-                    {currentDefense.subtitle}
-                  </span>
-                </h1>
-                
-                <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-                  {currentDefense.description}
-                </p>
-                
-                {/* Features */}
-                <div className="flex flex-wrap justify-center gap-4 mb-12">
-                  {currentDefense.features.map((feature, index) => <div key={index} className="flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full">
-                      <CheckCircle className="w-5 h-5 text-[#D4AF37]" />
-                      <span className="text-white font-medium">{feature}</span>
-                    </div>)}
-                </div>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <Button onClick={() => navigateTo('services', {
-                  defense: currentDefense.id
-                })} className={`bg-gradient-to-r ${currentDefense.color} text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl`}>
-                    了解{currentDefense.title}
-                    <ArrowRight className="ml-2 w-5 h-5" />
-                  </Button>
-                  <Button onClick={() => navigateTo('about')} variant="outline" className="border-2 border-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0A1628] transition-all duration-300 text-black">
-                    立即咨询
-                  </Button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Carousel Controls */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center space-x-4">
-            <button onClick={prevSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-              <ChevronLeft className="w-6 h-6 text-white" />
-            </button>
-            
-            <div className="flex space-x-3">
-              {defenses.map((_, index) => <button key={index} onClick={() => goToSlide(index)} className={`relative transition-all duration-300 ${currentSlide === index ? 'bg-[#D4AF37] w-10 h-4' : 'bg-white/30 hover:bg-white/50 w-4 h-4'} rounded-full`}>
-                  {currentSlide === index && <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-[#0A1628] text-xs font-bold">{index + 1}</span>
-                    </div>}
-                </button>)}
-            </div>
-            
-            <button onClick={nextSlide} className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
-              <ChevronRight className="w-6 h-6 text-white" />
-            </button>
-            
-            <button onClick={() => setIsCarouselPaused(!isCarouselPaused)} className="w-12 h-12 bg-[#D4AF37]/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-[#D4AF37]/30 transition-colors border border-[#D4AF37]/30">
-              {isCarouselPaused ? <Play className="w-5 h-5 text-[#D4AF37]" /> : <Pause className="w-5 h-5 text-[#D4AF37]" />}
-            </button>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="bg-[#0A1628] border-t border-[#2D3748] py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border-t border-[#2D3748] mt-12 pt-8 text-center">
-              <p className="text-gray-500">
-                © 2025–2026 SecureGuard. All rights reserved.
+              <p className="text-gray-400 mb-6 leading-relaxed max-w-md">
+                20年专业安保经验，四防一体化安全解决方案，
+                人防、技防、物防、智防四位一体，让安全成为您最坚实的后盾
               </p>
+              <div className="flex space-x-4">
+                <div className="w-10 h-10 bg-[#2D3748] rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition-colors cursor-pointer">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
+                <div className="w-10 h-10 bg-[#2D3748] rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition-colors cursor-pointer">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
+                <div className="w-10 h-10 bg-[#2D3748] rounded-full flex items-center justify-center hover:bg-[#D4AF37] transition-colors cursor-pointer">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-white font-semibold text-lg mb-6">快速链接</h4>
+              <ul className="space-y-3">
+                <li>
+                  <button onClick={() => navigateTo('home')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
+                    首页
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateTo('services')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
+                    四大防线
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateTo('cases')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
+                    成功案例
+                  </button>
+                </li>
+                <li>
+                  <button onClick={() => navigateTo('about')} className="text-gray-400 hover:text-[#D4AF37] transition-colors">
+                    关于我们
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Info */}
+            <div>
+              <h4 className="text-white font-semibold text-lg mb-6">联系方式</h4>
+              <ul className="space-y-4">
+                <li className="flex items-start space-x-3">
+                  <Phone className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-400">400-666-8888</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <Mail className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-400">service@secureguard.com</span>
+                </li>
+                <li className="flex items-start space-x-3">
+                  <MapPin className="w-5 h-5 text-[#D4AF37] mt-0.5 flex-shrink-0" />
+                  <span className="text-gray-400">北京市海淀区中关村南大街5号</span>
+                </li>
+              </ul>
             </div>
           </div>
-        </footer>
 
-        {/* 统一移动端底部导航 */}
-        <MobileTabBar navigateTo={navigateTo} currentPage="home" />
+          <div className="border-t border-[#2D3748] mt-12 pt-8 text-center">
+            <p className="text-gray-500">
+              © 2025–2026 SecureGuard. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+      {/* 统一移动端底部导航 */}
+      <MobileTabBar navigateTo={navigateTo} currentPage="home" />
       </div>
+      </SEOOptimizer>
     </AccessibilityWrapper>;
 }
