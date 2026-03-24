@@ -160,6 +160,53 @@ export function useMetaTags(options = {}) {
           color: inherit;
           text-decoration: none;
         }
+
+        /* ===== 导航栏响应式样式 ===== */
+        
+        /* 汉堡菜单动画 */
+        .hamburger-icon {
+          transition: all 0.3s ease;
+        }
+        
+        /* 遮罩层 */
+        .nav-overlay {
+          position: fixed;
+          top: 80px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 49;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+          pointer-events: none;
+        }
+        
+        .nav-overlay.active {
+          opacity: 1;
+          pointer-events: auto;
+        }
+        
+        /* 移动端菜单滑入动画 */
+        .mobile-menu {
+          transform: translateX(100%);
+          transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+          transform: translateX(0);
+        }
+        
+        /* 手机端优化 */
+        @media (max-width: 768px) {
+          .nav-overlay {
+            top: 60px;
+          }
+          
+          .hamburger-icon.active {
+            transform: rotate(90deg);
+          }
+        }
       `;
       document.head.appendChild(style);
     }

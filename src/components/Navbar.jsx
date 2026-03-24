@@ -10,6 +10,18 @@ export default function Navbar(props) {
   } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // 防止菜单打开时背景滚动
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -59,14 +71,19 @@ export default function Navbar(props) {
           </div>
 
           {/* Mobile Menu Button */}
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center" aria-label="菜单">
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`md:hidden text-white p-2 touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center hamburger-icon ${isMenuOpen ? 'active' : ''}`} aria-label="菜单">
+            <Menu className={`w-6 h-6 ${isMenuOpen ? 'hidden' : 'block'}`} />
+            <X className={`w-6 h-6 ${isMenuOpen ? 'block' : 'hidden'}`} />
           </button>
         </div>
       </div>
 
+      {/* Mobile Overlay */}
+      {isMenuOpen && <div onClick={() => setIsMenuOpen(false)} className={`nav-overlay ${isMenuOpen ? 'active' : ''}`}>
+        </div>}
+
       {/* Mobile Menu */}
-      {isMenuOpen && <div className="md:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-[#2D3748] animate-fade-in">
+      {isMenuOpen && <div className={`md:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-[#2D3748] mobile-menu ${isMenuOpen ? 'active' : ''}`}>
           <div className="px-4 py-4 space-y-2">
             {navItems.map(item => <button key={item.id} onClick={() => navigateTo(item.id)} className={`block w-full text-left py-3 px-4 rounded-lg transition-colors touch-manipulation min-h-[44px] ${currentPage === item.id ? 'text-[#D4AF37] bg-[#D4AF37]/10' : 'text-white hover:text-[#D4AF37] hover:bg-[#D4AF37]/5'}`}>
                 {item.label}
