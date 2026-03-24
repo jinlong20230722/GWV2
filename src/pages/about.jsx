@@ -13,7 +13,14 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 // @ts-ignore;
 import ImageWithLoader from '@/components/ImageWithLoader';
+// @ts-ignore;
+import { useMetaTags } from '@/lib/useMetaTags';
 export default function About(props) {
+  // 设置页面 meta 标签
+  useMetaTags({
+    title: '关于我们 - SECUREGUARD',
+    description: 'SECUREGUARD 成立于2006年，20年专注安保服务，拥有1000+专业安保人员，服务范围覆盖全国主要城市'
+  });
   const {
     $w
   } = props;

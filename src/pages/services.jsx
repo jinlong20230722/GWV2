@@ -13,7 +13,14 @@ import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 // @ts-ignore;
 import ImageWithLoader from '@/components/ImageWithLoader';
+// @ts-ignore;
+import { useMetaTags } from '@/lib/useMetaTags';
 export default function Services(props) {
+  // 设置页面 meta 标签
+  useMetaTags({
+    title: '服务项目 - SECUREGUARD',
+    description: 'SECUREGUARD 提供企业安保、活动安保、住宅安保、技术安防、人员护卫、应急响应等全方位专业安保服务'
+  });
   const {
     $w
   } = props;

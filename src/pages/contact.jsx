@@ -13,7 +13,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 // @ts-ignore;
 import ScrollToTop from '@/components/ScrollToTop';
+// @ts-ignore;
+import { useMetaTags } from '@/lib/useMetaTags';
 export default function Contact(props) {
+  // 设置页面 meta 标签
+  useMetaTags({
+    title: '联系我们 - SECUREGUARD',
+    description: '联系 SECUREGUARD 获取专业安保服务咨询，24小时应急热线：400-888-8888'
+  });
   const {
     $w
   } = props;
