@@ -5,9 +5,6 @@ import { Shield, Users, Lock, AlertTriangle, ArrowRight, CheckCircle, Star } fro
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
-// 引入全局样式
-import '@/index.css';
-
 // @ts-ignore;
 import Navbar from '@/components/Navbar';
 // @ts-ignore;

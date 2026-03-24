@@ -5,9 +5,6 @@ import { Users, Award, Target, CheckCircle, ArrowRight, Calendar, TrendingUp } f
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
-// 引入全局样式
-import '@/index.css';
-
 // @ts-ignore;
 import Navbar from '@/components/Navbar';
 // @ts-ignore;

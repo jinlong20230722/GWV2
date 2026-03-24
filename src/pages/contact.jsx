@@ -5,9 +5,6 @@ import { Phone, Mail, MapPin, Clock, Send, AlertTriangle } from 'lucide-react';
 // @ts-ignore;
 import { Button, Input, Textarea, useToast } from '@/components/ui';
 
-// 引入全局样式
-import '@/index.css';
-
 // @ts-ignore;
 import { useForm } from 'react-hook-form';
 // @ts-ignore;

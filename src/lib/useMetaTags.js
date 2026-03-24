@@ -76,6 +76,94 @@ export function useMetaTags(options = {}) {
     }
     appleStatusBarMeta.content = 'black-translucent';
 
+    // 注入全局样式（低代码环境不支持 CSS 导入）
+    if (!document.getElementById('global-styles')) {
+      const style = document.createElement('style');
+      style.id = 'global-styles';
+      style.textContent = `
+        /* CSS 重置 + 基础样式 */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        html {
+          font-size: 16px;
+          scroll-behavior: smooth;
+        }
+
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+          line-height: 1.6;
+          color: #333;
+          overflow-x: hidden;
+        }
+
+        img {
+          max-width: 100%;
+          height: auto;
+          display: block;
+        }
+
+        a {
+          text-decoration: none;
+          color: inherit;
+        }
+
+        button {
+          border: none;
+          background: none;
+          cursor: pointer;
+          font-family: inherit;
+        }
+
+        /* 容器样式 */
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 24px;
+        }
+
+        @media (max-width: 768px) {
+          .container {
+            padding: 0 16px;
+          }
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+          width: 8px;
+          height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+
+        /* 触摸设备优化 */
+        * {
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 禁用电话号码自动识别 */
+        a[href^="tel:"] {
+          color: inherit;
+          text-decoration: none;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+
     // 清理函数：组件卸载时恢复默认标题
     return () => {
       // 保留 viewport 和其他必要的 meta 标签
