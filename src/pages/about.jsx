@@ -1,14 +1,18 @@
 // @ts-ignore;
-import React, { useState } from 'react';
+import React from 'react';
 // @ts-ignore;
-import { Shield, Users, Award, Target, Menu, X, CheckCircle, ArrowRight, Calendar, TrendingUp, Briefcase, Building2, Zap, Lightbulb, Globe, Star, Home, FolderOpen, User, MessageSquare } from 'lucide-react';
+import { Users, Award, Target, CheckCircle, ArrowRight, Calendar, TrendingUp } from 'lucide-react';
 // @ts-ignore;
 import { Button, useToast } from '@/components/ui';
 
-import OnlineChat from '@/components/OnlineChat.jsx';
-import { FadeIn, HoverScale, CountUp } from '@/components/AnimationProvider.jsx';
-import { LazyImage } from '@/components/ImageOptimizer.jsx';
-import MobileTabBar from '@/components/MobileTabBar.jsx';
+// @ts-ignore;
+import Navbar from '@/components/Navbar';
+// @ts-ignore;
+import Footer from '@/components/Footer';
+// @ts-ignore;
+import ScrollToTop from '@/components/ScrollToTop';
+// @ts-ignore;
+import ImageWithLoader from '@/components/ImageWithLoader';
 export default function About(props) {
   const {
     $w
@@ -16,7 +20,12 @@ export default function About(props) {
   const {
     toast
   } = useToast();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigateTo = pageId => {
+    $w.utils.navigateTo({
+      pageId,
+      params: {}
+    });
+  };
   const milestones = [{
     year: '2006',
     title: '公司成立',
@@ -59,477 +68,186 @@ export default function About(props) {
     description: '专注客户服务，确保客户满意度',
     image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400'
   }];
-  const jobs = [{
-    id: 1,
-    title: '高级安保经理',
-    department: '运营部',
-    location: '北京',
-    salary: '15K-25K',
-    requirements: ['5年以上安保行业经验', '具备团队管理能力', '熟悉安保业务流程', '持有相关资格证书'],
-    description: '负责安保团队管理、客户关系维护、服务质量提升等工作。'
+  const values = [{
+    icon: Award,
+    title: '专业',
+    desc: '专业团队，严格培训'
   }, {
-    id: 2,
-    title: '安防技术工程师',
-    department: '技术部',
-    location: '北京',
-    salary: '12K-20K',
-    requirements: ['3年以上安防技术经验', '熟悉各类安防设备', '具备系统集成能力', '良好的沟通能力'],
-    description: '负责安防系统设计、安装调试、技术支持等工作。'
+    icon: Target,
+    title: '可靠',
+    desc: '值得信赖，使命必达'
   }, {
-    id: 3,
-    title: '商务拓展经理',
-    department: '市场部',
-    location: '北京',
-    salary: '10K-20K',
-    requirements: ['3年以上销售经验', '具备市场开拓能力', '优秀的沟通表达能力', '有安保行业经验优先'],
-    description: '负责市场开拓、客户开发、商务谈判等工作。'
-  }, {
-    id: 4,
-    title: '安保专员',
-    department: '运营部',
-    location: '北京/上海/深圳',
-    salary: '6K-10K',
-    requirements: ['身体健康，无犯罪记录', '退伍军人优先', '具备良好的服务意识', '能适应轮班工作'],
-    description: '负责客户现场安保工作，确保客户安全。'
+    icon: TrendingUp,
+    title: '创新',
+    desc: '技术创新，引领行业'
   }];
-  const navigateTo = pageId => {
-    $w.utils.navigateTo({
-      pageId,
-      params: {}
-    });
-    setIsMenuOpen(false);
-  };
   return <div className="min-h-screen bg-[#0A1628] font-sans">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0A1628]/95 backdrop-blur-md shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => navigateTo('home')}>
-              <Shield className="w-10 h-10 text-[#D4AF37]" />
-              <span className="text-2xl font-bold text-white font-serif tracking-wider">
-                SECURE<span className="text-[#D4AF37]">GUARD</span>
-              </span>
-            </div>
-
-            <div className="hidden md:flex items-center space-x-8">
-              <button onClick={() => navigateTo('home')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
-                首页
-              </button>
-              <button onClick={() => navigateTo('services')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
-                四大防线
-              </button>
-              <button onClick={() => navigateTo('about')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
-                关于我们
-              </button>
-              <button onClick={() => navigateTo('cases')} className="text-white hover:text-[#D4AF37] transition-colors duration-300 font-medium">
-                成功案例
-              </button>
-              <button onClick={() => navigateTo('about')} className="bg-[#D4AF37] text-[#0A1628] px-6 py-2 rounded-full font-semibold hover:bg-[#C0C0C0] transition-all duration-300 transform hover:scale-105">
-                关于我们
-              </button>
-            </div>
-
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="md:hidden text-white p-2">
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {isMenuOpen && <div className="md:hidden bg-[#0A1628]/95 backdrop-blur-md border-t border-[#2D3748]">
-            <div className="px-4 py-4 space-y-3">
-              <button onClick={() => navigateTo('home')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
-                首页
-              </button>
-              <button onClick={() => navigateTo('services')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
-                四大防线
-              </button>
-              <button onClick={() => navigateTo('about')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
-                关于我们
-              </button>
-              <button onClick={() => navigateTo('cases')} className="block w-full text-left text-white hover:text-[#D4AF37] py-2 transition-colors">
-                成功案例
-              </button>
-              <button onClick={() => navigateTo('about')} className="w-full bg-[#D4AF37] text-[#0A1628] px-6 py-3 rounded-full font-semibold hover:bg-[#C0C0C0] transition-colors">
-                关于我们
-              </button>
-            </div>
-          </div>}
-      </nav>
+      <Navbar currentPage="about" onNavigate={navigateTo} />
+      <ScrollToTop />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0A1628]/90 to-[#2D3748]/80">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920')] bg-cover bg-center opacity-20" />
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-white font-serif mb-6">
+      <section className="relative pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0A1628] via-[#0A1628] to-[#2D3748]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white font-serif mb-4 sm:mb-6">
             关于我们
-            <span className="text-[#D4AF37] block mt-2">20年专业安保经验</span>
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            自2006年成立以来，SecureGuard 始终致力于为客户提供最专业、最可靠的安保服务
+          <p className="text-gray-400 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto px-4">
+            20年专注安保服务，用专业和责任守护每一位客户的安全
           </p>
         </div>
       </section>
 
-      {/* Company Story */}
-      <section className="py-24 bg-[#0A1628]">
+      {/* Story Section */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#0A1628]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="order-first lg:order-last">
+              <ImageWithLoader n src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800" alt="Our Team" className="w-full h-64 sm:h-72 lg:h-96 object-cover rounded-2xl shadow-2xl" />
+            </div>
             <div>
-              <h2 className="text-4xl font-bold text-white font-serif mb-6">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-4 sm:mb-6">
                 我们的故事
               </h2>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                SecureGuard 成立于2006年，从一家小型安保公司发展成为行业领先的综合安保服务提供商。
-                20年来，我们始终坚持"专业、可靠、创新"的服务理念，为数千家企业提供了优质的安保服务。
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
+                SecureGuard 成立于2006年，是一家专注于安保服务的专业企业。经过多年的发展，我们已成为行业内的领先品牌，为众多企业和个人提供了优质的安保服务。
               </p>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                我们拥有一支经验丰富、训练有素的专业团队，采用先进的安防技术和设备，
-                为客户提供全方位的安全保障。无论是企业安保、活动安保还是技术安防，
-                我们都能提供专业、高效的解决方案。
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6 sm:mb-8">
+                我们拥有超过1000名经过专业培训的安保人员，服务范围覆盖全国主要城市。无论是企业安保、活动安保还是技术安防，我们都能为您提供最专业的解决方案。
               </p>
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-[#2D3748] p-6 rounded-2xl">
-                  <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">20+</div>
-                  <div className="text-gray-400">年行业经验</div>
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
+                <div className="bg-[#2D3748] p-4 sm:p-6 rounded-xl">
+                  <div className="text-[#D4AF37] font-bold text-2xl sm:text-3xl font-serif mb-1">500+</div>
+                  <div className="text-gray-400 text-xs sm:text-sm">服务客户</div>
                 </div>
-                <div className="bg-[#2D3748] p-6 rounded-2xl">
-                  <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">500+</div>
-                  <div className="text-gray-400">服务客户</div>
-                </div>
-                <div className="bg-[#2D3748] p-6 rounded-2xl">
-                  <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">1000+</div>
-                  <div className="text-gray-400">安保人员</div>
-                </div>
-                <div className="bg-[#2D3748] p-6 rounded-2xl">
-                  <div className="text-[#D4AF37] text-3xl font-bold font-serif mb-2">99%</div>
-                  <div className="text-gray-400">客户满意度</div>
+                <div className="bg-[#2D3748] p-4 sm:p-6 rounded-xl">
+                  <div className="text-[#D4AF37] font-bold text-2xl sm:text-3xl font-serif mb-1">99%</div>
+                  <div className="text-gray-400 text-xs sm:text-sm">客户满意度</div>
                 </div>
               </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
-              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800" alt="Our Team" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* Core Values */}
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* Milestones */}
-      <section className="py-24 bg-gradient-to-br from-[#2D3748] to-[#0A1628]">
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#2D3748]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            <div className="bg-[#0A1628] p-6 sm:p-8 lg:p-10 rounded-2xl border border-[#2D3748]">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white font-serif mb-3 sm:mb-4">使命</h3>
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                以专业、可靠、高效的安保服务，为客户提供全方位的安全保障，让安全成为每一位客户最坚实的后盾。
+              </p>
+            </div>
+            <div className="bg-[#0A1628] p-6 sm:p-8 lg:p-10 rounded-2xl border border-[#2D3748]">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white font-serif mb-3 sm:mb-4">愿景</h3>
+              <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                成为中国安保行业的标杆企业，用创新技术和专业服务引领行业发展，为社会的安全稳定贡献力量。
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#0A1628]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-3 sm:mb-4">
+              核心价值观
+            </h2>
+            <p className="text-gray-400 text-sm sm:text-base">引领我们不断前进的信念</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            {values.map((value, index) => <div key={index} className="text-center p-6 sm:p-8 bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
+                  <value.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#D4AF37]" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 font-serif">
+                  {value.title}
+                </h3>
+                <p className="text-gray-400 text-sm sm:text-base">{value.desc}</p>
+              </div>)}
+          </div>
+        </div>
+      </section>
+
+      {/* Timeline */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#2D3748]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-3 sm:mb-4">
               发展历程
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              从创立到今天，我们不断成长，不断超越
-            </p>
+            <p className="text-gray-400 text-sm sm:text-base">见证我们的成长与进步</p>
           </div>
 
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#D4AF37]/30" />
-            
-            <div className="space-y-12">
-              {milestones.map((milestone, index) => <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <div className="bg-[#0A1628] p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300">
-                      <div className="text-[#D4AF37] text-2xl font-bold font-serif mb-2">{milestone.year}</div>
-                      <h4 className="text-white font-semibold text-lg mb-2">{milestone.title}</h4>
-                      <p className="text-gray-400 text-sm">{milestone.desc}</p>
+            {/* Timeline Line */}
+            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-0.5 bg-[#D4AF37]/30 transform lg:-translate-x-1/2" />
+
+            {/* Timeline Items */}
+            <div className="space-y-8 sm:space-y-12">
+              {milestones.map((milestone, index) => <div key={index} className="relative flex items-start lg:items-center">
+                  <div className={`flex-1 lg:flex-none lg:w-1/2 ${index % 2 === 0 ? 'lg:pr-12 lg:text-right' : 'lg:pl-12 lg:ml-auto'}`}>
+                    <div className="bg-[#0A1628] p-5 sm:p-6 rounded-xl border border-[#2D3748] ml-12 lg:ml-0 hover:border-[#D4AF37]/50 transition-all duration-300">
+                      <div className="text-[#D4AF37] font-bold text-lg sm:text-xl font-serif mb-2">{milestone.year}</div>
+                      <h3 className="text-white font-semibold text-base sm:text-lg mb-2">{milestone.title}</h3>
+                      <p className="text-gray-400 text-xs sm:text-sm">{milestone.desc}</p>
                     </div>
                   </div>
                   
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#D4AF37] rounded-full border-4 border-[#0A1628]" />
+                  {/* Dot */}
+                  <div className="absolute left-4 lg:left-1/2 w-3 h-3 bg-[#D4AF37] rounded-full transform -translate-x-1/2 mt-6 lg:mt-0" />
                 </div>)}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 bg-[#0A1628]">
+      {/* Team */}
+      <section className="py-12 sm:py-16 lg:py-20 bg-[#0A1628]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
+          <div className="text-center mb-10 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl font-bold text-white font-serif mb-3 sm:mb-4">
               核心团队
             </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              经验丰富的专业团队，为您提供最优质的服务
-            </p>
+            <p className="text-gray-400 text-sm sm:text-base">专业、敬业、富有经验的管理团队</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-[#2D3748] hover:border-[#D4AF37]/50">
-                <img src={member.image} alt={member.name} className="w-full h-64 object-cover" />
-                <div className="p-6">
-                  <h4 className="text-xl font-bold text-white font-serif mb-1">{member.name}</h4>
-                  <div className="text-[#D4AF37] text-sm font-medium mb-3">{member.position}</div>
-                  <p className="text-gray-400 text-sm leading-relaxed">{member.description}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {team.map((member, index) => <div key={index} className="group bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-2xl overflow-hidden border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300">
+                <div className="relative h-48 sm:h-56 overflow-hidden">
+                  <ImageWithLoader n src={member.image} alt={member.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <h3 className="text-white font-bold text-lg sm:text-xl mb-1">{member.name}</h3>
+                  <p className="text-[#D4AF37] text-xs sm:text-sm mb-2 sm:mb-3">{member.position}</p>
+                  <p className="text-gray-400 text-xs sm:text-sm">{member.description}</p>
                 </div>
               </div>)}
           </div>
         </div>
       </section>
 
-      {/* Tech Subsidiary Section */}
-      <section className="py-24 bg-gradient-to-br from-[#2D3748] to-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
-              <Zap className="w-6 h-6 text-[#D4AF37]" />
-              <span className="text-[#D4AF37] font-semibold text-lg">科技子公司</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-4">
-              SecureGuard Tech
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              专注智慧安防技术研发，引领行业智能化发展
-            </p>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="space-y-6">
-                <div className="bg-[#0A1628] p-6 rounded-2xl border border-[#2D3748]">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Lightbulb className="w-6 h-6 text-[#0A1628]" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold text-lg mb-2">AI智能分析</h4>
-                      <p className="text-gray-400 text-sm leading-relaxed">基于深度学习的智能视频分析技术，实现人脸识别、行为分析、异常检测等功能</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-[#0A1628] p-6 rounded-2xl border border-[#2D3748]">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Globe className="w-6 h-6 text-[#0A1628]" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold text-lg mb-2">物联网平台</h4>
-                      <p className="text-gray-400 text-sm leading-relaxed">构建物联网安防平台，实现设备互联互通、数据采集分析、智能联动响应</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="bg-[#0A1628] p-6 rounded-2xl border border-[#2D3748]">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Building2 className="w-6 h-6 text-[#0A1628]" />
-                    </div>
-                    <div>
-                      <h4 className="text-white font-semibold text-lg mb-2">智慧园区解决方案</h4>
-                      <p className="text-gray-400 text-sm leading-relaxed">为园区、楼宇提供一体化智慧安防解决方案，实现智能化、可视化管理</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform rotate-3 opacity-20" />
-              <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800" alt="Tech Innovation" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CEO Leadership Section */}
-      <section className="py-24 bg-[#0A1628]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative order-2 lg:order-1">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0] rounded-3xl transform -rotate-3 opacity-20" />
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="CEO" className="relative w-full h-96 object-cover rounded-3xl shadow-2xl" />
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center space-x-2 bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-6 py-3 rounded-full mb-8">
-                <Star className="w-6 h-6 text-[#D4AF37]" />
-                <span className="text-[#D4AF37] font-semibold text-lg">创始人寄语</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-white font-serif mb-6">
-                张明
-                <span className="text-[#D4AF37] block mt-2 text-2xl md:text-3xl">创始人 & CEO</span>
-              </h2>
-              <p className="text-gray-300 leading-relaxed mb-6">
-                "20年来，我们始终坚持'专业、可靠、创新'的服务理念，从一家小型安保公司发展成为行业领先的综合安保服务提供商。未来，我们将继续以科技创新为驱动，以客户需求为导向，为客户提供更优质、更智能的安保服务。"
-              </p>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                我们的愿景是成为国内领先的安保服务提供商，引领行业发展，用创新和专业为客户创造更大的价值。我们相信，只有不断创新，才能在激烈的市场竞争中立于不败之地。
-              </p>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-[#2D3748] p-4 rounded-xl">
-                  <div className="text-[#D4AF37] text-2xl font-bold font-serif mb-1">20+</div>
-                  <div className="text-gray-400 text-sm">年行业经验</div>
-                </div>
-                <div className="bg-[#2D3748] p-4 rounded-xl">
-                  <div className="text-[#D4AF37] text-2xl font-bold font-serif mb-1">500+</div>
-                  <div className="text-gray-400 text-sm">服务客户</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Recruitment Section */}
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0]">
+      {/* CTA */}
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-[#D4AF37] to-[#C0C0C0]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0A1628] font-serif mb-6">
-            期待与您合作
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0A1628] font-serif mb-4 sm:mb-6">
+            加入我们的团队
           </h2>
-          <p className="text-[#0A1628]/80 text-lg mb-8 max-w-2xl mx-auto">
-            如果您有任何问题或需要安保服务，请随时与我们联系
+          <p className="text-[#0A1628]/80 text-base sm:text-lg mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+            我们正在寻找优秀的人才，与我们一起成长，共同守护安全
           </p>
-          <Button onClick={() => navigateTo('about')} className="bg-[#0A1628] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg">
+          <Button onClick={() => navigateTo('contact')} className="bg-[#0A1628] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold text-base sm:text-lg hover:bg-[#2D3748] transition-all duration-300 transform hover:scale-105 shadow-lg touch-manipulation">
             联系我们
-            <ArrowRight className="ml-2 w-5 h-5" />
+            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#0A1628] border-t border-[#2D3748] py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-gray-500">
-            © 2025–2026 SecureGuard. All rights reserved.
-          </p>
-        </div>
-      </footer>
-      
-      {/* Online Chat */}
-      <OnlineChat />
-
-      {/* 统一移动端底部导航 */}
-      <MobileTabBar navigateTo={navigateTo} currentPage="about" />
+      <Footer onNavigate={navigateTo} />
     </div>;
 }

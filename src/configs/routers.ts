@@ -1,10 +1,7 @@
 import HOME from '../pages/home.jsx';
 import ABOUT from '../pages/about.jsx';
 import SERVICES from '../pages/services.jsx';
-import CASES from '../pages/cases.jsx';
-import ADMIN from '../pages/admin.jsx';
-import MOBILE_TESTING from '../pages/mobile-testing.jsx';
-import MOBILE_FIXES from '../pages/mobile-fixes.jsx';
+import CONTACT from '../pages/contact.jsx';
 export const routers = [{
   id: "home",
   component: HOME
@@ -15,15 +12,6 @@ export const routers = [{
   id: "services",
   component: SERVICES
 }, {
-  id: "cases",
-  component: CASES
-}, {
-  id: "admin",
-  component: ADMIN
-}, {
-  id: "mobile-testing",
-  component: MOBILE_TESTING
-}, {
-  id: "mobile-fixes",
-  component: MOBILE_FIXES
+  id: "contact",
+  component: CONTACT
 }]
