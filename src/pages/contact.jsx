@@ -105,7 +105,7 @@ export default function Contact(props) {
       {/* Contact Info Cards */}
       <section className="py-12 sm:py-16 lg:py-20 bg-[#0A1628]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
             {contactInfo.map((info, index) => <div key={index} className="bg-gradient-to-br from-[#2D3748] to-[#1a202c] p-5 sm:p-6 rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300 touch-manipulation">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#D4AF37]/10 rounded-xl flex items-center justify-center mb-3 sm:mb-4">
                   <info.icon className="w-6 h-6 sm:w-7 sm:h-7 text-[#D4AF37]" />

@@ -167,7 +167,7 @@ export default function About(props) {
             <p className="text-gray-400 text-sm sm:text-base">引领我们不断前进的信念</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {values.map((value, index) => <div key={index} className="text-center p-6 sm:p-8 bg-gradient-to-br from-[#2D3748] to-[#1a202c] rounded-2xl border border-[#2D3748] hover:border-[#D4AF37]/50 transition-all duration-300">
                 <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6">
                   <value.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#D4AF37]" />

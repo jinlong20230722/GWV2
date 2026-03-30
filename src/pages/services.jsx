@@ -105,7 +105,7 @@ export default function Services(props) {
       {/* Services List */}
       <section className="py-12 sm:py-16 lg:py-20 bg-[#0A1628]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-8 sm:mb-12">
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-8 sm:mb-12">
             {services.map((service, index) => {
             const ServiceIcon = service.icon;
             return <button key={service.id} onClick={() => setActiveService(index)} className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 touch-manipulation ${activeService === index ? 'bg-gradient-to-br ' + service.color + ' text-white transform scale-105' : 'bg-[#2D3748] text-gray-300 hover:bg-[#3D4758]'}`}>
